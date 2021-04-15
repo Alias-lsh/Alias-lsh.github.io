@@ -13,14 +13,18 @@
     
     <categories>
       
-      <category>-java -mybatis</category>
+      <category>java</category>
+      
+      <category>mybatis</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>-java -mybatis</tag>
+      <tag>java</tag>
+      
+      <tag>mybatis</tag>
       
     </tags>
     

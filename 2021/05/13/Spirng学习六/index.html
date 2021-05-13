@@ -1,0 +1,793 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="Alias的博客">
+  <meta name="author" content="Alias">
+  <meta name="keywords" content="">
+  
+  <title>Spirng学习六 - Alias的博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"levialias.top","root":"/","version":"1.8.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"siteId=13751376","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Alias</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/home.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Spirng学习六">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Alias
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-05-13 20:17" pubdate>
+        2021年5月13日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.6k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      51
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Spirng学习六</h1>
+            
+            <div class="markdown-body">
+              <h1 id="Spring学习六"><a href="#Spring学习六" class="headerlink" title="Spring学习六"></a>Spring学习六</h1><h2 id="整合MyBatis"><a href="#整合MyBatis" class="headerlink" title="整合MyBatis"></a>整合MyBatis</h2><blockquote>
+<h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4></blockquote>
+<p>1、导入相关jar包</p>
+<p>junit</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>junit<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>junit<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>4.12<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>mybatis</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.mybatis<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mybatis<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.5.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>mysql-connector-java</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>mysql<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mysql-connector-java<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>5.1.47<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>spring相关</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-webmvc<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>5.1.10.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-jdbc<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>5.1.10.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>aspectJ AOP 织入器</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.aspectj<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>aspectjweaver<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.9.4<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>mybatis-spring整合包 【重点】</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.mybatis<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mybatis-spring<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.0.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>配置Maven静态资源过滤问题！</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">build</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">resources</span>&gt;</span><br>       <span class="hljs-tag">&lt;<span class="hljs-name">resource</span>&gt;</span><br>           <span class="hljs-tag">&lt;<span class="hljs-name">directory</span>&gt;</span>src/main/java<span class="hljs-tag">&lt;/<span class="hljs-name">directory</span>&gt;</span><br>           <span class="hljs-tag">&lt;<span class="hljs-name">includes</span>&gt;</span><br>               <span class="hljs-tag">&lt;<span class="hljs-name">include</span>&gt;</span>**/*.properties<span class="hljs-tag">&lt;/<span class="hljs-name">include</span>&gt;</span><br>               <span class="hljs-tag">&lt;<span class="hljs-name">include</span>&gt;</span>**/*.xml<span class="hljs-tag">&lt;/<span class="hljs-name">include</span>&gt;</span><br>           <span class="hljs-tag">&lt;/<span class="hljs-name">includes</span>&gt;</span><br>           <span class="hljs-tag">&lt;<span class="hljs-name">filtering</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">filtering</span>&gt;</span><br>       <span class="hljs-tag">&lt;/<span class="hljs-name">resource</span>&gt;</span><br>   <span class="hljs-tag">&lt;/<span class="hljs-name">resources</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>2、编写配置文件</p>
+<p>3、代码实现</p>
+<blockquote>
+<h4 id="MyBatis-Spring学习"><a href="#MyBatis-Spring学习" class="headerlink" title="MyBatis-Spring学习"></a>MyBatis-Spring学习</h4></blockquote>
+<p>引入Spring之前需要了解mybatis-spring包中的一些重要类；</p>
+<p><a target="_blank" rel="noopener" href="http://www.mybatis.org/spring/zh/index.html">http://www.mybatis.org/spring/zh/index.html</a></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7JXnZ2vicYHdibF3mvk0w89CqKXn1bvBicZVeBJHGlFZOd8a6X5uzjVp6RnMR4ibS7hPdrHSxNGevkib0w/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" srcset="/img/loading.gif" lazyload alt="图片"></p>
+<p><strong>什么是 MyBatis-Spring？</strong></p>
+<p>MyBatis-Spring 会帮助你将 MyBatis 代码无缝地整合到 Spring 中。</p>
+<p><strong>知识基础</strong></p>
+<p>在开始使用 MyBatis-Spring 之前，你需要先熟悉 Spring 和 MyBatis 这两个框架和有关它们的术语。这很重要</p>
+<p>MyBatis-Spring 需要以下版本：</p>
+<table>
+<thead>
+<tr>
+<th align="left">MyBatis-Spring</th>
+<th align="left">MyBatis</th>
+<th align="left">Spring 框架</th>
+<th align="left">Spring Batch</th>
+<th align="left">Java</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">2.0</td>
+<td align="left">3.5+</td>
+<td align="left">5.0+</td>
+<td align="left">4.0+</td>
+<td align="left">Java 8+</td>
+</tr>
+<tr>
+<td align="left">1.3</td>
+<td align="left">3.4+</td>
+<td align="left">3.2.2+</td>
+<td align="left">2.1+</td>
+<td align="left">Java 6+</td>
+</tr>
+</tbody></table>
+<p>如果使用 Maven 作为构建工具，仅需要在 pom.xml 中加入以下代码即可：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.mybatis<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mybatis-spring<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.0.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>要和 Spring 一起使用 MyBatis，需要在 Spring 应用上下文中定义至少两样东西：一个 SqlSessionFactory 和至少一个数据映射器类。</p>
+<p>在 MyBatis-Spring 中，可使用SqlSessionFactoryBean来创建 SqlSessionFactory。要配置这个工厂 bean，只需要把下面代码放在 Spring 的 XML 配置文件中：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;sqlSessionFactory&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;dataSource&quot;</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;dataSource&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>注意：SqlSessionFactory需要一个 DataSource（数据源）。这可以是任意的 DataSource，只需要和配置其它 Spring 数据库连接一样配置它就可以了。</p>
+<p>在基础的 MyBatis 用法中，是通过 SqlSessionFactoryBuilder 来创建 SqlSessionFactory 的。而在 MyBatis-Spring 中，则使用 SqlSessionFactoryBean 来创建。</p>
+<p>在 MyBatis 中，你可以使用 SqlSessionFactory 来创建 SqlSession。一旦你获得一个 session 之后，你可以使用它来执行映射了的语句，提交或回滚连接，最后，当不再需要它的时候，你可以关闭 session。</p>
+<p>SqlSessionFactory有一个唯一的必要属性：用于 JDBC 的 DataSource。这可以是任意的 DataSource 对象，它的配置方法和其它 Spring 数据库连接是一样的。</p>
+<p>一个常用的属性是 configLocation，它用来指定 MyBatis 的 XML 配置文件路径。它在需要修改 MyBatis 的基础配置非常有用。通常，基础配置指的是 &lt; settings&gt; 或 &lt; typeAliases&gt;元素。</p>
+<p>需要注意的是，这个配置文件并不需要是一个完整的 MyBatis 配置。确切地说，任何环境配置（<environments>），数据源（<DataSource>）和 MyBatis 的事务管理器（<transactionManager>）都会被忽略。SqlSessionFactoryBean 会创建它自有的 MyBatis 环境配置（Environment），并按要求设置自定义环境的值。</p>
+<p>SqlSessionTemplate 是 MyBatis-Spring 的核心。作为 SqlSession 的一个实现，这意味着可以使用它无缝代替你代码中已经在使用的 SqlSession。</p>
+<p>模板可以参与到 Spring 的事务管理中，并且由于其是线程安全的，可以供多个映射器类使用，你应该总是用 SqlSessionTemplate 来替换 MyBatis 默认的 DefaultSqlSession 实现。在同一应用程序中的不同类之间混杂使用可能会引起数据一致性的问题。</p>
+<p>可以使用 SqlSessionFactory 作为构造方法的参数来创建 SqlSessionTemplate 对象。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;sqlSession&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;org.mybatis.spring.SqlSessionTemplate&quot;</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">constructor-arg</span> <span class="hljs-attr">index</span>=<span class="hljs-string">&quot;0&quot;</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;sqlSessionFactory&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>现在，这个 bean 就可以直接注入到你的 DAO bean 中了。你需要在你的 bean 中添加一个 SqlSession 属性，就像下面这样：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserDaoImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">UserDao</span> </span>&#123;<br><br> <span class="hljs-keyword">private</span> SqlSession sqlSession;<br><br> <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setSqlSession</span><span class="hljs-params">(SqlSession sqlSession)</span> </span>&#123;<br>   <span class="hljs-keyword">this</span>.sqlSession = sqlSession;<br>&#125;<br><br> <span class="hljs-function"><span class="hljs-keyword">public</span> User <span class="hljs-title">getUser</span><span class="hljs-params">(String userId)</span> </span>&#123;<br>   <span class="hljs-keyword">return</span> sqlSession.getMapper...;<br>&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>按下面这样，注入 SqlSessionTemplate：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;userDao&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;org.mybatis.spring.sample.dao.UserDaoImpl&quot;</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;sqlSession&quot;</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;sqlSession&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<h4 id="整合实现一"><a href="#整合实现一" class="headerlink" title="整合实现一"></a>整合实现一</h4></blockquote>
+<p>1、引入Spring配置文件beans.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">beans</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/beans&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/beans</span></span><br><span class="hljs-tag"><span class="hljs-string">       http://www.springframework.org/schema/beans/spring-beans.xsd&quot;</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>2、配置数据源替换mybaits的数据源</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--配置数据源：数据源有非常多，可以使用第三方的，也可使使用Spring的--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;dataSource&quot;</span><span class="hljs-attr">class</span>=<span class="hljs-string">&quot;org.springframework.jdbc.datasource.DriverManagerDataSource&quot;</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;driverClassName&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;com.mysql.jdbc.Driver&quot;</span>/&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;url&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;jdbc:mysql://localhost:3306/mybatis?useSSL=true<span class="hljs-symbol">&amp;amp;</span>useUnicode=true<span class="hljs-symbol">&amp;amp;</span>characterEncoding=utf8&quot;</span>/&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;username&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;root&quot;</span>/&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;password&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;root&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>3、配置SqlSessionFactory，关联MyBatis</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--配置SqlSessionFactory--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;sqlSessionFactory&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;dataSource&quot;</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;dataSource&quot;</span>/&gt;</span><br>   <span class="hljs-comment">&lt;!--关联Mybatis--&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;configLocation&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;classpath:mybatis-config.xml&quot;</span>/&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;mapperLocations&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;classpath:com/lsh/dao/*.xml&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>4、注册sqlSessionTemplate，关联sqlSessionFactory；</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--注册sqlSessionTemplate , 关联sqlSessionFactory--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;sqlSession&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;org.mybatis.spring.SqlSessionTemplate&quot;</span>&gt;</span><br>   <span class="hljs-comment">&lt;!--利用构造器注入--&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">constructor-arg</span> <span class="hljs-attr">index</span>=<span class="hljs-string">&quot;0&quot;</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;sqlSessionFactory&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>5、增加Dao接口的实现类；私有化sqlSessionTemplate</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserDaoImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">UserMapper</span> </span>&#123;<br><br>   <span class="hljs-comment">//sqlSession不用我们自己创建了，Spring来管理</span><br>   <span class="hljs-keyword">private</span> SqlSessionTemplate sqlSession;<br><br>   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setSqlSession</span><span class="hljs-params">(SqlSessionTemplate sqlSession)</span> </span>&#123;<br>       <span class="hljs-keyword">this</span>.sqlSession = sqlSession;<br>  &#125;<br><br>   <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;User&gt; <span class="hljs-title">selectUser</span><span class="hljs-params">()</span> </span>&#123;<br>       UserMapper mapper = sqlSession.getMapper(UserMapper.class);<br>       <span class="hljs-keyword">return</span> mapper.selectUser();<br>  &#125;<br>   <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>6、注册bean实现</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;userDao&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;com.lsh.dao.UserDaoImpl&quot;</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;sqlSession&quot;</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;sqlSession&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>7、测试</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"> <span class="hljs-meta">@Test</span><br> <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test2</span><span class="hljs-params">()</span></span>&#123;<br>     ApplicationContext context = newClassPathXmlApplicationContext(<span class="hljs-string">&quot;beans.xml&quot;</span>);<br>     UserMapper mapper = (UserMapper) context.getBean(<span class="hljs-string">&quot;userDao&quot;</span>);<br>     List&lt;User&gt; user = mapper.selectUser();<br>     System.out.println(user);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>结果成功输出！现在我们的Mybatis配置文件的状态！发现都可以被Spring整合！</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span><br><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">configuration</span></span><br><span class="hljs-meta">       <span class="hljs-meta-keyword">PUBLIC</span> <span class="hljs-meta-string">&quot;-//mybatis.org//DTD Config 3.0//EN&quot;</span></span><br><span class="hljs-meta">       <span class="hljs-meta-string">&quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">typeAliases</span>&gt;</span><br>       <span class="hljs-tag">&lt;<span class="hljs-name">package</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;com.lsh.pojo&quot;</span>/&gt;</span><br>   <span class="hljs-tag">&lt;/<span class="hljs-name">typeAliases</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<h4 id="整合实现二"><a href="#整合实现二" class="headerlink" title="整合实现二"></a>整合实现二</h4></blockquote>
+<p>mybatis-spring1.2.3版以上的才有这个 .</p>
+<p>官方文档截图 :</p>
+<p>dao继承Support类 , 直接利用 getSqlSession() 获得 , 然后直接注入SqlSessionFactory . 比起方式1 , 不需要管理SqlSessionTemplate , 而且对事务的支持更加友好 . 可跟踪源码查看</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7JXnZ2vicYHdibF3mvk0w89Cq6qzPguHd15ribJeF3ickXAy98VG8YFjxwftEdsvvCLWkWLPeiaiaVibbPxQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" srcset="/img/loading.gif" lazyload alt="图片"></p>
+<p>测试：</p>
+<p>1、将我们上面写的UserDaoImpl修改一下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserDaoImpl</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">SqlSessionDaoSupport</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">UserMapper</span> </span>&#123;<br>   <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;User&gt; <span class="hljs-title">selectUser</span><span class="hljs-params">()</span> </span>&#123;<br>       UserMapper mapper = getSqlSession().getMapper(UserMapper.class);<br>       <span class="hljs-keyword">return</span> mapper.selectUser();<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>2、修改bean的配置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;userDao&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;com.lsh.dao.UserDaoImpl&quot;</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;sqlSessionFactory&quot;</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;sqlSessionFactory&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>3、测试</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Test</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test2</span><span class="hljs-params">()</span></span>&#123;<br>   ApplicationContext context = <span class="hljs-keyword">new</span> ClassPathXmlApplicationContext(<span class="hljs-string">&quot;beans.xml&quot;</span>);<br>   UserMapper mapper = (UserMapper) context.getBean(<span class="hljs-string">&quot;userDao&quot;</span>);<br>   List&lt;User&gt; user = mapper.selectUser();<br>   System.out.println(user);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="声明式事务"><a href="#声明式事务" class="headerlink" title="声明式事务"></a>声明式事务</h2><blockquote>
+<h4 id="回顾事务"><a href="#回顾事务" class="headerlink" title="回顾事务"></a>回顾事务</h4></blockquote>
+<ul>
+<li>事务在项目开发过程非常重要，涉及到数据的一致性的问题，不容马虎！</li>
+<li>事务管理是企业级应用程序开发中必备技术，用来确保数据的完整性和一致性。</li>
+</ul>
+<p>事务就是把一系列的动作当成一个独立的工作单元，这些动作要么全部完成，要么全部不起作用。</p>
+<p><strong>事务四个属性ACID</strong></p>
+<ol>
+<li><p>原子性（atomicity）</p>
+</li>
+<li><ul>
+<li>事务是原子性操作，由一系列动作组成，事务的原子性确保动作要么全部完成，要么完全不起作用</li>
+</ul>
+</li>
+<li><p>一致性（consistency）</p>
+</li>
+<li><ul>
+<li>一旦所有事务动作完成，事务就要被提交。数据和资源处于一种满足业务规则的一致性状态中</li>
+</ul>
+</li>
+<li><p>隔离性（isolation）</p>
+</li>
+<li><ul>
+<li>可能多个事务会同时处理相同的数据，因此每个事务都应该与其他事务隔离开来，防止数据损坏</li>
+</ul>
+</li>
+<li><p>持久性（durability）</p>
+</li>
+<li><ul>
+<li>事务一旦完成，无论系统发生什么错误，结果都不会受到影响。通常情况下，事务的结果被写到持久化存储器中</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<h4 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h4></blockquote>
+<p>将上面的代码拷贝到一个新项目中</p>
+<p>在之前的案例中，我们给userDao接口新增两个方法，删除和增加用户；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//添加一个用户</span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">addUser</span><span class="hljs-params">(User user)</span></span>;<br><br><span class="hljs-comment">//根据id删除用户</span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">deleteUser</span><span class="hljs-params">(<span class="hljs-keyword">int</span> id)</span></span>;<br></code></pre></td></tr></table></figure>
+
+<p>mapper文件，我们故意把 deletes 写错，测试！</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">insert</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;addUser&quot;</span> <span class="hljs-attr">parameterType</span>=<span class="hljs-string">&quot;com.lsh.pojo.User&quot;</span>&gt;</span><br>insert into user (id,name,pwd) values (#&#123;id&#125;,#&#123;name&#125;,#&#123;pwd&#125;)<br><span class="hljs-tag">&lt;/<span class="hljs-name">insert</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">delete</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;deleteUser&quot;</span> <span class="hljs-attr">parameterType</span>=<span class="hljs-string">&quot;int&quot;</span>&gt;</span><br>deletes from user where id = #&#123;id&#125;<br><span class="hljs-tag">&lt;/<span class="hljs-name">delete</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>编写接口的实现类，在实现类中，我们去操作一波</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserDaoImpl</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">SqlSessionDaoSupport</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">UserMapper</span> </span>&#123;<br><br>   <span class="hljs-comment">//增加一些操作</span><br>   <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;User&gt; <span class="hljs-title">selectUser</span><span class="hljs-params">()</span> </span>&#123;<br>       User user = <span class="hljs-keyword">new</span> User(<span class="hljs-number">4</span>,<span class="hljs-string">&quot;小明&quot;</span>,<span class="hljs-string">&quot;123456&quot;</span>);<br>       UserMapper mapper = getSqlSession().getMapper(UserMapper.class);<br>       mapper.addUser(user);<br>       mapper.deleteUser(<span class="hljs-number">4</span>);<br>       <span class="hljs-keyword">return</span> mapper.selectUser();<br>  &#125;<br><br>   <span class="hljs-comment">//新增</span><br>   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">addUser</span><span class="hljs-params">(User user)</span> </span>&#123;<br>       UserMapper mapper = getSqlSession().getMapper(UserMapper.class);<br>       <span class="hljs-keyword">return</span> mapper.addUser(user);<br>  &#125;<br>   <span class="hljs-comment">//删除</span><br>   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">deleteUser</span><span class="hljs-params">(<span class="hljs-keyword">int</span> id)</span> </span>&#123;<br>       UserMapper mapper = getSqlSession().getMapper(UserMapper.class);<br>       <span class="hljs-keyword">return</span> mapper.deleteUser(id);<br>  &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>测试</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Test</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test2</span><span class="hljs-params">()</span></span>&#123;<br>   ApplicationContext context = <span class="hljs-keyword">new</span> ClassPathXmlApplicationContext(<span class="hljs-string">&quot;beans.xml&quot;</span>);<br>   UserMapper mapper = (UserMapper) context.getBean(<span class="hljs-string">&quot;userDao&quot;</span>);<br>   List&lt;User&gt; user = mapper.selectUser();<br>   System.out.println(user);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>报错：sql异常，delete写错了</p>
+<p>结果 ：插入成功！</p>
+<p>没有进行事务的管理；我们想让他们都成功才成功，有一个失败，就都失败，我们就应该需要<strong>事务！</strong></p>
+<p>以前我们都需要自己手动管理事务，十分麻烦！</p>
+<p>但是Spring给我们提供了事务管理，我们只需要配置即可；</p>
+<blockquote>
+<p>Spring中的事务管理</p>
+</blockquote>
+<p>Spring在不同的事务管理API之上定义了一个抽象层，使得开发人员不必了解底层的事务管理API就可以使用Spring的事务管理机制。Spring支持编程式事务管理和声明式的事务管理。</p>
+<p><strong>编程式事务管理</strong></p>
+<ul>
+<li>将事务管理代码嵌到业务方法中来控制事务的提交和回滚</li>
+<li>缺点：必须在每个事务操作业务逻辑中包含额外的事务管理代码</li>
+</ul>
+<p><strong>声明式事务管理</strong></p>
+<ul>
+<li>一般情况下比编程式事务好用。</li>
+<li>将事务管理代码从业务方法中分离出来，以声明的方式来实现事务管理。</li>
+<li>将事务管理作为横切关注点，通过aop方法模块化。Spring中通过Spring AOP框架支持声明式事务管理。</li>
+</ul>
+<p><strong>使用Spring管理事务，注意头文件的约束导入 : tx</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml">xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;<br><br>http://www.springframework.org/schema/tx<br>http://www.springframework.org/schema/tx/spring-tx.xsd&quot;&gt;<br></code></pre></td></tr></table></figure>
+
+<p><strong>事务管理器</strong></p>
+<ul>
+<li>无论使用Spring的哪种事务管理策略（编程式或者声明式）事务管理器都是必须的。</li>
+<li>就是 Spring的核心事务管理抽象，管理封装了一组独立于技术的方法。</li>
+</ul>
+<p><strong>JDBC事务</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;transactionManager&quot;</span><span class="hljs-attr">class</span>=<span class="hljs-string">&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;</span>&gt;</span><br>       <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;dataSource&quot;</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;dataSource&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>配置好事务管理器后我们需要去配置事务的通知</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--配置事务通知--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">tx:advice</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;txAdvice&quot;</span> <span class="hljs-attr">transaction-manager</span>=<span class="hljs-string">&quot;transactionManager&quot;</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">tx:attributes</span>&gt;</span><br>       <span class="hljs-comment">&lt;!--配置哪些方法使用什么样的事务,配置事务的传播特性--&gt;</span><br>       <span class="hljs-tag">&lt;<span class="hljs-name">tx:method</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;add&quot;</span> <span class="hljs-attr">propagation</span>=<span class="hljs-string">&quot;REQUIRED&quot;</span>/&gt;</span><br>       <span class="hljs-tag">&lt;<span class="hljs-name">tx:method</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;delete&quot;</span> <span class="hljs-attr">propagation</span>=<span class="hljs-string">&quot;REQUIRED&quot;</span>/&gt;</span><br>       <span class="hljs-tag">&lt;<span class="hljs-name">tx:method</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;update&quot;</span> <span class="hljs-attr">propagation</span>=<span class="hljs-string">&quot;REQUIRED&quot;</span>/&gt;</span><br>       <span class="hljs-tag">&lt;<span class="hljs-name">tx:method</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;search*&quot;</span> <span class="hljs-attr">propagation</span>=<span class="hljs-string">&quot;REQUIRED&quot;</span>/&gt;</span><br>       <span class="hljs-tag">&lt;<span class="hljs-name">tx:method</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;get&quot;</span> <span class="hljs-attr">read-only</span>=<span class="hljs-string">&quot;true&quot;</span>/&gt;</span><br>       <span class="hljs-tag">&lt;<span class="hljs-name">tx:method</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;*&quot;</span> <span class="hljs-attr">propagation</span>=<span class="hljs-string">&quot;REQUIRED&quot;</span>/&gt;</span><br>   <span class="hljs-tag">&lt;/<span class="hljs-name">tx:attributes</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">tx:advice</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>spring事务传播特性：</strong></p>
+<p>事务传播行为就是多个事务方法相互调用时，事务如何在这些方法间传播。spring支持7种事务传播行为：</p>
+<ul>
+<li>propagation_requierd：如果当前没有事务，就新建一个事务，如果已存在一个事务中，加入到这个事务中，这是最常见的选择。</li>
+<li>propagation_supports：支持当前事务，如果没有当前事务，就以非事务方法执行。</li>
+<li>propagation_mandatory：使用当前事务，如果没有当前事务，就抛出异常。</li>
+<li>propagation_required_new：新建事务，如果当前存在事务，把当前事务挂起。</li>
+<li>propagation_not_supported：以非事务方式执行操作，如果当前存在事务，就把当前事务挂起。</li>
+<li>propagation_never：以非事务方式执行操作，如果当前事务存在则抛出异常。</li>
+<li>propagation_nested：如果当前存在事务，则在嵌套事务内执行。如果当前没有事务，则执行与propagation_required类似的操作</li>
+</ul>
+<p>Spring 默认的事务传播行为是 PROPAGATION_REQUIRED，它适合于绝大多数的情况。</p>
+<p>假设 ServiveX#methodX() 都工作在事务环境下（即都被 Spring 事务增强了），假设程序中存在如下的调用链：Service1#method1()-&gt;Service2#method2()-&gt;Service3#method3()，那么这 3 个服务类的 3 个方法通过 Spring 的事务传播机制都工作在同一个事务中。</p>
+<p>就好比，我们刚才的几个方法存在调用，所以会被放在一组事务当中！</p>
+<p><strong>配置AOP</strong></p>
+<p>导入aop的头文件！</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--配置aop织入事务--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">aop:config</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">aop:pointcut</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;txPointcut&quot;</span> <span class="hljs-attr">expression</span>=<span class="hljs-string">&quot;execution(* com.lsh.dao.*.*(..))&quot;</span>/&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">aop:advisor</span> <span class="hljs-attr">advice-ref</span>=<span class="hljs-string">&quot;txAdvice&quot;</span> <span class="hljs-attr">pointcut-ref</span>=<span class="hljs-string">&quot;txPointcut&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">aop:config</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>进行测试</strong></p>
+<p>删掉刚才插入的数据，再次测试！</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Test</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test2</span><span class="hljs-params">()</span></span>&#123;<br>   ApplicationContext context = <span class="hljs-keyword">new</span> ClassPathXmlApplicationContext(<span class="hljs-string">&quot;beans.xml&quot;</span>);<br>   UserMapper mapper = (UserMapper) context.getBean(<span class="hljs-string">&quot;userDao&quot;</span>);<br>   List&lt;User&gt; user = mapper.selectUser();<br>   System.out.println(user);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/java/">java</a>
+                    
+                      <a class="hover-with-bg" href="/categories/java/spring/">spring</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/java/">java</a>
+                    
+                      <a class="hover-with-bg" href="/tags/spring/">spring</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/05/13/Spirng%E5%AD%A6%E4%B9%A0%E4%B8%89/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Spirng学习三</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/05/13/Spirng%E5%AD%A6%E4%B9%A0%E4%BA%8C/">
+                        <span class="hidden-mobile">Spirng学习二</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://levialias.top/2021/05/13/Spirng%E5%AD%A6%E4%B9%A0%E5%85%AD/';
+          this.page.identifier = '/2021/05/13/Spirng%E5%AD%A6%E4%B9%A0%E5%85%AD/';
+        };
+        Fluid.utils.lazyComments('disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'fluid' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the
+      <a target="_blank" href="https://disqus.com/?ref_noscript" rel="nofollow noopener noopener">comments powered by Disqus.</a>
+    </noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        蜀ICP备2021009969号
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?siteId=13751376";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

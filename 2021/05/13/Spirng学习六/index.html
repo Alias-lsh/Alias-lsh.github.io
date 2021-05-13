@@ -271,7 +271,6 @@
 <h4 id="MyBatis-Spring学习"><a href="#MyBatis-Spring学习" class="headerlink" title="MyBatis-Spring学习"></a>MyBatis-Spring学习</h4></blockquote>
 <p>引入Spring之前需要了解mybatis-spring包中的一些重要类；</p>
 <p><a target="_blank" rel="noopener" href="http://www.mybatis.org/spring/zh/index.html">http://www.mybatis.org/spring/zh/index.html</a></p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7JXnZ2vicYHdibF3mvk0w89CqKXn1bvBicZVeBJHGlFZOd8a6X5uzjVp6RnMR4ibS7hPdrHSxNGevkib0w/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" srcset="/img/loading.gif" lazyload alt="图片"></p>
 <p><strong>什么是 MyBatis-Spring？</strong></p>
 <p>MyBatis-Spring 会帮助你将 MyBatis 代码无缝地整合到 Spring 中。</p>
 <p><strong>知识基础</strong></p>
@@ -361,7 +360,6 @@
 <p>mybatis-spring1.2.3版以上的才有这个 .</p>
 <p>官方文档截图 :</p>
 <p>dao继承Support类 , 直接利用 getSqlSession() 获得 , 然后直接注入SqlSessionFactory . 比起方式1 , 不需要管理SqlSessionTemplate , 而且对事务的支持更加友好 . 可跟踪源码查看</p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7JXnZ2vicYHdibF3mvk0w89Cq6qzPguHd15ribJeF3ickXAy98VG8YFjxwftEdsvvCLWkWLPeiaiaVibbPxQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" srcset="/img/loading.gif" lazyload alt="图片"></p>
 <p>测试：</p>
 <p>1、将我们上面写的UserDaoImpl修改一下</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserDaoImpl</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">SqlSessionDaoSupport</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">UserMapper</span> </span>&#123;<br>   <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;User&gt; <span class="hljs-title">selectUser</span><span class="hljs-params">()</span> </span>&#123;<br>       UserMapper mapper = getSqlSession().getMapper(UserMapper.class);<br>       <span class="hljs-keyword">return</span> mapper.selectUser();<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>

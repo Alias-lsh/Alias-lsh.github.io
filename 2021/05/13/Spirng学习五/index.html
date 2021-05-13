@@ -333,9 +333,6 @@
 <figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs oxygene">Object invoke(Object proxy, 方法 <span class="hljs-function"><span class="hljs-keyword">method</span>, <span class="hljs-title">Object</span>[] <span class="hljs-title">args</span>)；</span><br><span class="hljs-function">//参数</span><br><span class="hljs-function">//<span class="hljs-title">proxy</span> - 调用该方法的代理实例</span><br><span class="hljs-function">//<span class="hljs-title">method</span> -所述方法对应于调用代理实例上的接口方法的实例。方法对象的声明类将是该方法声明的接口，它可以是代理类继承该方法的代理接口的超级接口。</span><br><span class="hljs-function">//<span class="hljs-title">args</span> -包含的方法调用传递代理实例的参数值的对象的阵列，或<span class="hljs-title">null</span>如果接口方法没有参数。原始类型的参数包含在适当的原始包装器类的实例中，例如<span class="hljs-title">java</span>.<span class="hljs-title">lang</span>.<span class="hljs-title">Integer</span>或<span class="hljs-title">java</span>.<span class="hljs-title">lang</span>.<span class="hljs-title">Boolean</span> 。</span><br></code></pre></td></tr></table></figure>
 
 <p>【Proxy  : 代理】</p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7LoeicP1O2nfyA6H0XPa9jMLficZiaPU0h9wdeDicTMgBHemVvIdYTsE712DhkDfg0pdRg169oG5FHTmw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" srcset="/img/loading.gif" lazyload alt="图片"></p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7LoeicP1O2nfyA6H0XPa9jMLCIv9ibKb4c9KjmZNNbsDbZojUy0aB1lS3ibqa1SJaBzkK7KneicEX43Zw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" srcset="/img/loading.gif" lazyload alt="图片"></p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7LoeicP1O2nfyA6H0XPa9jML394CqGFmCP1nUlaU9mdLk19o1qIzjicTgDiaPz7ibR371jAo3uNNQ8Qgw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" srcset="/img/loading.gif" lazyload alt="图片"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//生成代理类</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">getProxy</span><span class="hljs-params">()</span></span>&#123;<br>   <span class="hljs-keyword">return</span> Proxy.newProxyInstance(<span class="hljs-keyword">this</span>.getClass().getClassLoader(),<br>                                 rent.getClass().getInterfaces(),<span class="hljs-keyword">this</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p><strong>代码实现</strong> </p>
@@ -377,7 +374,6 @@
 <p>什么是AOP</p>
 </blockquote>
 <p>AOP（Aspect Oriented Programming）意为：面向切面编程，通过预编译方式和运行期动态代理实现程序功能的统一维护的一种技术。AOP是OOP的延续，是软件开发中的一个热点，也是Spring框架中的一个重要内容，是函数式编程的一种衍生范型。利用AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率。</p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7JAeTYOaaH6rZ6WmLLgwQLHf5pmH30gj6mZm81PC7iauicFu55sicJtspU7K3vTCVdZCDTSHq7D5XHlw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" srcset="/img/loading.gif" lazyload alt="图片"></p>
 <blockquote>
 <p>Aop在Spring中的作用</p>
 </blockquote>
@@ -392,9 +388,7 @@
 <li>切入点（PointCut）：切面通知 执行的 “地点”的定义。</li>
 <li>连接点（JointPoint）：与切入点匹配的执行点。</li>
 </ul>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7JAeTYOaaH6rZ6WmLLgwQLHVOZ1JpRb7ViaprZCRXsUbH0bZpibiaTjqib68LQHOWZicSvuU8Y1dquUVGw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" srcset="/img/loading.gif" lazyload alt="图片"></p>
 <p>SpringAOP中，通过Advice定义横切逻辑，Spring中支持5种类型的Advice:</p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7JAeTYOaaH6rZ6WmLLgwQLHbAWH8haUQeJ0LVBxxX0icC5TZlBkEBGibibey7jFrCbibPzQcRhkNFcGAA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" srcset="/img/loading.gif" lazyload alt="图片"></p>
 <p>即 Aop 在 不改变原有代码的情况下 , 去增加新的功能 .</p>
 <blockquote>
 <p>使用Spring实现Aop</p>

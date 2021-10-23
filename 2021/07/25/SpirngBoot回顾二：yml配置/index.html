@@ -1,0 +1,661 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="Alias的博客">
+  <meta name="author" content="Alias">
+  <meta name="keywords" content="">
+  
+  <title>SpirngBoot回顾二：yml配置 - Alias的博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"levialias.top","root":"/","version":"1.8.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"siteId=13751376","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Alias</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/home.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="SpirngBoot回顾二：yml配置">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      Alias
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-07-25 19:07" pubdate>
+        2021年7月25日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.3k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      16
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">SpirngBoot回顾二：yml配置</h1>
+            
+            <div class="markdown-body">
+              <h1 id="SpirngBoot回顾二：yml配置"><a href="#SpirngBoot回顾二：yml配置" class="headerlink" title="SpirngBoot回顾二：yml配置"></a>SpirngBoot回顾二：yml配置</h1><h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p>SpringBoot使用一个全局的配置文件 ， 配置文件名称是固定的</p>
+<ul>
+<li><p>application.properties</p>
+</li>
+<li><ul>
+<li>语法结构 ：key=value</li>
+</ul>
+</li>
+<li><p>application.yml</p>
+</li>
+<li><ul>
+<li>语法结构 ：key：空格 value</li>
+</ul>
+</li>
+</ul>
+<p><strong>配置文件的作用 ：</strong>修改SpringBoot自动配置的默认值，因为SpringBoot在底层都给我们自动配置好了；</p>
+<p>比如我们可以在配置文件中修改Tomcat 默认启动的端口号</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-meta">server.port</span>=<span class="hljs-string">8081</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="yaml概述"><a href="#yaml概述" class="headerlink" title="yaml概述"></a>yaml概述</h2><p>YAML是 “YAML Ain’t a Markup Language” （YAML不是一种标记语言）的递归缩写。在开发的这种语言时，YAML 的意思其实是：”Yet Another Markup Language”（仍是一种标记语言）</p>
+<p><strong>这种语言以数据作为中心，而不是以标记语言为重点！</strong></p>
+<p>以前的配置文件，大多数都是使用xml来配置；比如一个简单的端口配置，我们来对比下yaml和xml</p>
+<p>传统xml配置：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">server</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">port</span>&gt;</span>8081<span class="hljs-tag">&lt;<span class="hljs-name">port</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">server</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>yaml配置：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">server:</span> <br>	<span class="hljs-attr">port:</span> <span class="hljs-number">8080</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="yaml基础语法"><a href="#yaml基础语法" class="headerlink" title="yaml基础语法"></a>yaml基础语法</h2><p>说明：语法要求严格！</p>
+<p>1、空格不能省略</p>
+<p>2、以缩进来控制层级关系，只要是左边对齐的一列数据都是同一个层级的。</p>
+<p>3、属性和值的大小写都是十分敏感的。</p>
+<p><strong>字面量：普通值  [ 数字，布尔值，字符串  ]</strong></p>
+<p>字面量直接写在后面就可以 ， 字符串默认不用加上双引号或者单引号；</p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs avrasm"><span class="hljs-symbol">k:</span> v<br></code></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<ul>
+<li>“ ” 双引号，不会转义字符串里面的特殊字符 ， 特殊字符会作为本身想表示的意思；</li>
+<li>‘’ 单引号，会转义特殊字符 ， 特殊字符最终会变成和普通字符一样输出</li>
+</ul>
+<p><strong>对象、Map（键值对）</strong></p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vala"><span class="hljs-meta">#对象、Map格式k:     v1:    v2:</span><br></code></pre></td></tr></table></figure>
+
+<p>在下一行来写对象的属性和值得关系，注意缩进；比如：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">student:</span><br>	<span class="hljs-attr">name:</span> <span class="hljs-string">lisihan</span><br>	<span class="hljs-attr">age:</span> <span class="hljs-number">3</span><br></code></pre></td></tr></table></figure>
+
+<p>行内写法</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">student:</span> &#123;<span class="hljs-attr">name:</span> <span class="hljs-string">lisihan</span>,<span class="hljs-attr">age:</span> <span class="hljs-number">3</span>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>数组（ List、set ）</strong></p>
+<p>用 - 值表示数组中的一个元素,比如：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">pets:</span> <span class="hljs-bullet">-</span> <span class="hljs-string">cat</span> <span class="hljs-bullet">-</span> <span class="hljs-string">dog</span> <span class="hljs-bullet">-</span> <span class="hljs-string">pig</span><br></code></pre></td></tr></table></figure>
+
+<p>行内写法</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">pets:</span> [<span class="hljs-string">cat</span>,<span class="hljs-string">dog</span>,<span class="hljs-string">pig</span>]<br></code></pre></td></tr></table></figure>
+
+<p><strong>修改SpringBoot的默认端口号</strong></p>
+<p>配置文件中添加，端口号的参数，就可以切换端口；</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">server:</span>  <br>	<span class="hljs-attr">port:</span> <span class="hljs-number">8082</span><br></code></pre></td></tr></table></figure>
+
+<p>注入配置文件</p>
+<p>yaml文件更强大的地方在于，他可以给我们的实体类直接注入匹配值</p>
+<h2 id="yaml注入配置文件"><a href="#yaml注入配置文件" class="headerlink" title="yaml注入配置文件"></a>yaml注入配置文件</h2><p>1、在springboot项目中的resources目录下新建一个文件 application.yml</p>
+<p>2、编写一个实体类 Dog；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.lsh.springboot.pojo;<br><span class="hljs-meta">@Component</span>  <span class="hljs-comment">//注册bean到容器中</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Dog</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> String name;<br>    <span class="hljs-keyword">private</span> Integer age; <br>    <span class="hljs-comment">//有参无参构造、get、set方法、toString()方法 </span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>3、思考，我们原来是如何给bean注入属性值的！@Value，给狗狗类测试一下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Component</span> <span class="hljs-comment">//注册bean</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Dog</span> </span>&#123;<br>    <span class="hljs-meta">@Value(&quot;adas&quot;)</span><br>    <span class="hljs-keyword">private</span> String name;<br>    <span class="hljs-meta">@Value(&quot;18&quot;)</span><br>    <span class="hljs-keyword">private</span> Integer age;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>4、在SpringBoot的测试类下注入狗输出一下；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@SpringBootTest</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DemoApplicationTests</span> </span>&#123;<br><br>    <span class="hljs-meta">@Autowired</span> <span class="hljs-comment">//将狗自动注入进来</span><br>    Dog dog;<br><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">contextLoads</span><span class="hljs-params">()</span> </span>&#123;<br>        System.out.println(dog); <span class="hljs-comment">//打印看下狗狗对象</span><br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>结果成功输出，@Value注入成功，这是我们原来的办法对吧。</p>
+<p>5、我们在编写一个复杂一点的实体类：Person 类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Component</span> <span class="hljs-comment">//注册bean到容器中</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> String name;<br>    <span class="hljs-keyword">private</span> Integer age;<br>    <span class="hljs-keyword">private</span> Boolean happy;<br>    <span class="hljs-keyword">private</span> Date birth;<br>    <span class="hljs-keyword">private</span> Map&lt;String,Object&gt; maps;<br>    <span class="hljs-keyword">private</span> List&lt;Object&gt; lists;<br>    <span class="hljs-keyword">private</span> Dog dog;<br>    <br>    <span class="hljs-comment">//有参无参构造、get、set方法、toString()方法  </span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<p>6、我们来使用yaml配置的方式进行注入，大家写的时候注意区别和优势，我们编写一个yaml配置！</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">person:</span><br>  <span class="hljs-attr">name:</span> <span class="hljs-string">lisihan</span><br>  <span class="hljs-attr">age:</span> <span class="hljs-number">3</span><br>  <span class="hljs-attr">happy:</span> <span class="hljs-literal">false</span><br>  <span class="hljs-attr">birth:</span> <span class="hljs-number">2018</span><span class="hljs-string">/01/01</span><br>  <span class="hljs-attr">maps:</span> &#123;<span class="hljs-attr">k1:</span> <span class="hljs-string">v1</span>,<span class="hljs-attr">k2:</span> <span class="hljs-string">v2</span>&#125;<br>  <span class="hljs-attr">lists:</span><br>   <span class="hljs-bullet">-</span> <span class="hljs-string">code</span><br>   <span class="hljs-bullet">-</span> <span class="hljs-string">girl</span><br>   <span class="hljs-bullet">-</span> <span class="hljs-string">music</span><br>   <span class="hljs-bullet">-</span> <span class="hljs-string">game</span><br>  <span class="hljs-attr">dog:</span><br>    <span class="hljs-attr">name:</span> <span class="hljs-string">gdhf</span><br>    <span class="hljs-attr">age:</span> <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+
+<p>7、我们刚才已经把person这个对象的所有值都写好了，我们现在来注入到我们的类中！</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Component</span> <span class="hljs-comment">//注册bean</span><br><span class="hljs-meta">@ConfigurationProperties(prefix = &quot;person&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> String name;<br>    <span class="hljs-keyword">private</span> Integer age;<br>    <span class="hljs-keyword">private</span> Boolean happy;<br>    <span class="hljs-keyword">private</span> Date birth;<br>    <span class="hljs-keyword">private</span> Map&lt;String,Object&gt; maps;<br>    <span class="hljs-keyword">private</span> List&lt;Object&gt; lists;<br>    <span class="hljs-keyword">private</span> Dog dog;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>8、IDEA 提示，springboot配置注解处理器没有找到，让我们看文档，我们可以查看文档，找到一个依赖！</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-configuration-processor<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">optional</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">optional</span>&gt;</span><br>&lt;/dependency<br></code></pre></td></tr></table></figure>
+
+<p>9、确认以上配置都OK之后，我们去测试类中测试一下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@SpringBootTest</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DemoApplicationTests</span> </span>&#123;<br><br>    <span class="hljs-meta">@Autowired</span><br>    Person person; <span class="hljs-comment">//将person自动注入进来</span><br><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">contextLoads</span><span class="hljs-params">()</span> </span>&#123;<br>        System.out.println(person); <span class="hljs-comment">//打印person信息</span><br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>yaml配置注入到实体类完全OK！</strong></p>
+<h2 id="加载指定的配置文件"><a href="#加载指定的配置文件" class="headerlink" title="加载指定的配置文件"></a>加载指定的配置文件</h2><p><strong>@PropertySource ：</strong>加载指定的配置文件；</p>
+<p><strong>@configurationProperties</strong>：默认从全局配置文件中获取值；</p>
+<p>1、我们去在resources目录下新建一个<strong>person.properties</strong>文件</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-attr">name</span>=<span class="hljs-string">lisihan</span><br></code></pre></td></tr></table></figure>
+
+<p>2、然后在我们的代码中指定加载person.properties文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@PropertySource(value = &quot;classpath:person.properties&quot;)</span><br><span class="hljs-meta">@Component</span> <span class="hljs-comment">//注册bean</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> </span>&#123;<br><br>    <span class="hljs-meta">@Value(&quot;$&#123;name&#125;&quot;)</span><br>    <span class="hljs-keyword">private</span> String name;<br>    ......  <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>3、再次输出测试一下：指定配置文件绑定成功！</p>
+<h2 id="配置文件占位符"><a href="#配置文件占位符" class="headerlink" title="配置文件占位符"></a>配置文件占位符</h2><p>配置文件还可以编写占位符生成随机数</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">person:</span><br>    <span class="hljs-attr">name:</span> <span class="hljs-string">lisihan$&#123;random.uuid&#125;</span> <span class="hljs-comment"># 随机uuid</span><br>    <span class="hljs-attr">age:</span> <span class="hljs-string">$&#123;random.int&#125;</span>  <span class="hljs-comment"># 随机int</span><br>    <span class="hljs-attr">happy:</span> <span class="hljs-literal">false</span><br>    <span class="hljs-attr">birth:</span> <span class="hljs-number">2018</span><span class="hljs-string">/01/01</span><br>    <span class="hljs-attr">maps:</span> &#123;<span class="hljs-attr">k1:</span> <span class="hljs-string">v1</span>,<span class="hljs-attr">k2:</span> <span class="hljs-string">v2</span>&#125;<br>    <span class="hljs-attr">lists:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">code</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">girl</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">music</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">game</span><br>    <span class="hljs-attr">dog:</span><br>      <span class="hljs-attr">name:</span> <span class="hljs-string">$&#123;person.hello:other&#125;_sdfs</span><br>      <span class="hljs-attr">age:</span> <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/java/">java</a>
+                    
+                      <a class="hover-with-bg" href="/categories/java/springboot/">springboot</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/java/">java</a>
+                    
+                      <a class="hover-with-bg" href="/tags/springboot/">springboot</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/07/25/Spirng%E5%AD%A6%E4%B9%A0%E4%B8%80/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Spirng学习一</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/07/25/SpirngBoot%E5%9B%9E%E9%A1%BE%E4%B8%89%EF%BC%9A%E6%95%B4%E5%90%88Mybatis/">
+                        <span class="hidden-mobile">SpirngBoot回顾三：整合Mybatis</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://levialias.top/2021/07/25/SpirngBoot%E5%9B%9E%E9%A1%BE%E4%BA%8C%EF%BC%9Ayml%E9%85%8D%E7%BD%AE/';
+          this.page.identifier = '/2021/07/25/SpirngBoot%E5%9B%9E%E9%A1%BE%E4%BA%8C%EF%BC%9Ayml%E9%85%8D%E7%BD%AE/';
+        };
+        Fluid.utils.lazyComments('disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'fluid' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the
+      <a target="_blank" href="https://disqus.com/?ref_noscript" rel="nofollow noopener noopener">comments powered by Disqus.</a>
+    </noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        蜀ICP备2021009969号
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?siteId=13751376";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

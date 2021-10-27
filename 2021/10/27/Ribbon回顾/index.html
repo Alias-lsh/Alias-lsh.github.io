@@ -18,7 +18,7 @@
   <meta name="author" content="Alias">
   <meta name="keywords" content="">
   
-  <title>浅要说说CAP - Alias的博客</title>
+  <title>Ribbon回顾 - Alias的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="浅要说说CAP">
+            <span class="h2" id="subtitle" title="Ribbon回顾">
               
             </span>
 
@@ -178,8 +178,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-10-26 23:25" pubdate>
-        2021年10月26日 晚上
+      <time datetime="2021-10-27 23:01" pubdate>
+        2021年10月27日 晚上
       </time>
     </span>
   
@@ -190,7 +190,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      235 字
+      1.3k 字
     </span>
   
 
@@ -200,7 +200,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      2
+      16
        分钟
     </span>
   
@@ -238,51 +238,53 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">浅要说说CAP</h1>
+            <h1 style="display: none">Ribbon回顾</h1>
             
             <div class="markdown-body">
-              <h1 id="浅要说说CAP"><a href="#浅要说说CAP" class="headerlink" title="浅要说说CAP"></a>浅要说说CAP</h1><table>
-<thead>
-<tr>
-<th>组件名</th>
-<th>语言CAP</th>
-<th>服务健康检查</th>
-<th>对外暴露接口</th>
-<th>Spring Cloud集成</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Eureka</td>
-<td>Java</td>
-<td>AP</td>
-<td>可配支持</td>
-<td>HTTP</td>
-</tr>
-<tr>
-<td>Consul</td>
-<td>Go</td>
-<td>CP</td>
-<td>支持</td>
-<td>HTTP/DNS</td>
-</tr>
-<tr>
-<td>Zookeeper</td>
-<td>Java</td>
-<td>CP</td>
-<td>支持客户端</td>
-<td>已集成</td>
-</tr>
-</tbody></table>
-<p>CAP：</p>
-<ul>
-<li>C：Consistency (强一致性)</li>
-<li>A：Availability (可用性)</li>
-<li>P：Partition tolerance （分区容错性)</li>
+              <h1 id="Ribbon回顾"><a href="#Ribbon回顾" class="headerlink" title="Ribbon回顾"></a>Ribbon回顾</h1><p>Spring Cloud Ribbon是基于Netflix Ribbon实现的一套客户端负载均衡的工具。</p>
+<p>简单的说，Ribbon是Netflix发布的开源项目，主要功能是提供客户端的软件负载均衡算法和服务调用。Ribbon客户端组件提供一系列完善的配置项如连接超时，重试等。</p>
+<p>简单的说，就是在配置文件中列出Load Balancer(简称LB)后面所有的机器，Ribbon会自动的帮助你基于某种规则(如简单轮询，随机连接等）去连接这些机器。我们很容易使用Ribbon实现自定义的负载均衡算法<br>Ribbon目前也进入维护模式。</p>
+<p><strong>LB负载均衡(Load Balance)是什么</strong></p>
+<p>简单的说就是将用户的请求平摊的分配到多个服务上，从而达到系统的HA (高可用)。</p>
+<p>常见的负载均衡有软件Nginx，LVS，硬件F5等。</p>
+<p><strong>Ribbon本地负载均衡客户端VS Nginx服务端负载均衡区别</strong></p>
+<p>Nginx是服务器负载均衡，客户端所有请求都会交给nginx，然后由nginx实现转发请求。即负载均衡是由服务端实现的。<br>Ribbon本地负载均衡，在调用微服务接口时候，会在注册中心上获取注册信息服务列表之后缓存到JVM本地，从而在本地实现RPC远程服务调用技术。</p>
+<p><strong>集中式LB</strong></p>
+<p>即在服务的消费方和提供方之间使用独立的LB设施(可以是硬件，如F5, 也可以是软件，如nginx)，由该设施负责把访问请求通过某种策略转发至服务的提供方;</p>
+<p><strong>进程内LB</strong></p>
+<p>将LB逻辑集成到消费方，消费方从服务注册中心获知有哪些地址可用，然后自己再从这些地址中选择出一个合适的服务器。</p>
+<p>Ribbon就属于进程内LB，它只是一个类库，集成于消费方进程，消费方通过它来获取到服务提供方的地址。</p>
+<p>spring-cloud-starter-netflix-eureka-client自带了spring-cloud-starter-ribbon引用。</p>
+<p><strong>RestTemplate的使用</strong></p>
+<p>getForObject() / getForEntity() - GET请求方法</p>
+<p>getForObject()：返回对象为响应体中数据转化成的对象，基本上可以理解为Json。</p>
+<p>getForEntity()：返回对象为ResponseEntity对象，包含了响应中的一些重要信息，比如响应头、响应状态码、响应体等。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Resource</span><br>   <span class="hljs-keyword">private</span> RestTemplate restTemplate;<br>   <span class="hljs-meta">@GetMapping(&quot;/consumer/payment/create&quot;)</span><br>   <span class="hljs-function"><span class="hljs-keyword">public</span> CommonResult&lt;Payment&gt; <span class="hljs-title">create</span><span class="hljs-params">(Payment payment)</span></span>&#123;<br>       <span class="hljs-keyword">return</span> restTemplate.postForObject(PAYMENT_URL+<span class="hljs-string">&quot;/payment/create&quot;</span>,payment,CommonResult.class);<br>   &#125;<br>   <span class="hljs-meta">@GetMapping(&quot;/consumer/payment/get/&#123;id&#125;&quot;)</span><br>   <span class="hljs-function"><span class="hljs-keyword">public</span> CommonResult&lt;Payment&gt; <span class="hljs-title">getPayment</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable(&quot;id&quot;)</span> Long id)</span></span>&#123;<br>       <span class="hljs-keyword">return</span> restTemplate.getForObject(PAYMENT_URL+<span class="hljs-string">&quot;/payment/get/&quot;</span>+id,CommonResult.class);<br>   &#125;<br>   <span class="hljs-meta">@GetMapping(&quot;/consumer/payment/getForEntity/&#123;id&#125;&quot;)</span><br>   <span class="hljs-function"><span class="hljs-keyword">public</span> CommonResult&lt;Payment&gt; <span class="hljs-title">getPayment2</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable(&quot;id&quot;)</span> Long id)</span></span>&#123;<br>       ResponseEntity&lt;CommonResult&gt; entity = restTemplate.getForEntity(PAYMENT_URL + <span class="hljs-string">&quot;/payment/get/&quot;</span> + id, CommonResult.class);<br><br>       <span class="hljs-keyword">if</span>(entity.getStatusCode().is2xxSuccessful())&#123;<br>           <span class="hljs-keyword">return</span> entity.getBody();<br>       &#125;<span class="hljs-keyword">else</span>&#123;<br>           <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> CommonResult&lt;&gt;(<span class="hljs-number">444</span>,<span class="hljs-string">&quot;操作失败&quot;</span>);<br>       &#125;<br>   &#125;<br>   <span class="hljs-meta">@GetMapping(&quot;/consumer/payment/create2&quot;)</span><br>   <span class="hljs-function"><span class="hljs-keyword">public</span> CommonResult&lt;Payment&gt; <span class="hljs-title">create2</span><span class="hljs-params">(Payment payment)</span></span>&#123;<br>       <span class="hljs-keyword">return</span> restTemplate.postForEntity(PAYMENT_URL+<span class="hljs-string">&quot;/payment/create&quot;</span>,payment,CommonResult.class).getBody();<br>   &#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="Ribbon默认自带的负载规则"><a href="#Ribbon默认自带的负载规则" class="headerlink" title="Ribbon默认自带的负载规则"></a>Ribbon默认自带的负载规则</h4><ul>
+<li>RoundRobinRule 轮询</li>
+<li>RandomRule 随机</li>
+<li>RetryRule 先按照RoundRobinRule的策略获取服务，如果获取服务失败则在指定时间内会进行重</li>
+<li>WeightedResponseTimeRule 对RoundRobinRule的扩展，响应速度越快的实例选择权重越大，越容易被选择</li>
+<li>BestAvailableRule 会先过滤掉由于多次访问故障而处于断路器跳闸状态的服务，然后选择一个并发量最小的服务</li>
+<li>AvailabilityFilteringRule 先过滤掉故障实例，再选择并发较小的实例</li>
+<li>ZoneAvoidanceRule 默认规则,复合判断server所在区域的性能和server的可用性选择服务器</li>
 </ul>
-<p>最多只能同时较好的满足两个。</p>
-<p>CAP理论的核心是：一个分布式系统不可能同时很好的满足一致性，可用性和分区容错性这三个需求。</p>
-<p>因此，根据CAP原理将NoSQL数据库分成了满足CA原则、满足CP原则和满足AP原则三大类:</p>
-<p>CA - 单点集群，满足—致性，可用性的系统，通常在可扩展性上不太强大。<br>CP - 满足一致性，分区容忍必的系统，通常性能不是特别高。<br>AP - 满足可用性，分区容忍性的系统，通常可能对一致性要求低一些。</p>
+<h4 id="Ribbon负载规则替换"><a href="#Ribbon负载规则替换" class="headerlink" title="Ribbon负载规则替换"></a>Ribbon负载规则替换</h4><p>官方文档明确给出了警告:</p>
+<p>这个自定义配置类不能放在@ComponentScan所扫描的当前包下以及子包下，</p>
+<p>否则我们自定义的这个配置类就会被所有的Ribbon客户端所共享，达不到特殊化定制的目的了。</p>
+<p>（<strong>也就是说不要将Ribbon配置类与主启动类同包</strong>）</p>
+<p>新建包com.lsh.myrule</p>
+<p>新建MySelfRule</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> com.netflix.loadbalancer.IRule;<br><span class="hljs-keyword">import</span> com.netflix.loadbalancer.RandomRule;<br><span class="hljs-keyword">import</span> org.springframework.context.annotation.Bean;<br><span class="hljs-keyword">import</span> org.springframework.context.annotation.Configuration;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Alias</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Configuration</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MySelfRule</span> </span>&#123;<br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> IRule <span class="hljs-title">myRule</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-comment">//定义为随机</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> RandomRule();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>主启动类添加@RibbonClient(name = “CLOUD-PAYMENT-SERVICE”, configuration = MySelfRule.class)</p>
+<h4 id="Ribbon默认负载轮询算法原理"><a href="#Ribbon默认负载轮询算法原理" class="headerlink" title="Ribbon默认负载轮询算法原理"></a>Ribbon默认负载轮询算法原理</h4><p>默认负载轮训算法: rest接口第几次请求数 % 服务器集群总数量 = 实际调用服务器位置下标，每次服务重启动后rest接口计数从1开始。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">List&lt;Servicelnstance&gt; instances = discoveryClient.getInstances(<span class="hljs-string">&quot;CLOUD-PAYMENT-SERVICE&quot;</span>);<br></code></pre></td></tr></table></figure>
+
+<p>如:</p>
+<p>List [0] instances = 127.0.0.1:8002<br>List [1] instances = 127.0.0.1:8001<br>8001+ 8002组合成为集群，它们共计2台机器，集群总数为2，按照轮询算法原理：</p>
+<p>当总请求数为1时:1%2=1对应下标位置为1，则获得服务地址为127.0.0.1:8001<br>当总请求数位2时:2%2=О对应下标位置为0，则获得服务地址为127.0.0.1:8002<br>当总请求数位3时:3%2=1对应下标位置为1，则获得服务地址为127.0.0.1:8001<br>当总请求数位4时:4%2=О对应下标位置为0，则获得服务地址为127.0.0.1:8002<br>如此类推…</p>
 
             </div>
             <hr>
@@ -296,6 +298,8 @@
                     
                       <a class="hover-with-bg" href="/categories/java/springcloud/">springcloud</a>
                     
+                      <a class="hover-with-bg" href="/categories/java/springcloud/ribbon/">ribbon</a>
+                    
                   </div>
                 
                 
@@ -305,6 +309,8 @@
                       <a class="hover-with-bg" href="/tags/java/">java</a>
                     
                       <a class="hover-with-bg" href="/tags/springcloud/">springcloud</a>
+                    
+                      <a class="hover-with-bg" href="/tags/ribbon/">ribbon</a>
                     
                   </div>
                 
@@ -321,18 +327,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/10/27/Ribbon%E5%9B%9E%E9%A1%BE/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Ribbon回顾</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/10/26/Consul%E5%9B%9E%E9%A1%BE/">
-                        <span class="hidden-mobile">Consul回顾</span>
+                      <a href="/2021/10/26/%E6%B5%85%E8%A6%81%E8%AF%B4%E8%AF%B4CAP/">
+                        <span class="hidden-mobile">浅要说说CAP</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -354,8 +354,8 @@
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'http://levialias.top/2021/10/26/%E6%B5%85%E8%A6%81%E8%AF%B4%E8%AF%B4CAP/';
-          this.page.identifier = '/2021/10/26/%E6%B5%85%E8%A6%81%E8%AF%B4%E8%AF%B4CAP/';
+          this.page.url = 'http://levialias.top/2021/10/27/Ribbon%E5%9B%9E%E9%A1%BE/';
+          this.page.identifier = '/2021/10/27/Ribbon%E5%9B%9E%E9%A1%BE/';
         };
         Fluid.utils.lazyComments('disqus_thread', function() {
           var d = document, s = d.createElement('script');

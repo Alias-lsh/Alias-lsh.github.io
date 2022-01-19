@@ -18,7 +18,7 @@
   <meta name="author" content="Alias">
   <meta name="keywords" content="">
   
-  <title>Ribbon回顾 - Alias的博客</title>
+  <title>HTTP学习一 - Alias的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Ribbon回顾">
+            <span class="h2" id="subtitle" title="HTTP学习一">
               
             </span>
 
@@ -178,8 +178,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-10-27 23:01" pubdate>
-        2021年10月27日 晚上
+      <time datetime="2022-01-19 15:59" pubdate>
+        2022年1月19日 下午
       </time>
     </span>
   
@@ -200,7 +200,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      16
+      13
        分钟
     </span>
   
@@ -238,53 +238,47 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Ribbon回顾</h1>
+            <h1 style="display: none">HTTP学习一</h1>
             
             <div class="markdown-body">
-              <h1 id="Ribbon回顾"><a href="#Ribbon回顾" class="headerlink" title="Ribbon回顾"></a>Ribbon回顾</h1><p>Spring Cloud Ribbon是基于Netflix Ribbon实现的一套客户端负载均衡的工具。</p>
-<p>简单的说，Ribbon是Netflix发布的开源项目，主要功能是提供客户端的软件负载均衡算法和服务调用。Ribbon客户端组件提供一系列完善的配置项如连接超时，重试等。</p>
-<p>简单的说，就是在配置文件中列出Load Balancer(简称LB)后面所有的机器，Ribbon会自动的帮助你基于某种规则(如简单轮询，随机连接等）去连接这些机器。我们很容易使用Ribbon实现自定义的负载均衡算法<br>Ribbon目前也进入维护模式。</p>
-<p><strong>LB负载均衡(Load Balance)是什么</strong></p>
-<p>简单的说就是将用户的请求平摊的分配到多个服务上，从而达到系统的HA (高可用)。</p>
-<p>常见的负载均衡有软件Nginx，LVS，硬件F5等。</p>
-<p><strong>Ribbon本地负载均衡客户端VS Nginx服务端负载均衡区别</strong></p>
-<p>Nginx是服务器负载均衡，客户端所有请求都会交给nginx，然后由nginx实现转发请求。即负载均衡是由服务端实现的。<br>Ribbon本地负载均衡，在调用微服务接口时候，会在注册中心上获取注册信息服务列表之后缓存到JVM本地，从而在本地实现RPC远程服务调用技术。</p>
-<p><strong>集中式LB</strong></p>
-<p>即在服务的消费方和提供方之间使用独立的LB设施(可以是硬件，如F5, 也可以是软件，如nginx)，由该设施负责把访问请求通过某种策略转发至服务的提供方;</p>
-<p><strong>进程内LB</strong></p>
-<p>将LB逻辑集成到消费方，消费方从服务注册中心获知有哪些地址可用，然后自己再从这些地址中选择出一个合适的服务器。</p>
-<p>Ribbon就属于进程内LB，它只是一个类库，集成于消费方进程，消费方通过它来获取到服务提供方的地址。</p>
-<p>spring-cloud-starter-netflix-eureka-client自带了spring-cloud-starter-ribbon引用。</p>
-<p><strong>RestTemplate的使用</strong></p>
-<p>getForObject() / getForEntity() - GET请求方法</p>
-<p>getForObject()：返回对象为响应体中数据转化成的对象，基本上可以理解为Json。</p>
-<p>getForEntity()：返回对象为ResponseEntity对象，包含了响应中的一些重要信息，比如响应头、响应状态码、响应体等。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Resource</span><br>   <span class="hljs-keyword">private</span> RestTemplate restTemplate;<br>   <span class="hljs-meta">@GetMapping(&quot;/consumer/payment/create&quot;)</span><br>   <span class="hljs-function"><span class="hljs-keyword">public</span> CommonResult&lt;Payment&gt; <span class="hljs-title">create</span><span class="hljs-params">(Payment payment)</span></span>&#123;<br>       <span class="hljs-keyword">return</span> restTemplate.postForObject(PAYMENT_URL+<span class="hljs-string">&quot;/payment/create&quot;</span>,payment,CommonResult.class);<br>   &#125;<br>   <span class="hljs-meta">@GetMapping(&quot;/consumer/payment/get/&#123;id&#125;&quot;)</span><br>   <span class="hljs-function"><span class="hljs-keyword">public</span> CommonResult&lt;Payment&gt; <span class="hljs-title">getPayment</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable(&quot;id&quot;)</span> Long id)</span></span>&#123;<br>       <span class="hljs-keyword">return</span> restTemplate.getForObject(PAYMENT_URL+<span class="hljs-string">&quot;/payment/get/&quot;</span>+id,CommonResult.class);<br>   &#125;<br>   <span class="hljs-meta">@GetMapping(&quot;/consumer/payment/getForEntity/&#123;id&#125;&quot;)</span><br>   <span class="hljs-function"><span class="hljs-keyword">public</span> CommonResult&lt;Payment&gt; <span class="hljs-title">getPayment2</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable(&quot;id&quot;)</span> Long id)</span></span>&#123;<br>       ResponseEntity&lt;CommonResult&gt; entity = restTemplate.getForEntity(PAYMENT_URL + <span class="hljs-string">&quot;/payment/get/&quot;</span> + id, CommonResult.class);<br><br>       <span class="hljs-keyword">if</span>(entity.getStatusCode().is2xxSuccessful())&#123;<br>           <span class="hljs-keyword">return</span> entity.getBody();<br>       &#125;<span class="hljs-keyword">else</span>&#123;<br>           <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> CommonResult&lt;&gt;(<span class="hljs-number">444</span>,<span class="hljs-string">&quot;操作失败&quot;</span>);<br>       &#125;<br>   &#125;<br>   <span class="hljs-meta">@GetMapping(&quot;/consumer/payment/create2&quot;)</span><br>   <span class="hljs-function"><span class="hljs-keyword">public</span> CommonResult&lt;Payment&gt; <span class="hljs-title">create2</span><span class="hljs-params">(Payment payment)</span></span>&#123;<br>       <span class="hljs-keyword">return</span> restTemplate.postForEntity(PAYMENT_URL+<span class="hljs-string">&quot;/payment/create&quot;</span>,payment,CommonResult.class).getBody();<br>   &#125;<br></code></pre></td></tr></table></figure>
-
-<h4 id="Ribbon默认自带的负载规则"><a href="#Ribbon默认自带的负载规则" class="headerlink" title="Ribbon默认自带的负载规则"></a>Ribbon默认自带的负载规则</h4><ul>
-<li>RoundRobinRule 轮询</li>
-<li>RandomRule 随机</li>
-<li>RetryRule 先按照RoundRobinRule的策略获取服务，如果获取服务失败则在指定时间内会进行重</li>
-<li>WeightedResponseTimeRule 对RoundRobinRule的扩展，响应速度越快的实例选择权重越大，越容易被选择</li>
-<li>BestAvailableRule 会先过滤掉由于多次访问故障而处于断路器跳闸状态的服务，然后选择一个并发量最小的服务</li>
-<li>AvailabilityFilteringRule 先过滤掉故障实例，再选择并发较小的实例</li>
-<li>ZoneAvoidanceRule 默认规则,复合判断server所在区域的性能和server的可用性选择服务器</li>
-</ul>
-<h4 id="Ribbon负载规则替换"><a href="#Ribbon负载规则替换" class="headerlink" title="Ribbon负载规则替换"></a>Ribbon负载规则替换</h4><p>官方文档明确给出了警告:</p>
-<p>这个自定义配置类不能放在@ComponentScan所扫描的当前包下以及子包下，</p>
-<p>否则我们自定义的这个配置类就会被所有的Ribbon客户端所共享，达不到特殊化定制的目的了。</p>
-<p>（<strong>也就是说不要将Ribbon配置类与主启动类同包</strong>）</p>
-<p>新建包com.lsh.myrule</p>
-<p>新建MySelfRule</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> com.netflix.loadbalancer.IRule;<br><span class="hljs-keyword">import</span> com.netflix.loadbalancer.RandomRule;<br><span class="hljs-keyword">import</span> org.springframework.context.annotation.Bean;<br><span class="hljs-keyword">import</span> org.springframework.context.annotation.Configuration;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Alias</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Configuration</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MySelfRule</span> </span>&#123;<br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> IRule <span class="hljs-title">myRule</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-comment">//定义为随机</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> RandomRule();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>主启动类添加@RibbonClient(name = “CLOUD-PAYMENT-SERVICE”, configuration = MySelfRule.class)</p>
-<h4 id="Ribbon默认负载轮询算法原理"><a href="#Ribbon默认负载轮询算法原理" class="headerlink" title="Ribbon默认负载轮询算法原理"></a>Ribbon默认负载轮询算法原理</h4><p>默认负载轮训算法: rest接口第几次请求数 % 服务器集群总数量 = 实际调用服务器位置下标，每次服务重启动后rest接口计数从1开始。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">List&lt;Servicelnstance&gt; instances = discoveryClient.getInstances(<span class="hljs-string">&quot;CLOUD-PAYMENT-SERVICE&quot;</span>);<br></code></pre></td></tr></table></figure>
-
-<p>如:</p>
-<p>List [0] instances = 127.0.0.1:8002<br>List [1] instances = 127.0.0.1:8001<br>8001+ 8002组合成为集群，它们共计2台机器，集群总数为2，按照轮询算法原理：</p>
-<p>当总请求数为1时:1%2=1对应下标位置为1，则获得服务地址为127.0.0.1:8001<br>当总请求数位2时:2%2=О对应下标位置为0，则获得服务地址为127.0.0.1:8002<br>当总请求数位3时:3%2=1对应下标位置为1，则获得服务地址为127.0.0.1:8001<br>当总请求数位4时:4%2=О对应下标位置为0，则获得服务地址为127.0.0.1:8002<br>如此类推…</p>
+              <h1 id="HTTP学习1"><a href="#HTTP学习1" class="headerlink" title="HTTP学习1"></a>HTTP学习1</h1><h3 id="web及网络基础"><a href="#web及网络基础" class="headerlink" title="web及网络基础"></a>web及网络基础</h3><p>通过发送请求获取服务器资源的Web浏览器等，都可称为客户端(client)</p>
+<p><img src="/images/http1.png" srcset="/img/loading.gif" lazyload></p>
+<p>HTTP:超文本传输协议，最初的HTTP主要是为了解决文本传输的难题</p>
+<p>Web是建立在HTTP协议上通信的</p>
+<p>URL:统一资源定位符</p>
+<h4 id="TCP-IP"><a href="#TCP-IP" class="headerlink" title="TCP/IP"></a>TCP/IP</h4><p>通常使用的网络（包括互联网）实在TCP/IP协议族的基础上运作的，二HTTP属于他内部的一个子集。</p>
+<p>计算机与网络设备要相互通信，双方就必须基于相同的方法。不同硬件，操作系统之间的通信，所有的这一切都需要一种规则。而我们就把这种规则称为协议（protocol）</p>
+<p><img src="/images/http2.png" srcset="/img/loading.gif" lazyload></p>
+<p>把与互联网相关联的协议集合起来总称为TCP/IP。TCP/IP协议族按层次分别分为以下4层：<strong>应用层，传输层，网络层和数据链路层</strong>。</p>
+<p><img src="/images/http3.png" srcset="/img/loading.gif" lazyload></p>
+<p>层次化时候，在设计上也变得更加简单</p>
+<p><strong>应用层</strong>：应用层决定了向用户提供应用服务时通信的活动。比如FTP(文件传输协议)，DNS（域名系统），HTTP协议也处于该层。</p>
+<p><strong>传输层</strong>：传输层对上层应用层，提供处于网络连接中的两台计算机之间的数据传输。在传输层有两个性质不同的协议：TCP（传输控制协议）和UDP（用户数据报协议）。</p>
+<p><strong>网络层</strong>：网络层用来处理在网络上流动的数据包。数据包是网络传输的最小数据单位。该层规定了通过怎样的路径（所谓的传输路线）到达对方计算机，并把数据包传送给对方。</p>
+<p><strong>链路层</strong>：用来处理连接网络的硬件部分。包括控制操作系统、硬件的设备驱动、NIC（网络适配器，即网卡），及光纤等物理可见部分。硬件上的范畴均在链路层的作用范围之内。</p>
+<p><img src="/images/http4.png" srcset="/img/loading.gif" lazyload></p>
+<p>利用TCP/IP协议族进行网络通信时，会通过分层顺序与对方进行通信。发送端从应用层往下走，接收端则往应用层往上走。</p>
+<p><img src="/images/http5.png" srcset="/img/loading.gif" lazyload></p>
+<p>发送端在层与层之间传输数据时，每经过一层时必定会被打上一个该层所属的首部信息。反之，接收端在层与层传输数据时，每经过一层时会把对应的首部消去。这种把数据信息包装起来的做法称为<strong>封装</strong>。</p>
+<h5 id="IP协议"><a href="#IP协议" class="headerlink" title="IP协议"></a>IP协议</h5><p>IP（Internet Protocol）网际协议位于网络层。该协议的作用是把各种数据包传送给对方，而要保证确实传送到对方那里，其中两个重要的条件是IP地址和MAC地址（Media Access Control Address）。IP地址指明了节点被分配到的地址，MAC地址是指网卡所属的固定地址</p>
+<p>IP间的通信依赖MAC地址。使用ARP协议凭借MAC地址进行通信，ARP是一种用以解析地址的协议，根据通信方的IP地址就可以反查出对应的MAC地址。</p>
+<p><img src="/images/http6.png" srcset="/img/loading.gif" lazyload></p>
+<h5 id="TCP协议"><a href="#TCP协议" class="headerlink" title="TCP协议"></a>TCP协议</h5><p>TCP位于传输层，提供可靠的字节流服务。所谓的字节流服务是指为了方便传输，将大块数据分割成以报文段为单位的数据包进行管理。TCP协议为了更容易传送大数据才把数据分割，而且TCP协议能够确认数据最终是否送达到对方。</p>
+<p>为了准确无误地将数据送达目标处，TCP协议采用了三次握手策略。握手过程中使用了TCP的标志SYN和ACK。</p>
+<p><img src="/images/http7.png" srcset="/img/loading.gif" lazyload></p>
+<h5 id="DNS服务"><a href="#DNS服务" class="headerlink" title="DNS服务"></a>DNS服务</h5><p>DNS服务是和HTTP协议一样位于应用层的协议。它提供域名到IP地址之间的解析服务。</p>
+<p>计算机既可以被赋予IP地址，也可以被赋予主机名和域名。DNS协议提供通过域名查找IP地址，或逆向从IP地址反查域名的服务。</p>
+<p><img src="/images/http8.png" srcset="/img/loading.gif" lazyload></p>
+<h5 id="各种协议与HTTP协议的关系"><a href="#各种协议与HTTP协议的关系" class="headerlink" title="各种协议与HTTP协议的关系"></a>各种协议与HTTP协议的关系</h5><p><img src="/images/http9.png" srcset="/img/loading.gif" lazyload></p>
+<h5 id="URI和URL"><a href="#URI和URL" class="headerlink" title="URI和URL"></a>URI和URL</h5><p>URI：统一资源标识符</p>
+<p>URI用字符串标识某一互联网资源，而URL表示资源的地点。可见URL是URI的子集。</p>
+<p>绝对URI的格式：<img src="/images/http10.png" srcset="/img/loading.gif" lazyload></p>
+<p>登录信息：指定用户名和密码作为从服务器端获取资源时必要的登录信息。此项是可选项。</p>
+<p>服务器地址：使用绝对URI必须指定待访问的服务器地址。</p>
+<p>服务器端口号：指定服务器连接的网络端口号。此项也是可选项，若用户省略则自动使用默认端口号。</p>
+<p>带层次的文件路径：指定服务器上的文件路径来定位特指的资源。</p>
+<p>查询字符串：针对已指定的文件路径内的资源，可以使用查询字符串传入任意参数。此项可选。</p>
+<p>片段标识符：使用片段标识符通常可标记出已获取资源中的子资源。该项也为可选项。</p>
 
             </div>
             <hr>
@@ -294,11 +288,9 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/java/">java</a>
+                      <a class="hover-with-bg" href="/categories/%E8%AE%A1%E7%BD%91/">计网</a>
                     
-                      <a class="hover-with-bg" href="/categories/java/springcloud/">springcloud</a>
-                    
-                      <a class="hover-with-bg" href="/categories/java/springcloud/ribbon/">ribbon</a>
+                      <a class="hover-with-bg" href="/categories/%E8%AE%A1%E7%BD%91/HTTP/">HTTP</a>
                     
                   </div>
                 
@@ -306,11 +298,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/java/">java</a>
+                      <a class="hover-with-bg" href="/tags/%E8%AE%A1%E7%BD%91/">计网</a>
                     
-                      <a class="hover-with-bg" href="/tags/springcloud/">springcloud</a>
-                    
-                      <a class="hover-with-bg" href="/tags/ribbon/">ribbon</a>
+                      <a class="hover-with-bg" href="/tags/HTTP/">HTTP</a>
                     
                   </div>
                 
@@ -327,18 +317,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/01/19/HTTP%E5%AD%A6%E4%B9%A0%E4%B8%80/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">HTTP学习一</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/10/26/%E6%B5%85%E8%A6%81%E8%AF%B4%E8%AF%B4CAP/">
-                        <span class="hidden-mobile">浅要说说CAP</span>
+                      <a href="/2021/10/27/Ribbon%E5%9B%9E%E9%A1%BE/">
+                        <span class="hidden-mobile">Ribbon回顾</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -360,8 +344,8 @@
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'http://levialias.top/2021/10/27/Ribbon%E5%9B%9E%E9%A1%BE/';
-          this.page.identifier = '/2021/10/27/Ribbon%E5%9B%9E%E9%A1%BE/';
+          this.page.url = 'http://levialias.top/2022/01/19/HTTP%E5%AD%A6%E4%B9%A0%E4%B8%80/';
+          this.page.identifier = '/2022/01/19/HTTP%E5%AD%A6%E4%B9%A0%E4%B8%80/';
         };
         Fluid.utils.lazyComments('disqus_thread', function() {
           var d = document, s = d.createElement('script');

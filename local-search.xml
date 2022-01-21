@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>HTTP学习二</title>
+    <link href="/2022/01/21/HTTP%E5%AD%A6%E4%B9%A0%E4%BA%8C/"/>
+    <url>/2022/01/21/HTTP%E5%AD%A6%E4%B9%A0%E4%BA%8C/</url>
+    
+    <content type="html"><![CDATA[<h1 id="HTTP学习二"><a href="#HTTP学习二" class="headerlink" title="HTTP学习二"></a>HTTP学习二</h1><h3 id="简单的HTTP协议"><a href="#简单的HTTP协议" class="headerlink" title="简单的HTTP协议"></a>简单的HTTP协议</h3><p>HTTP用于客户端和服务器之间的通信。请求访问文本或图像等资源的一端称为客户端，而提供资源相应的一端称为服务器端。</p><p>HTTP协议规定，请求从客户端发出，最后服务器端响应该请求并返回。</p><p><img src="/images/http11.png"></p><p>请求报文中GET表示请求访问服务器的类型，随后字符串/index.htm指明了请求访问的资源对象，也叫做请求URI。最后的HTTP/1.1就是HTTP的版本号。</p><p>请求报文是由<strong>请求方法</strong>、<strong>请求URI</strong>、<strong>协议版本</strong>、<strong>可选的请求首部字段</strong>和<strong>内容实体</strong>构成的。</p><p><img src="/images/http12.png"></p><p>响应报文基本上由<strong>协议版本</strong>、<strong>状态码</strong>、<strong>用以解释状态码的原因短语</strong>、<strong>可选的响应首部字段</strong>以及<strong>实体主体</strong>构成。</p><p><img src="/images/http13.png"></p><p>HTTP是一种不保存状态，既无状态协议。HTTP协议自身不对请求和响应之间的通信状态进行保存。也就是说在HTTP这个级别，协议对于发送过的请求或响应都不做持久化处理。</p><p>HTTP协议使用URI定位互联网上的资源。</p><p><img src="/images/http14.png"></p><p><img src="/images/http15.png"></p><p>除此之外，如果不是访问特定资源而是对服务器本身发起请求，可以用一个*来代替请求URI。例如：OPTIONS * HTTP/1.1</p><h5 id="告知服务器意图的HTTP方法"><a href="#告知服务器意图的HTTP方法" class="headerlink" title="告知服务器意图的HTTP方法"></a>告知服务器意图的HTTP方法</h5><h6 id="GET：获取资源"><a href="#GET：获取资源" class="headerlink" title="GET：获取资源"></a>GET：获取资源</h6><p>​    GET方法用来请求访问已被URI识别的资源。指定的资源经服务器端解析后返回相应内容。</p><p><img src="/images/http16.png"></p><h6 id="POST-传输实体主体"><a href="#POST-传输实体主体" class="headerlink" title="POST:传输实体主体"></a>POST:传输实体主体</h6><p>​    POST方法用来传输实体的主体。虽然POST的功能和GET很相似，但POST主要的目的并不是获取相应的主体内容</p><p><img src="/images/http17.png"></p><h6 id="PUT-传输文件"><a href="#PUT-传输文件" class="headerlink" title="PUT:传输文件"></a>PUT:传输文件</h6><p>​    PUT方法用来传输文件。就像FTP协议的文件上传一样，要求在请求报文的主体中包含文件内容，然后保存到请求URI指定的位置。</p><p><img src="/images/http18.png"></p><h6 id="HEAD-获得报文首部"><a href="#HEAD-获得报文首部" class="headerlink" title="HEAD:获得报文首部"></a>HEAD:获得报文首部</h6><p>​    HEAD方法和GET方法一样，只是不返回报文主体部分。用于确认URI的有效性及资源更新的日期时间等。</p><p><img src="/images/http19.png"></p><h6 id="DELETE-删除文件"><a href="#DELETE-删除文件" class="headerlink" title="DELETE:删除文件"></a>DELETE:删除文件</h6><p>​    DELETE方法用来删除文件，是与PUT相反的方法。DELETE方法按请求URI删除指定的资源</p><p><img src="/images/http20.png"></p><h6 id="OPTIONS-询问支持的方法"><a href="#OPTIONS-询问支持的方法" class="headerlink" title="OPTIONS:询问支持的方法"></a>OPTIONS:询问支持的方法</h6><p>​    OPTIONS方法用来查询针对请求URI指定的资源支持的方法。</p><p><img src="/images/http21.png"></p><h6 id="TRACE：追踪路径"><a href="#TRACE：追踪路径" class="headerlink" title="TRACE：追踪路径"></a>TRACE：追踪路径</h6><p>​    TRACE方法是让web服务器端将之前的请求通信环回给客户端的方法。</p><p>但是TRACE方法本来就不怎么常用，再加上他容易引发XST攻击，通常就更不会用到了。</p><p><img src="/images/http22.png"></p><h6 id="CONNECT-要求用隧道协议连接代理"><a href="#CONNECT-要求用隧道协议连接代理" class="headerlink" title="CONNECT:要求用隧道协议连接代理"></a>CONNECT:要求用隧道协议连接代理</h6><p>​    CONNECT方法要求在与代理服务器通信时建立隧道，实现用隧道协议进行TCP通信。主要使用SSL和TLS协议把通信内容加密后经网络隧道传输。</p><p><img src="/images/http23.png"></p><p><img src="/images/http24.png"></p><p>持久连接：只要任意一端没有明确提出断开连接，则保持TCP连接状态。</p><p><img src="/images/http25.png"></p><p>持续连接的好处在于减少了TCP连接的重复建立和断开所造成的额外开销，减轻了服务器端的负载。</p><p>持续连接使得多数请求以管线化的方式发送成为可能。这样就能够做到同时并行发送多个请求，而不需要一个接一个地等待响应了。</p><p>Cookie技术通过在请求和响应报文中写入Cookie信息来控制客户端状态。</p><p>Cookie会根据从服务器端发送的响应报文内的一个叫做Set-Cookie的首部字段信息，通知客户端保存Cookie。当下次客户端再往该服务器发送请求时，客户端会自动在请求报文中加入Cookie值后发送出去。</p><p><img src="/images/http26.png"></p><p><img src="/images/http27.png"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>计网</category>
+      
+      <category>HTTP</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>计网</tag>
+      
+      <tag>HTTP</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>HTTP学习一</title>
     <link href="/2022/01/19/HTTP%E5%AD%A6%E4%B9%A0%E4%B8%80/"/>
     <url>/2022/01/19/HTTP%E5%AD%A6%E4%B9%A0%E4%B8%80/</url>
@@ -117,9 +146,9 @@
       
       <tag>java</tag>
       
-      <tag>consul</tag>
-      
       <tag>springcloud</tag>
+      
+      <tag>consul</tag>
       
     </tags>
     
@@ -150,9 +179,9 @@
       
       <tag>java</tag>
       
-      <tag>springcloud</tag>
-      
       <tag>eureka</tag>
+      
+      <tag>springcloud</tag>
       
     </tags>
     

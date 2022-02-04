@@ -175,9 +175,9 @@
       
       <tag>java</tag>
       
-      <tag>consul</tag>
-      
       <tag>springcloud</tag>
+      
+      <tag>consul</tag>
       
     </tags>
     
@@ -208,9 +208,9 @@
       
       <tag>java</tag>
       
-      <tag>springcloud</tag>
-      
       <tag>eureka</tag>
+      
+      <tag>springcloud</tag>
       
     </tags>
     

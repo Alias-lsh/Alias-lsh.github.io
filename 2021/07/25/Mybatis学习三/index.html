@@ -1,248 +1,117 @@
-
-
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
-
-
-
+<html>
 <head>
-  <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/Alias.png">
-  <link rel="icon" href="/img/Alias.png">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta charset="utf-8">
   
-  <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="Alias的博客">
-  <meta name="author" content="Alias">
-  <meta name="keywords" content="">
   
-  <title>Mybatis学习三 - Alias的博客</title>
+  <title>Mybatis学习三 | Alias的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Mybatis学习三：一、Mybatis生命周期和作用域：关于mybatis的执行流程：  SqlSessionFactoryBuilder这个类可以被实例化、使用和丢弃，一旦创建了 SqlSessionFactory，就不再需要它了。 所以他只存在于创建SqlSessionFactory的方法中，而不要让他长期存在。因此 SqlSessionFactoryBuilder 实例的最佳作用域是方法作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mybatis学习三">
+<meta property="og:url" content="http://levialias.top/2021/07/25/Mybatis%E5%AD%A6%E4%B9%A0%E4%B8%89/index.html">
+<meta property="og:site_name" content="Alias的博客">
+<meta property="og:description" content="Mybatis学习三：一、Mybatis生命周期和作用域：关于mybatis的执行流程：  SqlSessionFactoryBuilder这个类可以被实例化、使用和丢弃，一旦创建了 SqlSessionFactory，就不再需要它了。 所以他只存在于创建SqlSessionFactory的方法中，而不要让他长期存在。因此 SqlSessionFactoryBuilder 实例的最佳作用域是方法作">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://levialias.top/images/java4.png">
+<meta property="og:image" content="http://levialias.top/images/java5.png">
+<meta property="og:image" content="http://levialias.top/images/java6.png">
+<meta property="og:image" content="http://levialias.top/images/java8.png">
+<meta property="og:image" content="http://levialias.top/images/java9.png">
+<meta property="og:image" content="http://levialias.top/images/java10.png">
+<meta property="og:image" content="http://levialias.top/images/java11.png">
+<meta property="og:image" content="http://levialias.top/images/java12.png">
+<meta property="article:published_time" content="2021-07-25T11:07:00.618Z">
+<meta property="article:modified_time" content="2021-04-20T13:19:38.867Z">
+<meta property="article:author" content="Alias">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="mybatis">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://levialias.top/images/java4.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Alias的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
-
-
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+  
+  
+<link rel="stylesheet" href="/css/style.css">
 
   
     
-    
-      
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
-    
-  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
 
   
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
-  
-
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-<!-- 自定义样式保持在最底部 -->
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"levialias.top","root":"/","version":"1.8.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"siteId=13751376","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 5.4.0"></head>
 
-
 <body>
-  <header style="height: 70vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>Alias</strong>&nbsp;</a>
-
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                首页
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                归档
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/">
-                <i class="iconfont icon-category-fill"></i>
-                分类
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                标签
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                关于
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
-          </li>
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
-          </li>
-        
-      </ul>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Alias的博客</a>
+      </h1>
+      
     </div>
-  </div>
-</nav>
-
-    <div class="banner" id="banner" parallax=true
-         style="background: url('/img/home.png') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Mybatis学习三">
-              
-            </span>
-
-            
-              <div class="mt-3">
-  
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-author" aria-hidden="true"></i>
-      Alias
-    </span>
-  
-  
-    <span class="post-meta">
-      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-07-25 19:07" pubdate>
-        2021年7月25日 晚上
-      </time>
-    </span>
-  
-</div>
-
-<div class="mt-1">
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      1.4k 字
-    </span>
-  
-
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
-      
-      
-      18
-       分钟
-    </span>
-  
-
-  
-  
-    
-      <!-- 不蒜子统计文章PV -->
-      <span id="busuanzi_container_page_pv" style="display: none">
-        <i class="iconfont icon-eye" aria-hidden="true"></i>
-        <span id="busuanzi_value_page_pv"></span> 次
-      </span>
-    
-  
-</div>
-
-            
-          </div>
-
-          
-        </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://levialias.top"></form>
       </div>
     </div>
-  </header>
+  </div>
+</header>
 
-  <main>
+      <div class="outer">
+        <section id="main"><article id="post-Mybatis学习三" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/25/Mybatis%E5%AD%A6%E4%B9%A0%E4%B8%89/" class="article-date">
+  <time class="dt-published" datetime="2021-07-25T11:07:00.618Z" itemprop="datePublished">2021-07-25</time>
+</a>
     
-      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>►<a class="article-category-link" href="/categories/java/mybatis/">mybatis</a>
+  </div>
 
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div class="py-5" id="board">
-          <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">Mybatis学习三</h1>
-            
-            <div class="markdown-body">
-              <h1 id="Mybatis学习三："><a href="#Mybatis学习三：" class="headerlink" title="Mybatis学习三："></a>Mybatis学习三：</h1><h3 id="一、Mybatis生命周期和作用域："><a href="#一、Mybatis生命周期和作用域：" class="headerlink" title="一、Mybatis生命周期和作用域："></a>一、Mybatis生命周期和作用域：</h3><p><strong>关于mybatis的执行流程：</strong></p>
-<p><img src="/images/java4.png" srcset="/img/loading.gif" lazyload></p>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Mybatis学习三
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Mybatis学习三："><a href="#Mybatis学习三：" class="headerlink" title="Mybatis学习三："></a>Mybatis学习三：</h1><h3 id="一、Mybatis生命周期和作用域："><a href="#一、Mybatis生命周期和作用域：" class="headerlink" title="一、Mybatis生命周期和作用域："></a>一、Mybatis生命周期和作用域：</h3><p><strong>关于mybatis的执行流程：</strong></p>
+<p><img src="/images/java4.png"></p>
 <h4 id="SqlSessionFactoryBuilder"><a href="#SqlSessionFactoryBuilder" class="headerlink" title="SqlSessionFactoryBuilder"></a>SqlSessionFactoryBuilder</h4><p>这个类可以被实例化、使用和丢弃，一旦创建了 SqlSessionFactory，就不再需要它了。 所以他只存在于创建SqlSessionFactory的方法中，而不要让他长期存在。因此 <strong>SqlSessionFactoryBuilder 实例的最佳作用域是方法作用域（也就是局部方法变量）</strong>。</p>
 <h4 id="SqlSessionFactory"><a href="#SqlSessionFactory" class="headerlink" title="SqlSessionFactory"></a>SqlSessionFactory</h4><p>SqlSessionFactory 一旦被创建就应该在应用的运行期间一直存在，没有任何理由丢弃它或重新创建另一个实例。 使用 SqlSessionFactory 的最佳实践是在应用运行期间不要重复创建多次，多次重建 SqlSessionFactory 被视为一种代码“坏习惯”，会出现资源消耗和系统宕机等情况。因此 <strong>SqlSessionFactory 的最佳作用域是应用作用域。</strong></p>
 <p>SqlSessionFactory可以被当做是一个数据库连接池，用于创建SqlSession接口对象</p>
@@ -253,9 +122,9 @@
 <p>方案一：起别名</p>
 </li>
 </ol>
-<p><img src="/images/java5.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/java5.png"></p>
 <p>​        方案二：使用resultmap结果集映射</p>
-<p><img src="/images/java6.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/java6.png"></p>
 <p>​    2.<strong>ResultMap</strong></p>
 <p><code>resultMap</code> 元素是 MyBatis 中最重要最强大的元素。它可以让你从 90% 的 JDBC <code>ResultSets</code> 数据提取代码中解放出来，并在一些情形下允许你进行一些 JDBC 不支持的操作。实际上，在为一些比如连接的复杂语句编写映射代码的时候，一份 <code>resultMap</code> 能够代替实现同等功能的数千行代码。</p>
 <p><strong>ResultMap 的设计思想是，对简单的语句做到零配置，对于复杂一点的语句，只需要描述语句之间的关系就行了。</strong></p>
@@ -268,9 +137,9 @@
 <li>JDK logging</li>
 </ul>
 <p><strong>标准日志实现：</strong></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">settings</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">setting</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;logImpl&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;STDOUT_LOGGING&quot;</span>/&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">settings</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">settings</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">setting</span> <span class="attr">name</span>=<span class="string">&quot;logImpl&quot;</span> <span class="attr">value</span>=<span class="string">&quot;STDOUT_LOGGING&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">settings</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="/images/java8.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/java8.png"></p>
 <p><strong>使用log4j：</strong></p>
 <p>Log4j是Apache的一个开源项目</p>
 <p>通过使用Log4j，我们可以控制日志信息输送的目的地是控制台、文件、GUI组件</p>
@@ -280,358 +149,199 @@
 <p>导包</p>
 </li>
 </ol>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>log4j<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>log4j<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.2.17<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.17<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>​    2.编写配置文件</p>
 <p>在resource下创建一个log4j.properties文件</p>
-<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-comment">### set log levels ###</span><br><span class="hljs-meta">log4j.rootLogger</span> = <span class="hljs-string">DEBUG,console,file</span><br><span class="hljs-comment">###控制台输出的相关设置</span><br><span class="hljs-meta">log4j.appender.console</span> = <span class="hljs-string">org.apache.log4j.ConsoleAppender</span><br><span class="hljs-meta">log4j.appender.console.Target</span> = <span class="hljs-string">System.out</span><br><span class="hljs-meta">log4j.appender.console.Threshold</span> = <span class="hljs-string">DEBUG</span><br><span class="hljs-meta">log4j.appender.console.layout</span> = <span class="hljs-string">org.apache.log4j.PatternLayout</span><br><span class="hljs-meta">log4j.appender.console.layout.ConversionPattern</span>=<span class="hljs-string">[%c]-%m%n</span><br><span class="hljs-comment">###文件输出的相关设置</span><br><span class="hljs-meta">log4j.appender.file</span>=<span class="hljs-string">org.apache.log4j.RollingFileAppender</span><br><span class="hljs-meta">log4j.appender.file.Threshold</span>=<span class="hljs-string">DEBUG</span><br><span class="hljs-meta">log4j.appender.file.MaxFileSize</span>=<span class="hljs-string">10</span><br><span class="hljs-meta">log4j.appender.file.File</span>=<span class="hljs-string">./log/my.log</span><br><span class="hljs-meta">log4j.appender.file.layout</span>=<span class="hljs-string">org.apache.log4j.PatternLayout</span><br><span class="hljs-meta">log4j.appender.file.layout.ConversionPattern</span>=<span class="hljs-string">[%p][%d&#123;yy-MM-dd&#125;][%c]%m%n</span><br><span class="hljs-comment">###日志输出级别</span><br><span class="hljs-meta">log4j.logger.org.mybatis</span>=<span class="hljs-string">DEBUG</span><br><span class="hljs-meta">log4j.logger.java.sql</span>=<span class="hljs-string">DEBUG</span><br><span class="hljs-meta">log4j.logger.java.sql.Statement</span>=<span class="hljs-string">DEBUG</span><br><span class="hljs-meta">log4j.logger.java.sql.ResultSet</span>=<span class="hljs-string">DEBUG</span><br><span class="hljs-meta">log4j.logger.java.sql.PreparedStatement</span>=<span class="hljs-string">DEBUG</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### set log levels ###</span></span><br><span class="line"><span class="meta">log4j.rootLogger</span> = <span class="string">DEBUG,console,file</span></span><br><span class="line"><span class="comment">###控制台输出的相关设置</span></span><br><span class="line"><span class="meta">log4j.appender.console</span> = <span class="string">org.apache.log4j.ConsoleAppender</span></span><br><span class="line"><span class="meta">log4j.appender.console.Target</span> = <span class="string">System.out</span></span><br><span class="line"><span class="meta">log4j.appender.console.Threshold</span> = <span class="string">DEBUG</span></span><br><span class="line"><span class="meta">log4j.appender.console.layout</span> = <span class="string">org.apache.log4j.PatternLayout</span></span><br><span class="line"><span class="meta">log4j.appender.console.layout.ConversionPattern</span>=<span class="string">[%c]-%m%n</span></span><br><span class="line"><span class="comment">###文件输出的相关设置</span></span><br><span class="line"><span class="meta">log4j.appender.file</span>=<span class="string">org.apache.log4j.RollingFileAppender</span></span><br><span class="line"><span class="meta">log4j.appender.file.Threshold</span>=<span class="string">DEBUG</span></span><br><span class="line"><span class="meta">log4j.appender.file.MaxFileSize</span>=<span class="string">10</span></span><br><span class="line"><span class="meta">log4j.appender.file.File</span>=<span class="string">./log/my.log</span></span><br><span class="line"><span class="meta">log4j.appender.file.layout</span>=<span class="string">org.apache.log4j.PatternLayout</span></span><br><span class="line"><span class="meta">log4j.appender.file.layout.ConversionPattern</span>=<span class="string">[%p][%d&#123;yy-MM-dd&#125;][%c]%m%n</span></span><br><span class="line"><span class="comment">###日志输出级别</span></span><br><span class="line"><span class="meta">log4j.logger.org.mybatis</span>=<span class="string">DEBUG</span></span><br><span class="line"><span class="meta">log4j.logger.java.sql</span>=<span class="string">DEBUG</span></span><br><span class="line"><span class="meta">log4j.logger.java.sql.Statement</span>=<span class="string">DEBUG</span></span><br><span class="line"><span class="meta">log4j.logger.java.sql.ResultSet</span>=<span class="string">DEBUG</span></span><br><span class="line"><span class="meta">log4j.logger.java.sql.PreparedStatement</span>=<span class="string">DEBUG</span></span><br></pre></td></tr></table></figure>
 
 <p>3.setting设置日志实现</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">settings</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">setting</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;logImpl&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;LOG4J&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">settings</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">settings</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">setting</span> <span class="attr">name</span>=<span class="string">&quot;logImpl&quot;</span> <span class="attr">value</span>=<span class="string">&quot;LOG4J&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">settings</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>4.在程序中使用log4j进行输出</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">static</span> Logger logger = Logger.getLogger(UserMapperTest.class);<br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-comment">//获取sqlsession对象</span><br>        SqlSession sqlSession = MybatisUtils.getSqlSession();<br>        logger.info(<span class="hljs-string">&quot;info&quot;</span>);<br>        logger.error(<span class="hljs-string">&quot;error&quot;</span>);<br>        logger.debug(<span class="hljs-string">&quot;debug&quot;</span>);<br>        <span class="hljs-comment">//getMapper</span><br>        UserMapper mapper = sqlSession.getMapper(UserMapper.class);<br>        List&lt;User&gt; userList = mapper.getUserList();<br>        System.out.println(userList);<br>        <span class="hljs-comment">//关闭sqlsession</span><br>        sqlSession.close();<br>    &#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> Logger logger = Logger.getLogger(UserMapperTest.class);</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//获取sqlsession对象</span></span><br><span class="line">        SqlSession sqlSession = MybatisUtils.getSqlSession();</span><br><span class="line">        logger.info(<span class="string">&quot;info&quot;</span>);</span><br><span class="line">        logger.error(<span class="string">&quot;error&quot;</span>);</span><br><span class="line">        logger.debug(<span class="string">&quot;debug&quot;</span>);</span><br><span class="line">        <span class="comment">//getMapper</span></span><br><span class="line">        UserMapper mapper = sqlSession.getMapper(UserMapper.class);</span><br><span class="line">        List&lt;User&gt; userList = mapper.getUserList();</span><br><span class="line">        System.out.println(userList);</span><br><span class="line">        <span class="comment">//关闭sqlsession</span></span><br><span class="line">        sqlSession.close();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 <p>在控制台观察输出</p>
 <h3 id="四、分页"><a href="#四、分页" class="headerlink" title="四、分页"></a>四、分页</h3><p><strong>1、使用limit分页</strong></p>
 <p>修改mapper文件</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;getUserByLimit&quot;</span> <span class="hljs-attr">parameterType</span>=<span class="hljs-string">&quot;map&quot;</span> <span class="hljs-attr">resultType</span>=<span class="hljs-string">&quot;user&quot;</span>&gt;</span><br>        select * from mybatis.user limit #&#123;start&#125;,#&#123;pageSize&#125;<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;getUserByLimit&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;map&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;user&quot;</span>&gt;</span></span><br><span class="line">        select * from mybatis.user limit #&#123;start&#125;,#&#123;pageSize&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>Mapper接口：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//分页</span><br>    <span class="hljs-function">List&lt;User&gt; <span class="hljs-title">getUserByLimit</span><span class="hljs-params">(Map&lt;String,Object&gt; map)</span></span>;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//分页</span></span><br><span class="line">    <span class="function">List&lt;User&gt; <span class="title">getUserByLimit</span><span class="params">(Map&lt;String,Object&gt; map)</span></span>;</span><br></pre></td></tr></table></figure>
 
 <p>测试：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Test</span><br>   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test2</span><span class="hljs-params">()</span></span>&#123;<br>       SqlSession sqlSession = MybatisUtils.getSqlSession();<br>       UserMapper mapper = sqlSession.getMapper(UserMapper.class);<br>       HashMap&lt;String, Object&gt; map = <span class="hljs-keyword">new</span> HashMap&lt;String, Object&gt;();<br>       map.put(<span class="hljs-string">&quot;start&quot;</span>,<span class="hljs-number">0</span>);<br>       map.put(<span class="hljs-string">&quot;pageSize&quot;</span>,<span class="hljs-number">2</span>);<br>       List&lt;User&gt; userList = mapper.getUserByLimit(map);<br>       <span class="hljs-keyword">for</span> (User user : userList) &#123;<br>           System.out.println(user);<br>       &#125;<br><br>       sqlSession.close();<br>   &#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span></span>&#123;</span><br><span class="line">       SqlSession sqlSession = MybatisUtils.getSqlSession();</span><br><span class="line">       UserMapper mapper = sqlSession.getMapper(UserMapper.class);</span><br><span class="line">       HashMap&lt;String, Object&gt; map = <span class="keyword">new</span> HashMap&lt;String, Object&gt;();</span><br><span class="line">       map.put(<span class="string">&quot;start&quot;</span>,<span class="number">0</span>);</span><br><span class="line">       map.put(<span class="string">&quot;pageSize&quot;</span>,<span class="number">2</span>);</span><br><span class="line">       List&lt;User&gt; userList = mapper.getUserByLimit(map);</span><br><span class="line">       <span class="keyword">for</span> (User user : userList) &#123;</span><br><span class="line">           System.out.println(user);</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       sqlSession.close();</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 
 <p><strong>2、RowBounds实现分页</strong></p>
 <p>了解就行，一般不用</p>
-<h3 id="五、使用注解开发"><a href="#五、使用注解开发" class="headerlink" title="五、使用注解开发"></a>五、使用注解开发</h3><p><img src="/images/java9.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="五、使用注解开发"><a href="#五、使用注解开发" class="headerlink" title="五、使用注解开发"></a>五、使用注解开发</h3><p><img src="/images/java9.png"></p>
 <p>使用注解时就不需要mapper.xml映射文件了</p>
 <p>1、在接口添加注解</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Select(&quot;select * from user&quot;)</span><br>   <span class="hljs-function">List&lt;User&gt; <span class="hljs-title">getUsers</span><span class="hljs-params">()</span></span>;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Select(&quot;select * from user&quot;)</span></span><br><span class="line">   <span class="function">List&lt;User&gt; <span class="title">getUsers</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
 
 <p>2、在核心配置文件注入</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">mappers</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">mapper</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dao.UserMapper&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mapper</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">mappers</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mappers</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mapper</span> <span class="attr">class</span>=<span class="string">&quot;dao.UserMapper&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mappers</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>3、测试</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Test</span><br>   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test</span><span class="hljs-params">()</span></span>&#123;<br>       SqlSession sqlSession = MybatisUtils.getSqlSession();<br>       UserMapper mapper = sqlSession.getMapper(UserMapper.class);<br>       List&lt;User&gt; users = mapper.getUsers();<br>       <span class="hljs-keyword">for</span> (User user : users) &#123;<br>           System.out.println(user);<br>       &#125;<br>       sqlSession.close();<br>   &#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line">       SqlSession sqlSession = MybatisUtils.getSqlSession();</span><br><span class="line">       UserMapper mapper = sqlSession.getMapper(UserMapper.class);</span><br><span class="line">       List&lt;User&gt; users = mapper.getUsers();</span><br><span class="line">       <span class="keyword">for</span> (User user : users) &#123;</span><br><span class="line">           System.out.println(user);</span><br><span class="line">       &#125;</span><br><span class="line">       sqlSession.close();</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 
 <p>使用注解来映射简单语句会使代码显得更加简洁，但对于稍微复杂一点的语句，Java 注解不仅力不从心，还会让你本就复杂的 SQL 语句更加混乱不堪。 因此，如果你需要做一些很复杂的操作，最好用 XML 来映射语句。</p>
-<p><img src="/images/java10.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/java10.png"></p>
 <p>4、mybatis详细执行流程</p>
-<p><img src="/images/java11.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/images/java12.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/java11.png"></p>
+<p><img src="/images/java12.png"></p>
 
-            </div>
-            <hr>
-            <div>
-              <div class="post-metas mb-3">
-                
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/java/">java</a>
-                    
-                      <a class="hover-with-bg" href="/categories/java/mybatis/">mybatis</a>
-                    
-                  </div>
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/java/">java</a>
-                    
-                      <a class="hover-with-bg" href="/tags/mybatis/">mybatis</a>
-                    
-                  </div>
-                
-              </div>
-              
-                <p class="note note-warning">
-                  
-                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
-                  
-                </p>
-              
-              
-                <div class="post-prevnext">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2021/07/25/Mybatis%E5%AD%A6%E4%B9%A0%E4%BA%8C/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Mybatis学习二</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2021/07/25/Mybatis%E5%AD%A6%E4%B9%A0%E4%B8%80/">
-                        <span class="hidden-mobile">Mybatis学习一</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
-            </div>
-
-            
-              <!-- Comments -->
-              <article class="comments" id="comments" lazyload>
-                
-                  
-                
-                
-  <div class="disqus" style="width:100%">
-    <div id="disqus_thread"></div>
-    
-      <script type="text/javascript">
-        var disqus_config = function() {
-          this.page.url = 'http://levialias.top/2021/07/25/Mybatis%E5%AD%A6%E4%B9%A0%E4%B8%89/';
-          this.page.identifier = '/2021/07/25/Mybatis%E5%AD%A6%E4%B9%A0%E4%B8%89/';
-        };
-        Fluid.utils.lazyComments('disqus_thread', function() {
-          var d = document, s = d.createElement('script');
-          s.src = '//' + 'fluid' + '.disqus.com/embed.js';
-          s.setAttribute('data-timestamp', new Date());
-          (d.head || d.body).appendChild(s);
-        });
-      </script>
-    
-    <noscript>Please enable JavaScript to view the
-      <a target="_blank" href="https://disqus.com/?ref_noscript" rel="nofollow noopener noopener">comments powered by Disqus.</a>
-    </noscript>
-  </div>
-
-
-              </article>
-            
-          </article>
-        </div>
-      </div>
+      
     </div>
-    
-      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
+    <footer class="article-footer">
+      <a data-url="http://levialias.top/2021/07/25/Mybatis%E5%AD%A6%E4%B9%A0%E4%B8%89/" data-id="cl2keis6t000d4gv74kz10yrf" data-title="Mybatis学习三" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mybatis/" rel="tag">mybatis</a></li></ul>
 
-      </div>
-    
+    </footer>
   </div>
-</div>
-
-<!-- Custom -->
-
-
+  
     
-
-    
-      <a id="scroll-top-button" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+<nav id="article-nav">
+  
+    <a href="/2021/07/25/Mybatis%E5%AD%A6%E4%B9%A0%E4%BA%8C/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          Mybatis学习二
+        
       </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
+    </a>
+  
+  
+    <a href="/2021/07/25/Mybatis%E5%AD%A6%E4%B9%A0%E4%B8%80/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">Mybatis学习一</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/consul/">consul</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/consul/springcloud/">springcloud</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/eureka/">eureka</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/eureka/springcloud/">springcloud</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/mybatis/">mybatis</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/mybatis-plus/">mybatis-plus</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring/">spring</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/springboot/">springboot</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/springcloud/">springcloud</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/springcloud/ribbon/">ribbon</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%BD%91/">计网</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%BD%91/HTTP/">HTTP</a></li></ul></li></ul>
     </div>
   </div>
-</div>
-    
 
-    
-  </main>
 
-  <footer class="text-center mt-5 py-3">
-  <div class="footer-content">
-     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-  </div>
   
-  <div class="statistics">
     
-    
-
-    
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            总访问量 
-            <span id="busuanzi_value_site_pv"></span>
-             次
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            总访客数 
-            <span id="busuanzi_value_site_uv"></span>
-             人
-          </span>
-      
-    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/" rel="tag">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/consul/" rel="tag">consul</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eureka/" rel="tag">eureka</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mybatis/" rel="tag">mybatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mybatis-plus/" rel="tag">mybatis-plus</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ribbon/" rel="tag">ribbon</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/" rel="tag">spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springcloud/" rel="tag">springcloud</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%BD%91/" rel="tag">计网</a></li></ul>
+    </div>
   </div>
 
 
   
-  <!-- 备案信息 -->
-  <div class="beian">
-    <span>
-      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-        蜀ICP备2021009969号
-      </a>
-    </span>
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/HTTP/" style="font-size: 12.5px;">HTTP</a> <a href="/tags/consul/" style="font-size: 10px;">consul</a> <a href="/tags/eureka/" style="font-size: 10px;">eureka</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/mybatis/" style="font-size: 15px;">mybatis</a> <a href="/tags/mybatis-plus/" style="font-size: 10px;">mybatis-plus</a> <a href="/tags/ribbon/" style="font-size: 10px;">ribbon</a> <a href="/tags/spring/" style="font-size: 17.5px;">spring</a> <a href="/tags/springboot/" style="font-size: 12.5px;">springboot</a> <a href="/tags/springcloud/" style="font-size: 15px;">springcloud</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 12.5px;">计网</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">一月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">十月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a></li></ul>
+    </div>
   </div>
 
 
   
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/01/22/HTTP%E5%AD%A6%E4%B9%A0%E4%B8%89/">HTTP学习三</a>
+          </li>
+        
+          <li>
+            <a href="/2022/01/21/HTTP%E5%AD%A6%E4%B9%A0%E4%BA%8C/">HTTP学习二</a>
+          </li>
+        
+          <li>
+            <a href="/2022/01/19/HTTP%E5%AD%A6%E4%B9%A0%E4%B8%80/">HTTP学习一</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/27/Ribbon%E5%9B%9E%E9%A1%BE/">Ribbon回顾</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/26/%E6%B5%85%E8%A6%81%E8%AF%B4%E8%AF%B4CAP/">浅要说说CAP</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 Alias<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
 </footer>
 
-
-  <!-- SCRIPTS -->
+    </div>
+    <nav id="mobile-nav">
   
-  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
-
-
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-<!-- Plugins -->
-
-
+    <a href="/" class="mobile-nav-link">Home</a>
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <a href="/archives" class="mobile-nav-link">Archives</a>
   
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
 
 
 
   
-
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
-
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
-
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
-
-
-
-  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
-
-
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+<script src="/fancybox/jquery.fancybox.min.js"></script>
 
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var title = document.getElementById('subtitle').title;
-      
-      typing(title)
-      
-    })(window, document);
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    (function () {
-      var path = "/local-search.xml";
-      $('#local-search-input').on('click', function() {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      });
-      $('#modalSearch').on('shown.bs.modal', function() {
-        $('#local-search-input').focus();
-      });
-    })()
-  </script>
+<script src="/js/script.js"></script>
 
 
 
 
 
-
-
-
-
-
-
-
-  
-    <!-- Baidu Analytics -->
-    <script defer>
-      var _hmt = _hmt || [];
-      (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?siteId=13751376";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();
-    </script>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-
-
-<!-- 主题的启动项 保持在最底部 -->
-<script  src="/js/boot.js" ></script>
-
-
+  </div>
 </body>
 </html>

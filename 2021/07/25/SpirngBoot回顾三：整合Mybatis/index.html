@@ -1,592 +1,293 @@
-
-
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
-
-
-
+<html>
 <head>
-  <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/Alias.png">
-  <link rel="icon" href="/img/Alias.png">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta charset="utf-8">
   
-  <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="Alias的博客">
-  <meta name="author" content="Alias">
-  <meta name="keywords" content="">
   
-  <title>SpirngBoot回顾三：整合Mybatis - Alias的博客</title>
+  <title>SpirngBoot回顾三：整合Mybatis | Alias的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="SpirngBoot回顾三：整合Mybatis整合测试1、导入 MyBatis 所需要的依赖 12345&lt;dependency&gt;    &lt;groupId&gt;org.mybatis.spring.boot&lt;&#x2F;groupId&gt;    &lt;artifactId&gt;mybatis-spring-boot-starter&lt;&#x2F;artifactId&gt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpirngBoot回顾三：整合Mybatis">
+<meta property="og:url" content="http://levialias.top/2021/07/25/SpirngBoot%E5%9B%9E%E9%A1%BE%E4%B8%89%EF%BC%9A%E6%95%B4%E5%90%88Mybatis/index.html">
+<meta property="og:site_name" content="Alias的博客">
+<meta property="og:description" content="SpirngBoot回顾三：整合Mybatis整合测试1、导入 MyBatis 所需要的依赖 12345&lt;dependency&gt;    &lt;groupId&gt;org.mybatis.spring.boot&lt;&#x2F;groupId&gt;    &lt;artifactId&gt;mybatis-spring-boot-starter&lt;&#x2F;artifactId&gt;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-07-25T11:07:00.624Z">
+<meta property="article:modified_time" content="2021-06-24T12:02:48.333Z">
+<meta property="article:author" content="Alias">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="springboot">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Alias的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
-
-
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+  
+  
+<link rel="stylesheet" href="/css/style.css">
 
   
     
-    
-      
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
-    
-  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
 
   
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
-  
-
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-<!-- 自定义样式保持在最底部 -->
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"levialias.top","root":"/","version":"1.8.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"siteId=13751376","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 5.4.0"></head>
 
-
 <body>
-  <header style="height: 70vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>Alias</strong>&nbsp;</a>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Alias的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://levialias.top"></form>
+      </div>
+    </div>
+  </div>
+</header>
 
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
+      <div class="outer">
+        <section id="main"><article id="post-SpirngBoot回顾三：整合Mybatis" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/25/SpirngBoot%E5%9B%9E%E9%A1%BE%E4%B8%89%EF%BC%9A%E6%95%B4%E5%90%88Mybatis/" class="article-date">
+  <time class="dt-published" datetime="2021-07-25T11:07:00.624Z" itemprop="datePublished">2021-07-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>►<a class="article-category-link" href="/categories/java/springboot/">springboot</a>
+  </div>
 
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
         
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                首页
-              </a>
-            </li>
-          
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      SpirngBoot回顾三：整合Mybatis
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="SpirngBoot回顾三：整合Mybatis"><a href="#SpirngBoot回顾三：整合Mybatis" class="headerlink" title="SpirngBoot回顾三：整合Mybatis"></a>SpirngBoot回顾三：整合Mybatis</h1><h2 id="整合测试"><a href="#整合测试" class="headerlink" title="整合测试"></a>整合测试</h2><p>1、导入 MyBatis 所需要的依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis.spring.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.1.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>2、配置数据库连接信息</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">spring.datasource.username</span>=<span class="string">root</span></span><br><span class="line"><span class="meta">spring.datasource.password</span>=<span class="string">root</span></span><br><span class="line"><span class="meta">spring.datasource.url</span>=<span class="string">jdbc:mysql://localhost:3306/login?serverTimezone=UTC&amp;useUnicode=true&amp;characterEncoding=utf-8</span></span><br><span class="line"><span class="meta">spring.datasource.driver-class-name</span>=<span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#整合mybatis</span></span><br><span class="line"><span class="meta">mybatis.type-aliases-package</span>=<span class="string">com.lsh.pojo</span></span><br><span class="line"><span class="meta">mybatis.mapper-locations</span>=<span class="string">classpath:mybatis/Mapper/*.xml</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>3、测试数据库是否连接成功！</strong></p>
+<p><strong>4、创建实体类</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.lsh.pojo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.AllArgsConstructor;</span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"><span class="keyword">import</span> lombok.NoArgsConstructor;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Department</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> String departmentName;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>5、创建mapper目录以及对应的 Mapper 接口</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Mapper</span></span><br><span class="line"><span class="meta">@Repository</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">DepartmentMapper</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取所有部门信息</span></span><br><span class="line">    <span class="function">List&lt;Department&gt; <span class="title">getDepartments</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 通过id获得部门</span></span><br><span class="line">    <span class="function">Department <span class="title">getDepartment</span><span class="params">(Integer id)</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>6、对应的Mapper映射文件</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">mapper</span></span></span><br><span class="line"><span class="meta">        <span class="meta-keyword">PUBLIC</span> <span class="meta-string">&quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;</span></span></span><br><span class="line"><span class="meta">        <span class="meta-string">&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">&quot;com.lsh.mapper.DepartmentMapper&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;getDepartments&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;Department&quot;</span>&gt;</span></span><br><span class="line">        select * from department;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;getDepartment&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;Department&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;int&quot;</span>&gt;</span></span><br><span class="line">        select * from department where id = #&#123;id&#125;;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>7、maven配置资源过滤问题</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/java<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.xml<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filtering</span>&gt;</span>true<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>8、编写部门的 DepartmentController 进行测试！</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DepartmentController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    DepartmentMapper departmentMapper;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 查询全部部门</span></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/getDepartments&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Department&gt; <span class="title">getDepartments</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> departmentMapper.getDepartments();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 查询全部部门</span></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/getDepartment/&#123;id&#125;&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Department <span class="title">getDepartment</span><span class="params">(<span class="meta">@PathVariable(&quot;id&quot;)</span> Integer id)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> departmentMapper.getDepartment(id);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>启动项目访问进行测试！</strong></p>
+<h4 id="我们增加一个员工类再测试下"><a href="#我们增加一个员工类再测试下" class="headerlink" title="我们增加一个员工类再测试下"></a>我们增加一个员工类再测试下</h4><p>1、新建一个pojo类 Employee ；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Employee</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> String lastName;</span><br><span class="line">    <span class="keyword">private</span> String email;</span><br><span class="line">    <span class="comment">//1 male, 0 female</span></span><br><span class="line">    <span class="keyword">private</span> Integer gender;</span><br><span class="line">    <span class="keyword">private</span> Integer department;</span><br><span class="line">    <span class="keyword">private</span> Date birth;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Department eDepartment;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2、新建一个 EmployeeMapper 接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Mapper</span></span><br><span class="line"><span class="meta">@Repository</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">EmployeeMapper</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取所有员工信息</span></span><br><span class="line">    <span class="function">List&lt;Employee&gt; <span class="title">getEmployees</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 新增一个员工</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">save</span><span class="params">(Employee employee)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 通过id获得员工信息</span></span><br><span class="line">    <span class="function">Employee <span class="title">get</span><span class="params">(Integer id)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 通过id删除员工</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">delete</span><span class="params">(Integer id)</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>3、编写 EmployeeMapper.xml 配置文件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">mapper</span></span></span><br><span class="line"><span class="meta">        <span class="meta-keyword">PUBLIC</span> <span class="meta-string">&quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;</span></span></span><br><span class="line"><span class="meta">        <span class="meta-string">&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">&quot;com.lsh.mapper.EmployeeMapper&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">id</span>=<span class="string">&quot;EmployeeMap&quot;</span> <span class="attr">type</span>=<span class="string">&quot;Employee&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span> <span class="attr">property</span>=<span class="string">&quot;id&quot;</span> <span class="attr">column</span>=<span class="string">&quot;eid&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;lastName&quot;</span> <span class="attr">column</span>=<span class="string">&quot;last_name&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;email&quot;</span> <span class="attr">column</span>=<span class="string">&quot;email&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;gender&quot;</span> <span class="attr">column</span>=<span class="string">&quot;gender&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;birth&quot;</span> <span class="attr">column</span>=<span class="string">&quot;birth&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">association</span> <span class="attr">property</span>=<span class="string">&quot;eDepartment&quot;</span>  <span class="attr">javaType</span>=<span class="string">&quot;Department&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">id</span> <span class="attr">property</span>=<span class="string">&quot;id&quot;</span> <span class="attr">column</span>=<span class="string">&quot;did&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;departmentName&quot;</span> <span class="attr">column</span>=<span class="string">&quot;dname&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">association</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;getEmployees&quot;</span> <span class="attr">resultMap</span>=<span class="string">&quot;EmployeeMap&quot;</span>&gt;</span></span><br><span class="line">        select e.id as eid,last_name,email,gender,birth,d.id as did,d.department_name as dname</span><br><span class="line">        from department d,employee e</span><br><span class="line">        where d.id = e.department</span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">&quot;save&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;Employee&quot;</span>&gt;</span></span><br><span class="line">        insert into employee (last_name,email,gender,department,birth)</span><br><span class="line">        values (#&#123;lastName&#125;,#&#123;email&#125;,#&#123;gender&#125;,#&#123;department&#125;,#&#123;birth&#125;);</span><br><span class="line">    <span class="tag">&lt;/<span class="name">insert</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;get&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;Employee&quot;</span>&gt;</span></span><br><span class="line">        select * from employee where id = #&#123;id&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">delete</span> <span class="attr">id</span>=<span class="string">&quot;delete&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;int&quot;</span>&gt;</span></span><br><span class="line">        delete from employee where id = #&#123;id&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">delete</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>4、编写EmployeeController类进行测试</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EmployeeController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    EmployeeMapper employeeMapper;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取所有员工信息</span></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/getEmployees&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Employee&gt; <span class="title">getEmployees</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> employeeMapper.getEmployees();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/save&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">save</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Employee employee = <span class="keyword">new</span> Employee();</span><br><span class="line">        employee.setLastName(<span class="string">&quot;lisihan&quot;</span>);</span><br><span class="line">        employee.setEmail(<span class="string">&quot;lisihan@qq.com&quot;</span>);</span><br><span class="line">        employee.setGender(<span class="number">1</span>);</span><br><span class="line">        employee.setDepartment(<span class="number">101</span>);</span><br><span class="line">        employee.setBirth(<span class="keyword">new</span> Date());</span><br><span class="line">        <span class="keyword">return</span> employeeMapper.save(employee);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 通过id获得员工信息</span></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/get/&#123;id&#125;&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Employee <span class="title">get</span><span class="params">(<span class="meta">@PathVariable(&quot;id&quot;)</span> Integer id)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> employeeMapper.get(id);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 通过id删除员工</span></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/delete/&#123;id&#125;&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">delete</span><span class="params">(<span class="meta">@PathVariable(&quot;id&quot;)</span> Integer id)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> employeeMapper.delete(id);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://levialias.top/2021/07/25/SpirngBoot%E5%9B%9E%E9%A1%BE%E4%B8%89%EF%BC%9A%E6%95%B4%E5%90%88Mybatis/" data-id="cl2keis6z000n4gv7hvfi7zeh" data-title="SpirngBoot回顾三：整合Mybatis" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/07/25/SpirngBoot%E5%9B%9E%E9%A1%BE%E4%BA%8C%EF%BC%9Ayml%E9%85%8D%E7%BD%AE/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
         
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                归档
-              </a>
-            </li>
-          
+          SpirngBoot回顾二：yml配置
         
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/">
-                <i class="iconfont icon-category-fill"></i>
-                分类
-              </a>
-            </li>
-          
+      </div>
+    </a>
+  
+  
+    <a href="/2021/07/25/SpirngBoot%E5%9B%9E%E9%A1%BE%E4%B8%80/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">SpirngBoot回顾一</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
         
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                标签
-              </a>
-            </li>
-          
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/consul/">consul</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/consul/springcloud/">springcloud</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/eureka/">eureka</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/eureka/springcloud/">springcloud</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/mybatis/">mybatis</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/mybatis-plus/">mybatis-plus</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/spring/">spring</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/springboot/">springboot</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/springcloud/">springcloud</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/springcloud/ribbon/">ribbon</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%BD%91/">计网</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%BD%91/HTTP/">HTTP</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/" rel="tag">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/consul/" rel="tag">consul</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eureka/" rel="tag">eureka</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mybatis/" rel="tag">mybatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mybatis-plus/" rel="tag">mybatis-plus</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ribbon/" rel="tag">ribbon</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/" rel="tag">spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springcloud/" rel="tag">springcloud</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%BD%91/" rel="tag">计网</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/HTTP/" style="font-size: 12.5px;">HTTP</a> <a href="/tags/consul/" style="font-size: 10px;">consul</a> <a href="/tags/eureka/" style="font-size: 10px;">eureka</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/mybatis/" style="font-size: 15px;">mybatis</a> <a href="/tags/mybatis-plus/" style="font-size: 10px;">mybatis-plus</a> <a href="/tags/ribbon/" style="font-size: 10px;">ribbon</a> <a href="/tags/spring/" style="font-size: 17.5px;">spring</a> <a href="/tags/springboot/" style="font-size: 12.5px;">springboot</a> <a href="/tags/springcloud/" style="font-size: 15px;">springcloud</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 12.5px;">计网</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">一月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">十月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
         
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                关于
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+          <li>
+            <a href="/2022/01/22/HTTP%E5%AD%A6%E4%B9%A0%E4%B8%89/">HTTP学习三</a>
           </li>
         
+          <li>
+            <a href="/2022/01/21/HTTP%E5%AD%A6%E4%B9%A0%E4%BA%8C/">HTTP学习二</a>
+          </li>
         
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          <li>
+            <a href="/2022/01/19/HTTP%E5%AD%A6%E4%B9%A0%E4%B8%80/">HTTP学习一</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/27/Ribbon%E5%9B%9E%E9%A1%BE/">Ribbon回顾</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/26/%E6%B5%85%E8%A6%81%E8%AF%B4%E8%AF%B4CAP/">浅要说说CAP</a>
           </li>
         
       </ul>
     </div>
   </div>
-</nav>
-
-    <div class="banner" id="banner" parallax=true
-         style="background: url('/img/home.png') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="SpirngBoot回顾三：整合Mybatis">
-              
-            </span>
-
-            
-              <div class="mt-3">
-  
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-author" aria-hidden="true"></i>
-      Alias
-    </span>
-  
-  
-    <span class="post-meta">
-      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-07-25 19:07" pubdate>
-        2021年7月25日 晚上
-      </time>
-    </span>
-  
-</div>
-
-<div class="mt-1">
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      980 字
-    </span>
-  
 
   
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
       
-      
-      17
-       分钟
-    </span>
-  
-
-  
-  
-    
-      <!-- 不蒜子统计文章PV -->
-      <span id="busuanzi_container_page_pv" style="display: none">
-        <i class="iconfont icon-eye" aria-hidden="true"></i>
-        <span id="busuanzi_value_page_pv"></span> 次
-      </span>
-    
-  
-</div>
-
-            
-          </div>
-
-          
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    
-      
-
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div class="py-5" id="board">
-          <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">SpirngBoot回顾三：整合Mybatis</h1>
-            
-            <div class="markdown-body">
-              <h1 id="SpirngBoot回顾三：整合Mybatis"><a href="#SpirngBoot回顾三：整合Mybatis" class="headerlink" title="SpirngBoot回顾三：整合Mybatis"></a>SpirngBoot回顾三：整合Mybatis</h1><h2 id="整合测试"><a href="#整合测试" class="headerlink" title="整合测试"></a>整合测试</h2><p>1、导入 MyBatis 所需要的依赖</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.mybatis.spring.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mybatis-spring-boot-starter<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.1.4<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
-<p>2、配置数据库连接信息</p>
-<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-meta">spring.datasource.username</span>=<span class="hljs-string">root</span><br><span class="hljs-meta">spring.datasource.password</span>=<span class="hljs-string">root</span><br><span class="hljs-meta">spring.datasource.url</span>=<span class="hljs-string">jdbc:mysql://localhost:3306/login?serverTimezone=UTC&amp;useUnicode=true&amp;characterEncoding=utf-8</span><br><span class="hljs-meta">spring.datasource.driver-class-name</span>=<span class="hljs-string">com.mysql.cj.jdbc.Driver</span><br><br><span class="hljs-comment">#整合mybatis</span><br><span class="hljs-meta">mybatis.type-aliases-package</span>=<span class="hljs-string">com.lsh.pojo</span><br><span class="hljs-meta">mybatis.mapper-locations</span>=<span class="hljs-string">classpath:mybatis/Mapper/*.xml</span><br></code></pre></td></tr></table></figure>
-
-<p><strong>3、测试数据库是否连接成功！</strong></p>
-<p><strong>4、创建实体类</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.lsh.pojo;<br><br><span class="hljs-keyword">import</span> lombok.AllArgsConstructor;<br><span class="hljs-keyword">import</span> lombok.Data;<br><span class="hljs-keyword">import</span> lombok.NoArgsConstructor;<br><br><span class="hljs-meta">@Data</span><br><span class="hljs-meta">@NoArgsConstructor</span><br><span class="hljs-meta">@AllArgsConstructor</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Department</span> </span>&#123;<br><br>    <span class="hljs-keyword">private</span> Integer id;<br>    <span class="hljs-keyword">private</span> String departmentName;<br><br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p><strong>5、创建mapper目录以及对应的 Mapper 接口</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><br><span class="hljs-meta">@Mapper</span><br><span class="hljs-meta">@Repository</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">DepartmentMapper</span> </span>&#123;<br><br>    <span class="hljs-comment">// 获取所有部门信息</span><br>    <span class="hljs-function">List&lt;Department&gt; <span class="hljs-title">getDepartments</span><span class="hljs-params">()</span></span>;<br><br>    <span class="hljs-comment">// 通过id获得部门</span><br>    <span class="hljs-function">Department <span class="hljs-title">getDepartment</span><span class="hljs-params">(Integer id)</span></span>;<br><br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p><strong>6、对应的Mapper映射文件</strong></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span><br><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">mapper</span></span><br><span class="hljs-meta">        <span class="hljs-meta-keyword">PUBLIC</span> <span class="hljs-meta-string">&quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;</span></span><br><span class="hljs-meta">        <span class="hljs-meta-string">&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">mapper</span> <span class="hljs-attr">namespace</span>=<span class="hljs-string">&quot;com.lsh.mapper.DepartmentMapper&quot;</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;getDepartments&quot;</span> <span class="hljs-attr">resultType</span>=<span class="hljs-string">&quot;Department&quot;</span>&gt;</span><br>        select * from department;<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;getDepartment&quot;</span> <span class="hljs-attr">resultType</span>=<span class="hljs-string">&quot;Department&quot;</span> <span class="hljs-attr">parameterType</span>=<span class="hljs-string">&quot;int&quot;</span>&gt;</span><br>        select * from department where id = #&#123;id&#125;;<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">mapper</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
-<p><strong>7、maven配置资源过滤问题</strong></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">resources</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">resource</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">directory</span>&gt;</span>src/main/java<span class="hljs-tag">&lt;/<span class="hljs-name">directory</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">includes</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">include</span>&gt;</span>**/*.xml<span class="hljs-tag">&lt;/<span class="hljs-name">include</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">includes</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">filtering</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">filtering</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">resource</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">resources</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
-<p><strong>8、编写部门的 DepartmentController 进行测试！</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RestController</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DepartmentController</span> </span>&#123;<br><br>    <span class="hljs-meta">@Autowired</span><br>    DepartmentMapper departmentMapper;<br><br>    <span class="hljs-comment">// 查询全部部门</span><br>    <span class="hljs-meta">@GetMapping(&quot;/getDepartments&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Department&gt; <span class="hljs-title">getDepartments</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">return</span> departmentMapper.getDepartments();<br>    &#125;<br><br>    <span class="hljs-comment">// 查询全部部门</span><br>    <span class="hljs-meta">@GetMapping(&quot;/getDepartment/&#123;id&#125;&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Department <span class="hljs-title">getDepartment</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable(&quot;id&quot;)</span> Integer id)</span></span>&#123;<br>        <span class="hljs-keyword">return</span> departmentMapper.getDepartment(id);<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p><strong>启动项目访问进行测试！</strong></p>
-<h4 id="我们增加一个员工类再测试下"><a href="#我们增加一个员工类再测试下" class="headerlink" title="我们增加一个员工类再测试下"></a>我们增加一个员工类再测试下</h4><p>1、新建一个pojo类 Employee ；</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Data</span><br><span class="hljs-meta">@AllArgsConstructor</span><br><span class="hljs-meta">@NoArgsConstructor</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Employee</span> </span>&#123;<br><br>    <span class="hljs-keyword">private</span> Integer id;<br>    <span class="hljs-keyword">private</span> String lastName;<br>    <span class="hljs-keyword">private</span> String email;<br>    <span class="hljs-comment">//1 male, 0 female</span><br>    <span class="hljs-keyword">private</span> Integer gender;<br>    <span class="hljs-keyword">private</span> Integer department;<br>    <span class="hljs-keyword">private</span> Date birth;<br><br>    <span class="hljs-keyword">private</span> Department eDepartment;<br><br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>2、新建一个 EmployeeMapper 接口</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><br><span class="hljs-meta">@Mapper</span><br><span class="hljs-meta">@Repository</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">EmployeeMapper</span> </span>&#123;<br><br>    <span class="hljs-comment">// 获取所有员工信息</span><br>    <span class="hljs-function">List&lt;Employee&gt; <span class="hljs-title">getEmployees</span><span class="hljs-params">()</span></span>;<br><br>    <span class="hljs-comment">// 新增一个员工</span><br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">save</span><span class="hljs-params">(Employee employee)</span></span>;<br><br>    <span class="hljs-comment">// 通过id获得员工信息</span><br>    <span class="hljs-function">Employee <span class="hljs-title">get</span><span class="hljs-params">(Integer id)</span></span>;<br><br>    <span class="hljs-comment">// 通过id删除员工</span><br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">delete</span><span class="hljs-params">(Integer id)</span></span>;<br><br>&#125;<br><br></code></pre></td></tr></table></figure>
-
-<p>3、编写 EmployeeMapper.xml 配置文件</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span><br><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">mapper</span></span><br><span class="hljs-meta">        <span class="hljs-meta-keyword">PUBLIC</span> <span class="hljs-meta-string">&quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;</span></span><br><span class="hljs-meta">        <span class="hljs-meta-string">&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">mapper</span> <span class="hljs-attr">namespace</span>=<span class="hljs-string">&quot;com.lsh.mapper.EmployeeMapper&quot;</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">resultMap</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;EmployeeMap&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;Employee&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">id</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;id&quot;</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;eid&quot;</span>/&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;lastName&quot;</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;last_name&quot;</span>/&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;email&quot;</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;email&quot;</span>/&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;gender&quot;</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;gender&quot;</span>/&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;birth&quot;</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;birth&quot;</span>/&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">association</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;eDepartment&quot;</span>  <span class="hljs-attr">javaType</span>=<span class="hljs-string">&quot;Department&quot;</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">id</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;id&quot;</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;did&quot;</span>/&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;departmentName&quot;</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;dname&quot;</span>/&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">association</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">resultMap</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;getEmployees&quot;</span> <span class="hljs-attr">resultMap</span>=<span class="hljs-string">&quot;EmployeeMap&quot;</span>&gt;</span><br>        select e.id as eid,last_name,email,gender,birth,d.id as did,d.department_name as dname<br>        from department d,employee e<br>        where d.id = e.department<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">insert</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;save&quot;</span> <span class="hljs-attr">parameterType</span>=<span class="hljs-string">&quot;Employee&quot;</span>&gt;</span><br>        insert into employee (last_name,email,gender,department,birth)<br>        values (#&#123;lastName&#125;,#&#123;email&#125;,#&#123;gender&#125;,#&#123;department&#125;,#&#123;birth&#125;);<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">insert</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;get&quot;</span> <span class="hljs-attr">resultType</span>=<span class="hljs-string">&quot;Employee&quot;</span>&gt;</span><br>        select * from employee where id = #&#123;id&#125;<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">delete</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;delete&quot;</span> <span class="hljs-attr">parameterType</span>=<span class="hljs-string">&quot;int&quot;</span>&gt;</span><br>        delete from employee where id = #&#123;id&#125;<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">delete</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">mapper</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
-<p>4、编写EmployeeController类进行测试</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RestController</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">EmployeeController</span> </span>&#123;<br><br>    <span class="hljs-meta">@Autowired</span><br>    EmployeeMapper employeeMapper;<br><br>    <span class="hljs-comment">// 获取所有员工信息</span><br>    <span class="hljs-meta">@GetMapping(&quot;/getEmployees&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Employee&gt; <span class="hljs-title">getEmployees</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">return</span> employeeMapper.getEmployees();<br>    &#125;<br><br>    <span class="hljs-meta">@GetMapping(&quot;/save&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">save</span><span class="hljs-params">()</span></span>&#123;<br>        Employee employee = <span class="hljs-keyword">new</span> Employee();<br>        employee.setLastName(<span class="hljs-string">&quot;lisihan&quot;</span>);<br>        employee.setEmail(<span class="hljs-string">&quot;lisihan@qq.com&quot;</span>);<br>        employee.setGender(<span class="hljs-number">1</span>);<br>        employee.setDepartment(<span class="hljs-number">101</span>);<br>        employee.setBirth(<span class="hljs-keyword">new</span> Date());<br>        <span class="hljs-keyword">return</span> employeeMapper.save(employee);<br>    &#125;<br><br>    <span class="hljs-comment">// 通过id获得员工信息</span><br>    <span class="hljs-meta">@GetMapping(&quot;/get/&#123;id&#125;&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Employee <span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable(&quot;id&quot;)</span> Integer id)</span></span>&#123;<br>        <span class="hljs-keyword">return</span> employeeMapper.get(id);<br>    &#125;<br><br>    <span class="hljs-comment">// 通过id删除员工</span><br>    <span class="hljs-meta">@GetMapping(&quot;/delete/&#123;id&#125;&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">delete</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable(&quot;id&quot;)</span> Integer id)</span></span>&#123;<br>        <span class="hljs-keyword">return</span> employeeMapper.delete(id);<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-            </div>
-            <hr>
-            <div>
-              <div class="post-metas mb-3">
-                
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/java/">java</a>
-                    
-                      <a class="hover-with-bg" href="/categories/java/springboot/">springboot</a>
-                    
-                  </div>
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/java/">java</a>
-                    
-                      <a class="hover-with-bg" href="/tags/springboot/">springboot</a>
-                    
-                  </div>
-                
-              </div>
-              
-                <p class="note note-warning">
-                  
-                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
-                  
-                </p>
-              
-              
-                <div class="post-prevnext">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2021/07/25/SpirngBoot%E5%9B%9E%E9%A1%BE%E4%BA%8C%EF%BC%9Ayml%E9%85%8D%E7%BD%AE/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">SpirngBoot回顾二：yml配置</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2021/07/25/SpirngBoot%E5%9B%9E%E9%A1%BE%E4%B8%80/">
-                        <span class="hidden-mobile">SpirngBoot回顾一</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
-            </div>
-
-            
-              <!-- Comments -->
-              <article class="comments" id="comments" lazyload>
-                
-                  
-                
-                
-  <div class="disqus" style="width:100%">
-    <div id="disqus_thread"></div>
-    
-      <script type="text/javascript">
-        var disqus_config = function() {
-          this.page.url = 'http://levialias.top/2021/07/25/SpirngBoot%E5%9B%9E%E9%A1%BE%E4%B8%89%EF%BC%9A%E6%95%B4%E5%90%88Mybatis/';
-          this.page.identifier = '/2021/07/25/SpirngBoot%E5%9B%9E%E9%A1%BE%E4%B8%89%EF%BC%9A%E6%95%B4%E5%90%88Mybatis/';
-        };
-        Fluid.utils.lazyComments('disqus_thread', function() {
-          var d = document, s = d.createElement('script');
-          s.src = '//' + 'fluid' + '.disqus.com/embed.js';
-          s.setAttribute('data-timestamp', new Date());
-          (d.head || d.body).appendChild(s);
-        });
-      </script>
-    
-    <noscript>Please enable JavaScript to view the
-      <a target="_blank" href="https://disqus.com/?ref_noscript" rel="nofollow noopener noopener">comments powered by Disqus.</a>
-    </noscript>
-  </div>
-
-
-              </article>
-            
-          </article>
-        </div>
-      </div>
-    </div>
-    
-      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
-
-      </div>
-    
-  </div>
-</div>
-
-<!-- Custom -->
-
-
-    
-
-    
-      <a id="scroll-top-button" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
+      &copy; 2022 Alias<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
-</div>
-    
-
-    
-  </main>
-
-  <footer class="text-center mt-5 py-3">
-  <div class="footer-content">
-     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-  </div>
-  
-  <div class="statistics">
-    
-    
-
-    
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            总访问量 
-            <span id="busuanzi_value_site_pv"></span>
-             次
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            总访客数 
-            <span id="busuanzi_value_site_uv"></span>
-             人
-          </span>
-      
-    
-  </div>
-
-
-  
-  <!-- 备案信息 -->
-  <div class="beian">
-    <span>
-      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-        蜀ICP备2021009969号
-      </a>
-    </span>
-    
-  </div>
-
-
-  
 </footer>
 
-
-  <!-- SCRIPTS -->
+    </div>
+    <nav id="mobile-nav">
   
-  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
-
-
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-<!-- Plugins -->
-
-
+    <a href="/" class="mobile-nav-link">Home</a>
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <a href="/archives" class="mobile-nav-link">Archives</a>
   
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
 
 
 
   
-
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
-
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
-
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
-
-
-
-  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
-
-
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+<script src="/fancybox/jquery.fancybox.min.js"></script>
 
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var title = document.getElementById('subtitle').title;
-      
-      typing(title)
-      
-    })(window, document);
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    (function () {
-      var path = "/local-search.xml";
-      $('#local-search-input').on('click', function() {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      });
-      $('#modalSearch').on('shown.bs.modal', function() {
-        $('#local-search-input').focus();
-      });
-    })()
-  </script>
+<script src="/js/script.js"></script>
 
 
 
 
 
-
-
-
-
-
-
-
-  
-    <!-- Baidu Analytics -->
-    <script defer>
-      var _hmt = _hmt || [];
-      (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?siteId=13751376";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();
-    </script>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-
-
-<!-- 主题的启动项 保持在最底部 -->
-<script  src="/js/boot.js" ></script>
-
-
+  </div>
 </body>
 </html>

@@ -4,8 +4,8 @@
   <meta name="generator" content="Hexo 5.4.0">
   <meta charset="utf-8">
   <!-- SEO相关 -->
-  <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="http://levialias.top/categories/java/"/>
+  
+  <link rel="canonical" href="http://levialias.top/2022/10/25/关于java中的string/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://npm.elemecdn.com'>
@@ -31,18 +31,21 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <pjax>
-  <title>分类：java - Alias的博客</title>
-  <meta name="keywords" content="null">
+  <title>关于Java中的String - Alias的博客</title>
+  <meta name="keywords" content="java,null">
   <meta desc name="description" content="Alias的博客 - Alias - Alias的博客">
   
-<meta property="og:type" content="website">
-<meta property="og:title" content="Alias的博客">
-<meta property="og:url" content="http://levialias.top/categories/java/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于Java中的String">
+<meta property="og:url" content="http://levialias.top/2022/10/25/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84String/index.html">
 <meta property="og:site_name" content="Alias的博客">
-<meta property="og:description" content="Alias的博客">
+<meta property="og:description" content="关于Java中的String字符串的不可变性在java中，字符串是不可变的。那什么是不可变对象呢？不可变对象是在完全创建之后其内部状态保持不变的对象，这意味着一旦对象被复制给变量我们既不能更新引用也不能通过任何方式改变内部状态 这时可能有人疑惑，通过一下代码我们不就改变字符串了吗？ 12String s &#x3D; &quot;abc&quot;;s &#x3D; s.concat(&quot;def&quot;)">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+<meta property="article:published_time" content="2022-10-25T15:46:37.700Z">
+<meta property="article:modified_time" content="2022-10-25T15:46:00.446Z">
 <meta property="article:author" content="Alias">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   </pjax>
@@ -2431,7 +2434,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
       <!-- see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs -->
-      <div id="none" class='cover-wrapper  dock' style="display: none;">
+      <div id="none" class='cover-wrapper post dock' style="display: none;">
         
   <div class='cover-bg lazyload placeholder' data-bg="https://bing.ioliu.cn/v1/rand?w=1920&h=1200"></div>
 
@@ -2505,42 +2508,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="safearea">
         <div class="body-wrapper">
           
-
 <div id="l_main" class=''>
-  
-    
-      
-  <section class="post-list">
-    
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
+  <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
   <link itemprop="mainEntityOfPage" href="http://levialias.top/2022/10/25/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84String/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="Alias的博客">
@@ -2550,789 +2519,310 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <meta itemprop="description" content="Alias的博客">
   </span>
   
-  
+
+
   
     <span hidden>
       <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
     </span>
   
-  
+  <div class="article-meta" id="top">
     
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/10/25/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84String/"  itemprop="url">
+    
+    
+      <h1 class="title" itemprop="name headline">
         关于Java中的String
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author' itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <a itemprop="url" class='author' href="/" rel="nofollow">
+    <img itemprop="image" src="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/apple-touch-icon.png" class="lazyload" data-srcset="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/apple-touch-icon.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+    <p itemprop="name">请设置文章作者</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
+    <a class="category-link" href="/categories/java/">java</a>
     
-      
-        关于Java中的String字符串的不可变性在java中，字符串是不可变的。那什么是不可变对象呢？不可变对象是在完全创建之后其内部状态保持不变的对象，这意味着一旦对象被复制给变量我们既不能更新引用也不能通过任何方式改变内部状态
-这时可能有人疑惑，通过一下代码我们不就改变字符串了吗？
-12String s = &quot;abc&quot;;s = s.concat(&quot;def&quo...
-      
+      <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+        <a href="/categories/java/" itemprop="url"><span itemprop="name">java</span></a>
+      </span>
     
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-10-25T23:46:37+08:00">2022-10-25</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/java/">java</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/" itemprop="url"><span itemprop="name">java</span></a>
-            </span>
+
+
           
         
+          
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-10-25T23:46:37+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2022年10月25日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+        <!-- Custom Files topMeta begin-->
+        
+        <!-- Custom Files topMeta end-->
       </div>
+    
+  </div>
+
+
+  <div id="layoutHelper-page-plugins"></div>
+  <div id="post-body" itemprop="articleBody">
+    <h1 id="关于Java中的String"><a href="#关于Java中的String" class="headerlink" title="关于Java中的String"></a>关于Java中的String</h1><div class="story post-story"><h2 id="字符串的不可变性"><a href="#字符串的不可变性" class="headerlink" title="字符串的不可变性"></a>字符串的不可变性</h2><p>在java中，字符串是不可变的。那什么是不可变对象呢？不可变对象是在完全创建之后其内部状态保持不变的对象，这意味着一旦对象被复制给变量我们既不能更新引用也不能通过任何方式改变内部状态</p>
+<p>这时可能有人疑惑，通过一下代码我们不就改变字符串了吗？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String s = <span class="string">&quot;abc&quot;</span>;</span><br><span class="line">s = s.concat(<span class="string">&quot;def&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>这里虽然字符串内容改变了，但实际上我们所得到的已经是一个新的字符串了（在堆中重新创建了一个”abcdef”的字符串）</p>
+<p>所以，一旦一个String对象在堆中被创建出来就无法被修改，所有通过String类的方法都没办法改变字符串本身的值，都是返回了一个新的对象。</p>
+<p>如果我们想要一个可修改的字符串，可以使用StringBuffer或者StringBuilder</p>
+<h4 id="为什么字符串要设计成不可变？"><a href="#为什么字符串要设计成不可变？" class="headerlink" title="为什么字符串要设计成不可变？"></a>为什么字符串要设计成不可变？</h4><p><strong>缓存</strong></p>
+<p>因为字符串是使用最广泛的数据结构，大量的字符串创建非常消耗资源，所以Java提供了对字符串的缓存功能，以此可以大大节省堆空间。</p>
+<p>在JVM中，专门开辟了一个字符串池来存储Java字符串</p>
+<p>通过字符串池，两个相同内容的字符串可以从池中指向同一个字符串对象，从而节省了内存资源</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String s = <span class="string">&quot;abcd&quot;</span>;</span><br><span class="line">String s2 = s;</span><br></pre></td></tr></table></figure>
+
+<p>示例中，s和s2内容相同，所以他们指向字符串池中同一个字符串对象，之所以可以这样，是因为字符串的不可变性，若可变，一旦修改s的内容，那s2的内容也会相应的改变</p>
+<p><strong>安全性</strong></p>
+<p>字符串在Java中广泛用于存储敏感信息，JVM类加载器在加载类的时候也广泛使用它，因此对于String类的保护至关重要，我们在传递字符串时，如果字符串内容是不可变的，那么我们就可以相信这个字符串中的内容，若可变，那字符串中的内容就随时随地都能修改，内容就完全不可信，系统就毫无安全性可言。</p>
+<p><strong>线程安全</strong></p>
+<p>不可变会自动让字符串成为线程安全的，因为当多个线程同时访问他们时，他们不会被更改。因此，一般来说不可变对象可以在同时运行的多个线程中共享，如果线程更改了值，那么就将在字符串池中创建一个新的字符串而不是修改相同的值。所以字符串对于多线程来说是安全的。</p>
+<p><strong>hashcode缓存</strong></p>
+<p>字符串对象被广泛的用于哈希实现，比如HashMap、HashTable等，在对这些散列实现进行操作时，经常调用hashCode()方法。不可变性保证了字符串的值不会改变，因此hashCode()方法在String类被重写，以方便缓存，这样在第一次hashCode()调用期间计算和缓存散列，并从那时起返回相同的值。</p>
+<p><strong>性能</strong></p>
+<p>前面所提到的字符串池，缓存等都是对性能的提升</p>
+<h4 id="substring方法在JDK6和7中的原理区别"><a href="#substring方法在JDK6和7中的原理区别" class="headerlink" title="substring方法在JDK6和7中的原理区别"></a>substring方法在JDK6和7中的原理区别</h4><p><code>substring(int beginIndex, int endIndex)</code>方法截取字符串并返回其[beginIndex,endIndex-1]范围内的内容。</p>
+<p><strong>在JDK6中</strong></p>
+<p>在jdk6中，String类包含三个成员变量:char[] value,int offset,int count，他们分别用来存储真正的字符数组，数字的第一个位置索引以及字符串中包含的字符个数。</p>
+<p>当调用substring方法时，会创建一个新的string对象，但是这个string的值依然指向堆中的同一个字符数组。这两个对象只有count和offset的值不同</p>
+<p>在java源码中是这样表示的</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">String(<span class="keyword">int</span> offset, <span class="keyword">int</span> count, <span class="keyword">char</span> value[]) &#123;</span><br><span class="line">    <span class="keyword">this</span>.value = value;</span><br><span class="line">    <span class="keyword">this</span>.offset = offset;</span><br><span class="line">    <span class="keyword">this</span>.count = count;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">substring</span><span class="params">(<span class="keyword">int</span> beginIndex, <span class="keyword">int</span> endIndex)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//check boundary</span></span><br><span class="line">    <span class="keyword">return</span>  <span class="keyword">new</span> String(offset + beginIndex, endIndex - beginIndex, value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>导致的问题</strong></p>
+<p>如果你有一个很长很长的字符串，但是当你使用substring进行切割的时候你只需要很短的一段。这可能导致性能问题，因为你需要的只是一小段字符序列，但是你却引用了整个字符串（因为这个非常长的字符数组一直在被引用，所以无法被回收，就可能导致内存泄露）。在JDK 6中，一般用以下方式来解决该问题，原理其实就是生成一个新的字符串并引用他。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x = x.substring(x, y) + <span class="string">&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>在jdk7中</strong></p>
+<p>在jdk7中使用substring方法会在堆内存中创建一个新的数组</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">String</span><span class="params">(<span class="keyword">char</span> value[], <span class="keyword">int</span> offset, <span class="keyword">int</span> count)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//check boundary</span></span><br><span class="line">    <span class="keyword">this</span>.value = Arrays.copyOfRange(value, offset, offset + count);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">substring</span><span class="params">(<span class="keyword">int</span> beginIndex, <span class="keyword">int</span> endIndex)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//check boundary</span></span><br><span class="line">    <span class="keyword">int</span> subLen = endIndex - beginIndex;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> String(value, beginIndex, subLen);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="String对”-”的重载"><a href="#String对”-”的重载" class="headerlink" title="String对”+”的重载"></a>String对”+”的重载</h4><p>有人把Java中使用+拼接字符串的功能理解为运算符重载。其实并不是，Java是不支持运算符重载的。这其实只是Java提供的一个语法糖。</p>
+<blockquote>
+<p>运算符重载：在计算机程序设计中，运算符重载（英语：operator overloading）是多态的一种。运算符重载，就是对已有的运算符重新进行定义，赋予其另一种功能，以适应不同的数据类型。</p>
+</blockquote>
+<blockquote>
+<p>语法糖：语法糖（Syntactic sugar），也译为糖衣语法，是由英国计算机科学家彼得·兰丁发明的一个术语，指计算机语言中添加的某种语法，这种语法对语言的功能没有影响，但是更方便程序员使用。语法糖让程序更加简洁，有更高的可读性。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String wechat = <span class="string">&quot;Alias&quot;</span>;</span><br><span class="line">String introduce = <span class="string">&quot;good&quot;</span>;</span><br><span class="line">String hollis = wechat + <span class="string">&quot;,&quot;</span> + introduce;</span><br></pre></td></tr></table></figure>
+
+<p>反编译后</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String wechat = <span class="string">&quot;Alias&quot;</span>;</span><br><span class="line">String introduce = <span class="string">&quot;\u6BCF\u65E5\u66F4\u65B0Java\u76F8\u5173\u6280\u672F\u6587\u7AE0&quot;</span>;<span class="comment">//good</span></span><br><span class="line">String hollis = (<span class="keyword">new</span> StringBuilder()).append(wechat).append(<span class="string">&quot;,&quot;</span>).append(introduce).toString();</span><br></pre></td></tr></table></figure>
+
+<p>我们可以发现字符串常量在拼接的过程中是将String转换成了StringBuilder后使用其append方法进行处理的</p>
+<p>那如果是两个固定的字面量拼接</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String s = <span class="string">&quot;a&quot;</span> + <span class="string">&quot;b&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>编译器会进行常量折叠(因为两个都是编译期常量，编译期可知)，直接变成 String s = “ab”。</p>
+<h4 id="字符串拼接的几种方式和区别"><a href="#字符串拼接的几种方式和区别" class="headerlink" title="字符串拼接的几种方式和区别"></a>字符串拼接的几种方式和区别</h4><p><strong>concat拼接</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String s = <span class="string">&quot;abcd&quot;</span>;</span><br><span class="line">s = s.concat(<span class="string">&quot;ef&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>此时我们得到的已经是一个新的字符串了</p>
+<p>源码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">concat</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> otherLen = str.length();</span><br><span class="line">    <span class="keyword">if</span> (otherLen == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> len = value.length;</span><br><span class="line">    <span class="keyword">char</span> buf[] = Arrays.copyOf(value, len + otherLen);</span><br><span class="line">    str.getChars(buf, len);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> String(buf, <span class="keyword">true</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这段代码首先创建了一个字符数组，长度是已有字符串和待拼接字符串的长度之和，再把两个字符串的值复制到新的字符数组中，并使用这个字符数组创建一个新的String对象并返回</p>
+<p>通过源码我们也可以看到，经过concat方法，其实是new了一个新的String，这也就呼应到前面我们说的字符串的不变性问题上了。</p>
+<p><strong>“+”拼接</strong></p>
+<p>见上文</p>
+<p><strong>StringBuffer和StringBuilder</strong></p>
+<p>接下来我们看看StringBuffer和StringBuilder的实现原理。</p>
+<p>和String类类似，StringBuilder类也封装了一个字符数组，定义如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span>[] value;</span><br></pre></td></tr></table></figure>
+
+<p>与<code>String</code>不同的是，它并不是<code>final</code>的，所以他是可以修改的。另外，与<code>String</code>不同，字符数组中不一定所有位置都已经被使用，它有一个实例变量，表示数组中已经使用的字符个数，定义如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> count;</span><br></pre></td></tr></table></figure>
+
+<p>其append源码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> StringBuilder <span class="title">append</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.append(str);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>该类继承了<code>AbstractStringBuilder</code>类，看下其<code>append</code>方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> AbstractStringBuilder <span class="title">append</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (str == <span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">return</span> appendNull();</span><br><span class="line">    <span class="keyword">int</span> len = str.length();</span><br><span class="line">    ensureCapacityInternal(count + len);</span><br><span class="line">    str.getChars(<span class="number">0</span>, len, value, count);</span><br><span class="line">    count += len;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>append会直接拷贝字符到内部的字符数组中，如果字符数组长度不够，会进行扩展。</p>
+<p>StringBuffer和StringBuilder类似，最大的区别就是StringBuffer是线程安全的，看一下StringBuffer的append方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> StringBuffer <span class="title">append</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">    toStringCache = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">super</span>.append(str);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>该方法使用synchronized进行声明，说明是一个线程安全的方法。而StringBuilder则不是线程安全的。</p>
+
+</div>
+  </div>
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/2022/10/25/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84String/' itemprop="url">
-            阅读全文
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=http://levialias.top/2022/10/25/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84String/>http://levialias.top/2022/10/25/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84String/</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-10-25T23:46:00+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2022年10月25日</p>
+  </a>
 </div>
 
-          </div>
         
       
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://levialias.top/2022/10/25/%E4%B8%80%E4%BA%9Bjava%E5%9F%BA%E7%A1%80/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Alias的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="Alias的博客">
-    <meta itemprop="description" content="Alias的博客">
-  </span>
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/java/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>java</p></a></div>
+  <span hidden itemprop="keywords">java</span>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://levialias.top/2022/10/25/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84String/&title=关于Java中的String - Alias的博客&summary="
+          
+          >
+          
+            <img src="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qq.png" class="lazyload" data-srcset="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qq.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://levialias.top/2022/10/25/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84String/&title=关于Java中的String - Alias的博客&summary="
+          
+          >
+          
+            <img src="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qzone.png" class="lazyload" data-srcset="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qzone.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://levialias.top/2022/10/25/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84String/&title=关于Java中的String - Alias的博客&summary="
+          
+          >
+          
+            <img src="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/weibo.png" class="lazyload" data-srcset="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/weibo.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+    <!-- Custom Files bottomMeta begin -->
+    
+    <!-- Custom Files bottomMeta end -->
+  </div>
+
+
   
   
+
   
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/2022/10/25/%E4%B8%80%E4%BA%9Bjava%E5%9F%BA%E7%A1%80/'>
+          <p class='title'>一些java基础<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>Java基础面向对象三大基本特征和五大基本原则面向对象三大基本特征封装
+封装就是把客观事物封装成抽象的类，并且类可以把自己的数据和方法只让可信的类或者对象操作，对不可信的进行信息隐藏（对内部数据...</p>
+        </a>
+      
+    </div>
+  
+  <!-- Custom Files postEnd begin-->
+  
+  <!-- Custom Files postEnd end-->
+</article>
+
+
+  
+
+  
+  <article class="post white-box shadow floatable blur" id="comments">
     <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+      <meta itemprop="discussionUrl" content="/2022/10/25/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84String/index.html#comments">
     </span>
-  
-  
+    <p ct><i class='fa-solid fa-comments'></i> 评论</p>
     
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/10/25/%E4%B8%80%E4%BA%9Bjava%E5%9F%BA%E7%A1%80/"  itemprop="url">
-        一些java基础
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
     
-      
-        Java基础面向对象三大基本特征和五大基本原则面向对象三大基本特征封装
-封装就是把客观事物封装成抽象的类，并且类可以把自己的数据和方法只让可信的类或者对象操作，对不可信的进行信息隐藏（对内部数据提供了不同级别的保护）
-继承
-继承是指他可以使用现有类的所有功能，并在无需重新编写原来的类的情况下对这些功能扩展。
-继承实现方法分为实现继承和接口继承。实现继承是指直接使用基类的属性和方法而无需额外编...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-10-25T21:20:29+08:00">2022-10-25</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/java/">java</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/" itemprop="url"><span itemprop="name">java</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/10/25/%E4%B8%80%E4%BA%9Bjava%E5%9F%BA%E7%A1%80/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
+    <div id="layoutHelper-comments"></div>
 
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://levialias.top/2022/05/02/%E5%90%84%E7%A7%8D%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Alias的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="Alias的博客">
-    <meta itemprop="description" content="Alias的博客">
-  </span>
+  </article>
   
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/05/02/%E5%90%84%E7%A7%8D%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D/"  itemprop="url">
-        各种线程模型介绍
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      
-        各种线程模型介绍传统阻塞 I/O 服务模型模型特点1、采用阻塞IO模式获取输入的数据
-2、每个连接都需要独立的线程完成数据输入
-存在的问题1、并发数很大的时候会创建大量的线程，占用很大的系统资源
-2、创建连接后，如果当前线程暂时没有数据可读，该线程会阻塞在Handler对象中的read操作，导致上面的处理线程资源浪费
-
-Reactor模式针对传统阻塞 I/O 服务模型的 2 个缺点，解决方案...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-05-02T00:17:45+08:00">2022-05-02</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/java/">java</a><span class="sep"></span><a class="category-link" href="/categories/java/netty/">netty</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/" itemprop="url"><span itemprop="name">java</span></a>
-            </span>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/netty/" itemprop="url"><span itemprop="name">netty</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/05/02/%E5%90%84%E7%A7%8D%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://levialias.top/2021/10/27/Ribbon%E5%9B%9E%E9%A1%BE/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Alias的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="Alias的博客">
-    <meta itemprop="description" content="Alias的博客">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2021/10/27/Ribbon%E5%9B%9E%E9%A1%BE/"  itemprop="url">
-        Ribbon回顾
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      
-        Ribbon回顾Spring Cloud Ribbon是基于Netflix Ribbon实现的一套客户端负载均衡的工具。
-简单的说，Ribbon是Netflix发布的开源项目，主要功能是提供客户端的软件负载均衡算法和服务调用。Ribbon客户端组件提供一系列完善的配置项如连接超时，重试等。
-简单的说，就是在配置文件中列出Load Balancer(简称LB)后面所有的机器，Ribbon会自动...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2021-10-27T23:01:12+08:00">2021-10-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/java/">java</a><span class="sep"></span><a class="category-link" href="/categories/java/springcloud/">springcloud</a><span class="sep"></span><a class="category-link" href="/categories/java/springcloud/ribbon/">ribbon</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/" itemprop="url"><span itemprop="name">java</span></a>
-            </span>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/springcloud/" itemprop="url"><span itemprop="name">springcloud</span></a>
-            </span>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/springcloud/ribbon/" itemprop="url"><span itemprop="name">ribbon</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2021/10/27/Ribbon%E5%9B%9E%E9%A1%BE/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://levialias.top/2021/10/26/%E6%B5%85%E8%A6%81%E8%AF%B4%E8%AF%B4CAP/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Alias的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="Alias的博客">
-    <meta itemprop="description" content="Alias的博客">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2021/10/26/%E6%B5%85%E8%A6%81%E8%AF%B4%E8%AF%B4CAP/"  itemprop="url">
-        浅要说说CAP
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      
-        浅要说说CAP
-
-
-组件名
-语言CAP
-服务健康检查
-对外暴露接口
-Spring Cloud集成
 
 
 
-Eureka
-Java
-AP
-可配支持
-HTTP
 
 
-Consul
-Go
-CP
-支持
-HTTP/DNS
-
-
-Zookeeper
-Java
-CP
-支持客户端
-已集成
-
-
-CAP：
-
-C：Consistency (强一致性)
-A：Availability (可用性)
-P：Partition t...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2021-10-26T23:25:07+08:00">2021-10-26</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/java/">java</a><span class="sep"></span><a class="category-link" href="/categories/java/springcloud/">springcloud</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/" itemprop="url"><span itemprop="name">java</span></a>
-            </span>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/springcloud/" itemprop="url"><span itemprop="name">springcloud</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2021/10/26/%E6%B5%85%E8%A6%81%E8%AF%B4%E8%AF%B4CAP/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://levialias.top/2021/10/26/Consul%E5%9B%9E%E9%A1%BE/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Alias的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="Alias的博客">
-    <meta itemprop="description" content="Alias的博客">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2021/10/26/Consul%E5%9B%9E%E9%A1%BE/"  itemprop="url">
-        Consul回顾
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      
-        Consul回顾官网：Consul by HashiCorp
-关于下载安装略
-运行consul
-在consul文件夹打开cmd，输入
-1consul agent -dev
-
-新建服务提供者注册进Consul新建cloud-providerconsul-payment8006
-pom：
-123456789101112131415161718192021222324252627282930313...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2021-10-26T23:24:59+08:00">2021-10-26</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/java/">java</a><span class="sep"></span><a class="category-link" href="/categories/java/consul/">consul</a><span class="sep"></span><a class="category-link" href="/categories/java/consul/springcloud/">springcloud</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/" itemprop="url"><span itemprop="name">java</span></a>
-            </span>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/consul/" itemprop="url"><span itemprop="name">consul</span></a>
-            </span>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/consul/springcloud/" itemprop="url"><span itemprop="name">springcloud</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2021/10/26/Consul%E5%9B%9E%E9%A1%BE/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://levialias.top/2021/10/26/Eureka%E5%9B%9E%E9%A1%BE/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Alias的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="Alias的博客">
-    <meta itemprop="description" content="Alias的博客">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2021/10/26/Eureka%E5%9B%9E%E9%A1%BE/"  itemprop="url">
-        Eureka回顾
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      
-        Eureka回顾关于Eureka服务治理：在传统的RPC远程调用框架中，管理每个服务与服务之间依赖关系比较复杂，管理比较复杂，所以需要使用服务治理，管理服务于服务之间依赖关系，可以实现服务调用、负载均衡、容错等，实现服务发现与注册。
-服务注册与发现Eureka采用了CS的设计架构，Eureka Sever作为服务注册功能的服务器，它是服务注册中心。而系统中的其他微服务，使用Eureka的客户...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2021-10-26T20:41:04+08:00">2021-10-26</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/java/">java</a><span class="sep"></span><a class="category-link" href="/categories/java/eureka/">eureka</a><span class="sep"></span><a class="category-link" href="/categories/java/eureka/springcloud/">springcloud</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/" itemprop="url"><span itemprop="name">java</span></a>
-            </span>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/eureka/" itemprop="url"><span itemprop="name">eureka</span></a>
-            </span>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/eureka/springcloud/" itemprop="url"><span itemprop="name">springcloud</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2021/10/26/Eureka%E5%9B%9E%E9%A1%BE/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://levialias.top/2021/07/25/Spirng%E5%AD%A6%E4%B9%A0%E5%9B%9B/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Alias的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="Alias的博客">
-    <meta itemprop="description" content="Alias的博客">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2021/07/25/Spirng%E5%AD%A6%E4%B9%A0%E5%9B%9B/"  itemprop="url">
-        Spirng学习四
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      
-        Spring学习四自动装配
-自动装配说明
-
-
-自动装配是使用spring满足bean依赖的一种方法
-spring会在应用上下文中为某个bean寻找其依赖的bean。
-
-Spring中bean有三种装配机制，分别是：
-
-在xml中显式配置；
-在java中显式配置；
-隐式的bean发现机制和自动装配。
-
-这里我们主要讲第三种：自动化的装配bean。
-Spring的自动装配需要从两个角度来实现，或...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2021-07-25T19:07:00+08:00">2021-07-25</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/java/">java</a><span class="sep"></span><a class="category-link" href="/categories/java/spring/">spring</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/" itemprop="url"><span itemprop="name">java</span></a>
-            </span>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/spring/" itemprop="url"><span itemprop="name">spring</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2021/07/25/Spirng%E5%AD%A6%E4%B9%A0%E5%9B%9B/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://levialias.top/2021/07/25/Spirng%E5%AD%A6%E4%B9%A0%E5%85%AD/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Alias的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="Alias的博客">
-    <meta itemprop="description" content="Alias的博客">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2021/07/25/Spirng%E5%AD%A6%E4%B9%A0%E5%85%AD/"  itemprop="url">
-        Spirng学习六
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      
-        Spring学习六整合MyBatis
-步骤
-1、导入相关jar包
-junit
-12345&lt;dependency&gt;   &lt;groupId&gt;junit&lt;/groupId&gt;   &lt;artifactId&gt;junit&lt;/artifactId&gt;   &lt;version&gt;4.12&lt;/version&gt;&lt;/dependen...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2021-07-25T19:07:00+08:00">2021-07-25</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/java/">java</a><span class="sep"></span><a class="category-link" href="/categories/java/spring/">spring</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/" itemprop="url"><span itemprop="name">java</span></a>
-            </span>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/spring/" itemprop="url"><span itemprop="name">spring</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2021/07/25/Spirng%E5%AD%A6%E4%B9%A0%E5%85%AD/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://levialias.top/2021/07/25/Spirng%E5%AD%A6%E4%B9%A0%E4%BA%94/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Alias的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="Alias的博客">
-    <meta itemprop="description" content="Alias的博客">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2021/07/25/Spirng%E5%AD%A6%E4%B9%A0%E4%BA%94/"  itemprop="url">
-        Spirng学习五
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      
-        Spring学习五AOP的底层机制是动态代理！
-代理模式：
-
-静态代理
-动态代理
-
-学习aop之前 , 我们要先了解一下代理模式！
-静态代理
-静态代理
-静态代理角色分析
-
-抽象角色 : 一般使用接口或者抽象类来实现
-
-真实角色 : 被代理的角色
-
-代理角色 : 代理真实角色 ; 代理真实角色后 , 一般会做一些附属的操作 .
-
-客户  :  使用代理角色来进行一些操作 .
-
-
-代码实现
-Re...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2021-07-25T19:07:00+08:00">2021-07-25</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/java/">java</a><span class="sep"></span><a class="category-link" href="/categories/java/spring/">spring</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/" itemprop="url"><span itemprop="name">java</span></a>
-            </span>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/spring/" itemprop="url"><span itemprop="name">spring</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2021/07/25/Spirng%E5%AD%A6%E4%B9%A0%E4%BA%94/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-    
-  </section>
-  
-    
-      <br>
-      <div class="prev-next">
-        
-        <p class="current">
-          1 / 3
-        </p>
-        
-          <a class="next" rel="next" href="/categories/java/page/2/">
-            <section class="post next white-box shadow floatable blur">
-              &nbsp;下一页&nbsp;<i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
-            </section>
-          </a>
-        
-      </div>
-    
-  
-
-
-    
-  
 </div>
 <aside id='l_side' itemscope itemtype="http://schema.org/WPSideBar">
   
@@ -3340,191 +2830,34 @@ Re...
     
     
 
-<section class="widget blogger shadow floatable blur desktop mobile pjax">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/Logo-NavBar@3x.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">Alias的博客</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fa-solid fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:me@xxx.com"
-              class="social fa-solid fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/volantis-x/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/"
-              class="social fa-solid fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
 
-  
-    
-    
-  
-
-  <section class="widget category shadow floatable blur desktop pjax">
+  <section class="widget toc-wrapper shadow floatable blur desktop mobile pjax" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fa-solid fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/java/" href="/categories/java/"
-            active-action="action-categoriesjava"
-            ><div class='name'>java</div><div class='badge'>(21)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/consul/" href="/categories/java/consul/"
-            active-action="action-categoriesjavaconsul"
-            ><div class='name'>consul</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/consul/springcloud/" href="/categories/java/consul/springcloud/"
-            active-action="action-categoriesjavaconsulspringcloud"
-            ><div class='name'>springcloud</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/eureka/" href="/categories/java/eureka/"
-            active-action="action-categoriesjavaeureka"
-            ><div class='name'>eureka</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/eureka/springcloud/" href="/categories/java/eureka/springcloud/"
-            active-action="action-categoriesjavaeurekaspringcloud"
-            ><div class='name'>springcloud</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/mybatis-plus/" href="/categories/java/mybatis-plus/"
-            active-action="action-categoriesjavamybatis-plus"
-            ><div class='name'>mybatis-plus</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/mybatis/" href="/categories/java/mybatis/"
-            active-action="action-categoriesjavamybatis"
-            ><div class='name'>mybatis</div><div class='badge'>(4)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/netty/" href="/categories/java/netty/"
-            active-action="action-categoriesjavanetty"
-            ><div class='name'>netty</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/spring/" href="/categories/java/spring/"
-            active-action="action-categoriesjavaspring"
-            ><div class='name'>spring</div><div class='badge'>(6)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/springboot/" href="/categories/java/springboot/"
-            active-action="action-categoriesjavaspringboot"
-            ><div class='name'>springboot</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/springcloud/" href="/categories/java/springcloud/"
-            active-action="action-categoriesjavaspringcloud"
-            ><div class='name'>springcloud</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/springcloud/ribbon/" href="/categories/java/springcloud/ribbon/"
-            active-action="action-categoriesjavaspringcloudribbon"
-            ><div class='name'>ribbon</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E8%AE%A1%E7%BD%91/" href="/categories/%E8%AE%A1%E7%BD%91/"
-            active-action="action-categoriesE8AEA1E7BD91"
-            ><div class='name'>计网</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E8%AE%A1%E7%BD%91/HTTP/" href="/categories/%E8%AE%A1%E7%BD%91/HTTP/"
-            active-action="action-categoriesE8AEA1E7BD91HTTP"
-            ><div class='name'>HTTP</div><div class='badge'>(3)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E4%B8%8D%E5%8F%AF%E5%8F%98%E6%80%A7"><span class="toc-text">字符串的不可变性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%A6%81%E8%AE%BE%E8%AE%A1%E6%88%90%E4%B8%8D%E5%8F%AF%E5%8F%98%EF%BC%9F"><span class="toc-text">为什么字符串要设计成不可变？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#substring%E6%96%B9%E6%B3%95%E5%9C%A8JDK6%E5%92%8C7%E4%B8%AD%E7%9A%84%E5%8E%9F%E7%90%86%E5%8C%BA%E5%88%AB"><span class="toc-text">substring方法在JDK6和7中的原理区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#String%E5%AF%B9%E2%80%9D-%E2%80%9D%E7%9A%84%E9%87%8D%E8%BD%BD"><span class="toc-text">String对”+”的重载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F%E5%92%8C%E5%8C%BA%E5%88%AB"><span class="toc-text">字符串拼接的几种方式和区别</span></a></li></ol></li></ol></li></ol>
     </div>
   </section>
-
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow floatable blur desktop mobile pjax">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fa-solid fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/HTTP/" style="font-size: 16.5px; color: #888">HTTP</a> <a href="/tags/consul/" style="font-size: 14px; color: #999">consul</a> <a href="/tags/eureka/" style="font-size: 14px; color: #999">eureka</a> <a href="/tags/java/" style="font-size: 24px; color: #555">java</a> <a href="/tags/mybatis/" style="font-size: 19px; color: #777">mybatis</a> <a href="/tags/mybatis-plus/" style="font-size: 14px; color: #999">mybatis-plus</a> <a href="/tags/netty/" style="font-size: 14px; color: #999">netty</a> <a href="/tags/ribbon/" style="font-size: 14px; color: #999">ribbon</a> <a href="/tags/spring/" style="font-size: 21.5px; color: #666">spring</a> <a href="/tags/springboot/" style="font-size: 16.5px; color: #888">springboot</a> <a href="/tags/springcloud/" style="font-size: 19px; color: #777">springcloud</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 16.5px; color: #888">计网</a>
-    </div>
-  </section>
-
-
-  
 
   
 
 
 <!-- 没有 pjax 占位会报错 万恶的 pjax -->
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
 
   <div class="pjax">
     <!-- pjax占位 -->
@@ -3553,13 +2886,14 @@ Re...
 </aside>
 
 
+
           <!--此文件用来存放一些不方便取值的变量-->
 <!--思路大概是将值藏到重加载的区域内-->
 
 <pjax>
 <script>
   window.pdata={}
-  pdata.ispage=false;
+  pdata.ispage=true;
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   pdata.commentConfig={};
@@ -4524,7 +3858,7 @@ Re...
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Alias的博客","url":"http://levialias.top/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Alias","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://levialias.top/","sameAs":["https://github.com/volantis-x"],"description":"Alias的博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://levialias.top/","name":"Alias的博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://levialias.top/categories/java/","name":"java"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Alias的博客","url":"http://levialias.top/","keywords":null,"description":"Alias的博客","author":{"@type":"Person","name":"Alias","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://levialias.top/","description":"Alias的博客"},"publisher":{"@type":"Organization","name":"Alias的博客","url":"http://levialias.top/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://levialias.top?s={search_term_string}"},"query-input":"required name=search_term_string"}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Alias的博客","url":"http://levialias.top/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Alias","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://levialias.top/","sameAs":["https://github.com/volantis-x"],"description":"Alias的博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://levialias.top/","name":"Alias的博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://levialias.top/categories/java/","name":"java"}},{"@type":"ListItem","position":3,"item":{"@id":"http://levialias.top/2022/10/25/关于Java中的String/","name":"关于Java中的String"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"关于Java中的String","description":"","datePublished":"2022-10-25T15:46:37.700Z","dateModified":"2022-10-25T15:46:00.446Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://levialias.top/2022/10/25/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84String/"},"author":{"@type":"Person","name":"Alias","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://levialias.top/"},"publisher":{"@type":"Organization","name":"Alias的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://levialias.top/2022/10/25/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84String/","wordCount":0,"articleSection":"java","keywords":"java","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

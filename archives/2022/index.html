@@ -1749,7 +1749,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.3690b000.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.1d2dd3e0.js","rightMenus":"/js/plugins/rightMenus.48fa1716.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.06d40311.js"},"css":{"style":"/css/style.a257987b.css"}},
     default: {"avatar":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1666712820087),
+    lastupdate: new Date(1666790949649),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2524,9 +2524,146 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
         
+          
+        
+          
+        
       
     
     
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="http://levialias.top/2022/10/26/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Alias的博客">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="Alias的博客">
+    <meta itemprop="description" content="Alias的博客">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/2022/10/26/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F/"  itemprop="url">
+        关于Java中字符串的存储方式
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      
+        关于Java中字符串的存储方式创建方式1：
+1String s = &quot;123&quot;;
+
+首先在栈中创建字符串”123”，随后调用intern（），检查字符串常量池中是否存在对这个字符串的引用，如果有则返回对他的引用，没有的话则将这个字符串存入字符串常量池。如果改字符串已经存储在堆中，intern方法会直接将其引用到字符串常量池中
+s返回的是字符串常量池中”123”的引用
+创建...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2022-10-26T21:28:28+08:00">2022-10-26</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/java/">java</a>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/java/" itemprop="url"><span itemprop="name">java</span></a>
+            </span>
+          
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2022/10/26/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F/' itemprop="url">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="http://levialias.top/2022/10/26/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84String(%E4%BA%8C)/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Alias的博客">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="Alias的博客">
+    <meta itemprop="description" content="Alias的博客">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/2022/10/26/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84String(%E4%BA%8C)/"  itemprop="url">
+        关于Java中的String(二)
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      
+        关于Java中的String(二)Java8中的StringJoinerStringJoiner是java.util包中的一个类，用于构造一个由分隔符分隔的字符序列（可选），并且可以从提供的前缀开始并以提供的后缀结尾。虽然这也可以在StringBuilder类的帮助下在每个字符串之后附加分隔符，但StringJoiner提供了简单的方法来实现，而无需编写大量代码。
+如何使用
+12345678...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2022-10-26T20:59:01+08:00">2022-10-26</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/java/">java</a>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/java/" itemprop="url"><span itemprop="name">java</span></a>
+            </span>
+          
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2022/10/26/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84String(%E4%BA%8C)/' itemprop="url">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
       
         
           <div class='post-wrapper'>
@@ -3049,7 +3186,7 @@ TCP/IP通常使用的网络（包括互联网）实在TCP/IP协议族的基础�
           <li><a class="flat-box"
             title="/categories/java/" href="/categories/java/"
             active-action="action-categoriesjava"
-            ><div class='name'>java</div><div class='badge'>(21)</div></a></li>
+            ><div class='name'>java</div><div class='badge'>(23)</div></a></li>
         
           <li><a class="flat-box child"
             title="/categories/java/consul/" href="/categories/java/consul/"

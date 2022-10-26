@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="http://levialias.top/2022/10/25/一些java基础/"/>
+  <link rel="canonical" href="http://levialias.top/2022/10/26/关于java中字符串的存储方式/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://npm.elemecdn.com'>
@@ -31,19 +31,19 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <pjax>
-  <title>一些java基础 - Alias的博客</title>
+  <title>关于Java中字符串的存储方式 - Alias的博客</title>
   <meta name="keywords" content="java,null">
   <meta desc name="description" content="Alias的博客 - Alias - Alias的博客">
   
 <meta property="og:type" content="article">
-<meta property="og:title" content="一些java基础">
-<meta property="og:url" content="http://levialias.top/2022/10/25/%E4%B8%80%E4%BA%9Bjava%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:title" content="关于Java中字符串的存储方式">
+<meta property="og:url" content="http://levialias.top/2022/10/26/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F/index.html">
 <meta property="og:site_name" content="Alias的博客">
-<meta property="og:description" content="Java基础面向对象三大基本特征和五大基本原则面向对象三大基本特征封装 封装就是把客观事物封装成抽象的类，并且类可以把自己的数据和方法只让可信的类或者对象操作，对不可信的进行信息隐藏（对内部数据提供了不同级别的保护） 继承 继承是指他可以使用现有类的所有功能，并在无需重新编写原来的类的情况下对这些功能扩展。 继承实现方法分为实现继承和接口继承。实现继承是指直接使用基类的属性和方法而无需额外编码的能">
+<meta property="og:description" content="关于Java中字符串的存储方式创建方式1： 1String s &#x3D; &quot;123&quot;;  首先在栈中创建字符串”123”，随后调用intern（），检查字符串常量池中是否存在对这个字符串的引用，如果有则返回对他的引用，没有的话则将这个字符串存入字符串常量池。如果改字符串已经存储在堆中，intern方法会直接将其引用到字符串常量池中 s返回的是字符串常量池中”123”的引用 创建方式2">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2022-10-25T13:20:29.742Z">
-<meta property="article:modified_time" content="2022-10-25T13:19:39.874Z">
+<meta property="article:published_time" content="2022-10-26T13:28:28.940Z">
+<meta property="article:modified_time" content="2022-10-26T13:28:29.159Z">
 <meta property="article:author" content="Alias">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
@@ -2510,7 +2510,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 <div id="l_main" class=''>
   <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
-  <link itemprop="mainEntityOfPage" href="http://levialias.top/2022/10/25/%E4%B8%80%E4%BA%9Bjava%E5%9F%BA%E7%A1%80/">
+  <link itemprop="mainEntityOfPage" href="http://levialias.top/2022/10/26/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="Alias的博客">
   </span>
@@ -2531,7 +2531,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        一些java基础
+        关于Java中字符串的存储方式
       </h1>
       <div class='new-meta-box'>
         
@@ -2562,10 +2562,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         
           
-            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-10-25T21:20:29+08:00">
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-10-26T21:28:28+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2022年10月25日</p>
+    <p>发布于：2022年10月26日</p>
   </a>
 </div>
 
@@ -2586,48 +2586,41 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <h1 id="Java基础"><a href="#Java基础" class="headerlink" title="Java基础"></a>Java基础</h1><div class="story post-story"><h2 id="面向对象三大基本特征和五大基本原则"><a href="#面向对象三大基本特征和五大基本原则" class="headerlink" title="面向对象三大基本特征和五大基本原则"></a>面向对象三大基本特征和五大基本原则</h2><h4 id="面向对象三大基本特征"><a href="#面向对象三大基本特征" class="headerlink" title="面向对象三大基本特征"></a>面向对象三大基本特征</h4><p><strong>封装</strong></p>
-<p>封装就是把客观事物封装成抽象的类，并且类可以把自己的数据和方法只让可信的类或者对象操作，对不可信的进行信息隐藏（对内部数据提供了不同级别的保护）</p>
-<p><strong>继承</strong></p>
-<p>继承是指他可以使用现有类的所有功能，并在无需重新编写原来的类的情况下对这些功能扩展。</p>
-<p>继承实现方法分为实现继承和接口继承。实现继承是指直接使用基类的属性和方法而无需额外编码的能力；接口继承是指仅仅使用属性和方法名称，但是子类必须提供实现能力</p>
-<p><strong>多态</strong></p>
-<p>所谓多态就是指一个类实例的相同方法在不同情形有不同表现形式。多态机制使具有不同内部结构的对象可以共享相同的外部接口。</p>
-<h4 id="面向对象五大基本原则"><a href="#面向对象五大基本原则" class="headerlink" title="面向对象五大基本原则"></a>面向对象五大基本原则</h4><p><strong>单一职责原则</strong></p>
-<p>一个类，最好只做一件事，只有一个引起他的变化（低耦合，高内聚）</p>
-<p><strong>开放封闭原则</strong></p>
-<p>软件实体应该是可扩展的，而不可修改。对扩展开放，对修改封闭</p>
-<p><strong>Liskov替换原则</strong></p>
-<p>子类必须能够替换其基类（对继承机制的约束规范）</p>
-<p><strong>依赖倒置原则</strong></p>
-<p>其核心思想是：依赖于抽象。具体而言就是高层模块不依赖于底层模块，二者都同依赖于抽象；抽象不依赖于具体，具体依赖于抽象。当两个模块之间存在紧密的耦合关系时，最好的方法就是分离接口和实现：在依赖之间定义一个抽象的接口使得高层模块<br>调用接口，而底层模块实现接口的定义，以此来有效控制耦合关系，达到依赖于抽象的设计目标。</p>
-<p><strong>接口隔离原则</strong></p>
-<p>使用多个小的专门的接口，而不要使用一个大的总接口。</p>
-<p>接口应该是内聚的，应该避免“胖”接口。一个类对另外一个类的依赖应该建立在最小的接口上，不要强迫依赖不用的方法，这是一种接口污染。</p>
-<h4 id="成员变量和方法作用域"><a href="#成员变量和方法作用域" class="headerlink" title="成员变量和方法作用域"></a>成员变量和方法作用域</h4><p><strong>public</strong> : 表明该成员变量或者方法是对所有类或者对象都是可见的,所有类或者对象都可以直接访问。<br><strong>private</strong> : 表明该成员变量或者方法是私有的,只有当前类对其具有访问权限,除此之外其他类或者对象都没有访问权限.子类也没有访问权限。<br><strong>protected</strong> : 表明成员变量或者方法对类自身,与同在一个包中的其他类可见,其他包下的类不可访问,除非是他的子类。<br><strong>default</strong> : 表明该成员变量或者方法只有自己和其位于同一个包的内可见,其他包内的类不能访问,即便是它的子类。</p>
-<h4 id="平台无关性"><a href="#平台无关性" class="headerlink" title="平台无关性"></a>平台无关性</h4><p>平台无关性就是一种语言在计算机上的运行不受平台的约束，一次编译，到处执行</p>
-<p><img src="/images/java21.png" class="lazyload" data-srcset="/images/java21.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>所以，Java 之所以可以做到跨平台，是因为 Java 虚拟机充当了桥梁。</p>
-</div><div class="story post-story"><h2 id="Java中的值传递"><a href="#Java中的值传递" class="headerlink" title="Java中的值传递"></a>Java中的值传递</h2><h4 id="值传递、引用传递"><a href="#值传递、引用传递" class="headerlink" title="值传递、引用传递"></a>值传递、引用传递</h4><p><strong>实参和形参</strong></p>
-<p>形式参数：是在定义函数名和函数体的时候使用的参数,目的是用来接收调用该函数时传入的参数。<br>实际参数：在调用有参函数时，主调函数和被调函数之间有数据传递关系。在主调函数中调用一个函数时，函数名后面括号中的参数称为“实际参数”。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.test;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> lisihan</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span> TODO</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2022/10/25-20:30</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">demo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//实参</span></span><br><span class="line">        String name = <span class="string">&quot;Alias&quot;</span>;</span><br><span class="line">        print(name);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 这里的name为形参</span></span><br><span class="line">        System.out.println(name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <h1 id="关于Java中字符串的存储方式"><a href="#关于Java中字符串的存储方式" class="headerlink" title="关于Java中字符串的存储方式"></a>关于Java中字符串的存储方式</h1><p><strong>创建方式1：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String s = <span class="string">&quot;123&quot;</span>;</span><br></pre></td></tr></table></figure>
 
-<p><strong>值传递和引用传递</strong></p>
-<p>值传递（pass by value）是指在调用函数时将实际参数复制一份传递到函数中，这样在函数中如果对参数进行修改，将不会影响到实际参数。</p>
-<p>引用传递（pass by reference）是指在调用函数时将实际参数的地址直接传递到函数中，那么在函数中对参数所进行的修改，将影响到实际参数。</p>
-<p><strong>为什么Java只有值传递？</strong></p>
-<p>对于基本数据类型的值传递，写一个小demo就能看出，这里我们略过</p>
-<p>对于Java中的对象传递，我们写一个demo</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.test;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> lisihan</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span> TODO</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2022/10/25-20:30</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">demo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        User hollis = <span class="keyword">new</span> User();</span><br><span class="line">        hollis.setName(<span class="string">&quot;Alias&quot;</span>);</span><br><span class="line">        hollis.setGender(<span class="string">&quot;Male&quot;</span>);</span><br><span class="line">        pass(hollis);</span><br><span class="line">        System.out.println(<span class="string">&quot;print in main , user is &quot;</span> + hollis);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">pass</span><span class="params">(User user)</span> </span>&#123;</span><br><span class="line">        user.setName(<span class="string">&quot;holly&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;print in pass , user is &quot;</span> + user);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> String gender;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">(String name, String gender)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.gender = gender;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getGender</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> gender;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setGender</span><span class="params">(String gender)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.gender = gender;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;User&#123;&quot;</span> +</span><br><span class="line">                <span class="string">&quot;name=&#x27;&quot;</span> + name + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                <span class="string">&quot;, gender=&#x27;&quot;</span> + gender + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                <span class="string">&#x27;&#125;&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>首先在栈中创建字符串”123”，随后调用intern（），检查字符串常量池中是否存在对这个字符串的引用，如果有则返回对他的引用，没有的话则将这个字符串存入字符串常量池。如果改字符串已经存储在堆中，intern方法会直接将其引用到字符串常量池中</p>
+<p>s返回的是字符串<strong>常量池中”123”的引用</strong></p>
+<p><strong>创建方式2:</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String s=<span class="keyword">new</span> String(<span class="string">&quot;123&quot;</span>);</span><br></pre></td></tr></table></figure>
 
-<p><img src="/images/java22.png" class="lazyload" data-srcset="/images/java22.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>可以看到，对象类型在被传递到 pass 方法后，在方法内改变了其内容，最终调用方main 方法中的对象也变了。<br>所以，很多人说，这和引用传递的现象是一样的，就是在方法内改变参数的值，会影响到调用方。但是，其实这是走进了一个误区。</p>
-<p>无论是值传递，还是引用传递，都只不过是求值策略中的一种，而Java中的对象传递，就是共享对象传递</p>
-<p>共享对象传递：传共享对象调用中，先获取到实际参数的地址，然后将其复制，并把该地址的拷贝传递给被调函数的形式参数。因为参数的地址都指向同一个对象，所以我们也称之为”传共享对象”，所以，如果在被调函数中改变了形式参数的值，调用者是可以看到这种变化的。传共享对象调用其实是传值调用的一个特例</p>
-<p>如果我们把pass中的代码加一行user=new User(); 那结果就会截然不同</p>
-<p>因此，编程语言中需要进行方法间的参数传递，这个传递策略为求值策略，常见的求值策略为值传递和引用传递，还有一种值传递的特例——共享对象传递。值传递和引用传递最大的区别就是传递过程中有没有复制出一个副本。在Java之中，是通过值传递来实现参数传递，只不过对于Java对象的传递，传递的内容是对象的引用。</p>
+<p>这个语句会将”123”放入字符串常量池，在队中创建一个字符串对象，里面的值和常量池中的一样，返回引用</p>
+<p>因此会创建两个对象，而引用指向<strong>堆中的对象</strong></p>
+<p><strong>创建方式3：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String s=<span class="keyword">new</span> String(<span class="string">&quot;1&quot;</span>)+<span class="keyword">new</span> String(<span class="string">&quot;23&quot;</span>);</span><br></pre></td></tr></table></figure>
 
-</div>
+<p>这种方式底层等价于用StringBuilder进行拼接，其最大的区别就是不会在字符串常量池中创建对象，而是<strong>只在堆中创建并返回其引用</strong></p>
+<h4 id="一些场景"><a href="#一些场景" class="headerlink" title="一些场景"></a>一些场景</h4><p><strong>场景一</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String s1 = <span class="string">&quot;123&quot;</span>;</span><br><span class="line">String s2 = s1.intern();</span><br><span class="line">System.out.println(s1 == s2);</span><br></pre></td></tr></table></figure>
+
+<p>返回为true，因为s1为常量池中”123”的引用,s2返回的也是常量池中”123”的引用，所以返回为true</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String s1 = <span class="keyword">new</span> String(<span class="string">&quot;123&quot;</span>);</span><br><span class="line">String s2 = s1.intern();</span><br><span class="line">System.out.println(s1 == s2);</span><br></pre></td></tr></table></figure>
+
+<p>这种情况，s2和上面相同，但s1为堆中对象的引用，所以为false</p>
+<p><strong>场景二</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">String h = <span class="keyword">new</span> String(<span class="string">&quot;hw&quot;</span>);</span><br><span class="line">String h2 = h.intern();</span><br><span class="line">String h1 = <span class="string">&quot;hw&quot;</span>;</span><br><span class="line"></span><br><span class="line">System.out.println(h == h1);</span><br><span class="line">System.out.println(h2 == h1);</span><br><span class="line">System.out.println(h2 == h);</span><br></pre></td></tr></table></figure>
+
+<p>h为堆中对象的引用，h2为字符串常量池中对象的引用，h1也是</p>
+<p>字符串常量池中对象的引用，所以答案为false,true,false</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">String s = <span class="keyword">new</span> String(<span class="string">&quot;1&quot;</span>) + <span class="keyword">new</span> String(<span class="string">&quot;1&quot;</span>);</span><br><span class="line">String s2 = s.intern();</span><br><span class="line">String s1 = <span class="string">&quot;11&quot;</span>;</span><br><span class="line"></span><br><span class="line">System.out.println(s == s1);</span><br><span class="line">System.out.println(s2 == s1);</span><br><span class="line">System.out.println(s2 == s);</span><br></pre></td></tr></table></figure>
+
+<p>s为堆中对象的引用，s2由于字符串常量池中不存在对象，所以将调用字符串的引用存入进去，所以s2还是堆中对象的引用，s1在创建时因为字符串常量池中已经有了该对象，所以直接返回该对象的引用，而该对象的引用对应的是堆中对象，所以s,s1,s2得到的是同一个引用，所以为true,true,true</p>
+<p><strong>场景三</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">String s = <span class="keyword">new</span> String(<span class="string">&quot;1&quot;</span>) + <span class="keyword">new</span> String(<span class="string">&quot;1&quot;</span>);</span><br><span class="line">String s1 = <span class="string">&quot;11&quot;</span>;</span><br><span class="line">String s2 = s.intern();</span><br><span class="line"></span><br><span class="line">System.out.println(s == s1);</span><br><span class="line">System.out.println(s2 == s1);</span><br><span class="line">System.out.println(s2 == s);</span><br></pre></td></tr></table></figure>
+
+<p>s为堆中对象的引用，s1在字符串常量池中创建对象并返回引用，s2返回的是s1的引用，所以为false,true,false</p>
+
+
   </div>
   
   
@@ -2645,7 +2638,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               
-                <p>本文永久链接是：<a href=http://levialias.top/2022/10/25/%E4%B8%80%E4%BA%9Bjava%E5%9F%BA%E7%A1%80/>http://levialias.top/2022/10/25/%E4%B8%80%E4%BA%9Bjava%E5%9F%BA%E7%A1%80/</a></p>
+                <p>本文永久链接是：<a href=http://levialias.top/2022/10/26/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F/>http://levialias.top/2022/10/26/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F/</a></p>
               
             
           </blockquote>
@@ -2662,10 +2655,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-10-25T21:19:39+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-10-26T21:28:29+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年10月25日</p>
+    <p>更新于：2022年10月26日</p>
   </a>
 </div>
 
@@ -2688,7 +2681,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://levialias.top/2022/10/25/%E4%B8%80%E4%BA%9Bjava%E5%9F%BA%E7%A1%80/&title=一些java基础 - Alias的博客&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://levialias.top/2022/10/26/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F/&title=关于Java中字符串的存储方式 - Alias的博客&summary="
           
           >
           
@@ -2700,7 +2693,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://levialias.top/2022/10/25/%E4%B8%80%E4%BA%9Bjava%E5%9F%BA%E7%A1%80/&title=一些java基础 - Alias的博客&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://levialias.top/2022/10/26/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F/&title=关于Java中字符串的存储方式 - Alias的博客&summary="
           
           >
           
@@ -2712,7 +2705,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://levialias.top/2022/10/25/%E4%B8%80%E4%BA%9Bjava%E5%9F%BA%E7%A1%80/&title=一些java基础 - Alias的博客&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://levialias.top/2022/10/26/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F/&title=关于Java中字符串的存储方式 - Alias的博客&summary="
           
           >
           
@@ -2745,17 +2738,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/2022/10/25/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84String/'>
-          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>关于Java中的String</p>
-          <p class='content'>关于Java中的String字符串的不可变性在java中，字符串是不可变的。那什么是不可变对象呢？不可变对象是在完全创建之后其内部状态保持不变的对象，这意味着一旦对象被复制给变量我们既不能更新引...</p>
-        </a>
       
-      
-        <a class='next' href='/2022/05/02/%E5%90%84%E7%A7%8D%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D/'>
-          <p class='title'>各种线程模型介绍<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>各种线程模型介绍传统阻塞 I/O 服务模型模型特点1、采用阻塞IO模式获取输入的数据
-2、每个连接都需要独立的线程完成数据输入
-存在的问题1、并发数很大的时候会创建大量的线程，占用很大的系统资源...</p>
+        <a class='next' href='/2022/10/26/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84String(%E4%BA%8C)/'>
+          <p class='title'>关于Java中的String(二)<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>关于Java中的String(二)Java8中的StringJoinerStringJoiner是java.util包中的一个类，用于构造一个由分隔符分隔的字符序列（可选），并且可以从提供的前缀...</p>
         </a>
       
     </div>
@@ -2771,7 +2757,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <article class="post white-box shadow floatable blur" id="comments">
     <span hidden>
-      <meta itemprop="discussionUrl" content="/2022/10/25/%E4%B8%80%E4%BA%9Bjava%E5%9F%BA%E7%A1%80/index.html#comments">
+      <meta itemprop="discussionUrl" content="/2022/10/26/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F/index.html#comments">
     </span>
     <p ct><i class='fa-solid fa-comments'></i> 评论</p>
     
@@ -2804,7 +2790,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E5%9F%BA%E6%9C%AC%E7%89%B9%E5%BE%81%E5%92%8C%E4%BA%94%E5%A4%A7%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99"><span class="toc-text">面向对象三大基本特征和五大基本原则</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E5%9F%BA%E6%9C%AC%E7%89%B9%E5%BE%81"><span class="toc-text">面向对象三大基本特征</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%BA%94%E5%A4%A7%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99"><span class="toc-text">面向对象五大基本原则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E5%92%8C%E6%96%B9%E6%B3%95%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-text">成员变量和方法作用域</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B3%E5%8F%B0%E6%97%A0%E5%85%B3%E6%80%A7"><span class="toc-text">平台无关性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java%E4%B8%AD%E7%9A%84%E5%80%BC%E4%BC%A0%E9%80%92"><span class="toc-text">Java中的值传递</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%80%BC%E4%BC%A0%E9%80%92%E3%80%81%E5%BC%95%E7%94%A8%E4%BC%A0%E9%80%92"><span class="toc-text">值传递、引用传递</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E5%9C%BA%E6%99%AF"><span class="toc-text">一些场景</span></a></li></ol>
     </div>
   </section>
 
@@ -3820,7 +3806,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Alias的博客","url":"http://levialias.top/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Alias","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://levialias.top/","sameAs":["https://github.com/volantis-x"],"description":"Alias的博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://levialias.top/","name":"Alias的博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://levialias.top/categories/java/","name":"java"}},{"@type":"ListItem","position":3,"item":{"@id":"http://levialias.top/2022/10/25/一些java基础/","name":"一些java基础"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"一些java基础","description":"","datePublished":"2022-10-25T13:20:29.742Z","dateModified":"2022-10-25T13:19:39.874Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://levialias.top/2022/10/25/%E4%B8%80%E4%BA%9Bjava%E5%9F%BA%E7%A1%80/"},"author":{"@type":"Person","name":"Alias","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://levialias.top/"},"publisher":{"@type":"Organization","name":"Alias的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://levialias.top/2022/10/25/%E4%B8%80%E4%BA%9Bjava%E5%9F%BA%E7%A1%80/","wordCount":0,"articleSection":"java","keywords":"java","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Alias的博客","url":"http://levialias.top/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Alias","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://levialias.top/","sameAs":["https://github.com/volantis-x"],"description":"Alias的博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://levialias.top/","name":"Alias的博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://levialias.top/categories/java/","name":"java"}},{"@type":"ListItem","position":3,"item":{"@id":"http://levialias.top/2022/10/26/关于Java中字符串的存储方式/","name":"关于Java中字符串的存储方式"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"关于Java中字符串的存储方式","description":"","datePublished":"2022-10-26T13:28:28.940Z","dateModified":"2022-10-26T13:28:29.159Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://levialias.top/2022/10/26/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F/"},"author":{"@type":"Person","name":"Alias","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://levialias.top/"},"publisher":{"@type":"Organization","name":"Alias的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://levialias.top/2022/10/26/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F/","wordCount":0,"articleSection":"java","keywords":"java","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

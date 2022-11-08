@@ -4,8 +4,8 @@
   <meta name="generator" content="Hexo 5.4.0">
   <meta charset="utf-8">
   <!-- SEO相关 -->
-  <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="http://levialias.top/tags/mybatis-plus/"/>
+  
+  <link rel="canonical" href="http://levialias.top/2022/11/08/关于数据库和缓存不一致问题/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://npm.elemecdn.com'>
@@ -31,18 +31,21 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <pjax>
-  <title>标签：mybatis-plus - Alias的博客</title>
-  <meta name="keywords" content="null">
+  <title>关于数据库和缓存不一致问题 - Alias的博客</title>
+  <meta name="keywords" content="java,null">
   <meta desc name="description" content="Alias的博客 - Alias - Alias的博客">
   
-<meta property="og:type" content="website">
-<meta property="og:title" content="Alias的博客">
-<meta property="og:url" content="http://levialias.top/tags/mybatis-plus/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于数据库和缓存不一致问题">
+<meta property="og:url" content="http://levialias.top/2022/11/08/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E7%BC%93%E5%AD%98%E4%B8%8D%E4%B8%80%E8%87%B4%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="Alias的博客">
-<meta property="og:description" content="Alias的博客">
+<meta property="og:description" content="关于数据库和缓存不一致问题为什么会出现缓存一致性问题在非并发的情况首先，我们在非并发的场景中，出现不一致的问题大家都能比较容易的理解，因为缓存的操作和数据库的操作是存在一定的时间差的。 而且这两个操作是没办法保证原子性的，也就是说，是有可能一个操作成功，一个操作失败的。 所以，这就必然会存在不一致的情况。 但同时，因为我们的业务系统是开放给用户使用的，所以经常会出现各种各样的并发的场景，因为并发的">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+<meta property="article:published_time" content="2022-11-08T15:43:03.092Z">
+<meta property="article:modified_time" content="2022-11-08T15:43:03.270Z">
 <meta property="article:author" content="Alias">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   </pjax>
@@ -2431,7 +2434,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
       <!-- see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs -->
-      <div id="none" class='cover-wrapper  dock' style="display: none;">
+      <div id="none" class='cover-wrapper post dock' style="display: none;">
         
   <div class='cover-bg lazyload placeholder' data-bg="https://bing.ioliu.cn/v1/rand?w=1920&h=1200"></div>
 
@@ -2505,25 +2508,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="safearea">
         <div class="body-wrapper">
           
-
 <div id="l_main" class=''>
-  
-    
-      
-  <section class="post-list">
-    
-      
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://levialias.top/2021/07/25/Mybatis-Plus%E5%9B%9E%E9%A1%BE/">
+  <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
+  <link itemprop="mainEntityOfPage" href="http://levialias.top/2022/11/08/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E7%BC%93%E5%AD%98%E4%B8%8D%E4%B8%80%E8%87%B4%E9%97%AE%E9%A2%98/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="Alias的博客">
   </span>
@@ -2532,73 +2519,355 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <meta itemprop="description" content="Alias的博客">
   </span>
   
-  
+
+
   
     <span hidden>
       <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
     </span>
   
-  
+  <div class="article-meta" id="top">
     
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2021/07/25/Mybatis-Plus%E5%9B%9E%E9%A1%BE/"  itemprop="url">
-        Mybatis-Plus回顾
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
     
-      
-        Mybatis-Plus回顾一、Mybatis-plus简介官网：https://mp.baomidou.com/ 
+    
+      <h1 class="title" itemprop="name headline">
+        关于数据库和缓存不一致问题
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author' itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <a itemprop="url" class='author' href="/" rel="nofollow">
+    <img itemprop="image" src="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/apple-touch-icon.png" class="lazyload" data-srcset="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/apple-touch-icon.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+    <p itemprop="name">请设置文章作者</p>
+  </a>
+</div>
 
-特点：
-​    无侵入：只做增强不做改变，引入它不会对现有工程产生影响，如丝般顺滑​    损耗小：启动即会自动注入基本 CURD，性能基本无损耗，直接面向对象操作， BaseMapper​    强大的 CRUD 操作：内置通用 Mapper、通用 Service，仅仅...
-      
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
+    <a class="category-link" href="/categories/java/">java</a>
+    
+      <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+        <a href="/categories/java/" itemprop="url"><span itemprop="name">java</span></a>
+      </span>
     
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2021-07-25T19:07:00+08:00">2021-07-25</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/java/">java</a><span class="sep"></span><a class="category-link" href="/categories/java/mybatis-plus/">mybatis-plus</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/" itemprop="url"><span itemprop="name">java</span></a>
-            </span>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/mybatis-plus/" itemprop="url"><span itemprop="name">mybatis-plus</span></a>
-            </span>
+
+
           
         
+          
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-11-08T23:43:03+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2022年11月8日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+        <!-- Custom Files topMeta begin-->
+        
+        <!-- Custom Files topMeta end-->
       </div>
+    
+  </div>
+
+
+  <div id="layoutHelper-page-plugins"></div>
+  <div id="post-body" itemprop="articleBody">
+    <h1 id="关于数据库和缓存不一致问题"><a href="#关于数据库和缓存不一致问题" class="headerlink" title="关于数据库和缓存不一致问题"></a>关于数据库和缓存不一致问题</h1><div class="story post-story"><h2 id="为什么会出现缓存一致性问题"><a href="#为什么会出现缓存一致性问题" class="headerlink" title="为什么会出现缓存一致性问题"></a>为什么会出现缓存一致性问题</h2><h4 id="在非并发的情况"><a href="#在非并发的情况" class="headerlink" title="在非并发的情况"></a><strong>在非并发的情况</strong></h4><p>首先，我们在非并发的场景中，出现不一致的问题大家都能比较容易的理解，因为缓存的操作和数据库的操作是存在一定的时间差的。</p>
+<p>而且<strong>这两个操作是没办法保证原子性的</strong>，也就是说，是有可能一个操作成功，一个操作失败的。</p>
+<p>所以，这就必然会存在不一致的情况。</p>
+<p>但同时，因为我们的业务系统是开放给用户使用的，所以经常会出现各种各样的并发的场景，因为并发的存在，会使得数据一致性的问题更加的多。</p>
+<h4 id="并发情况"><a href="#并发情况" class="headerlink" title="并发情况"></a><strong>并发情况</strong></h4><p>对于数据的操作，会存在“读读并发”，“读写并发”和“写写并发”。对于两个读线程，即使发生并发，因为只是读的动作，所以不会有数据的变更，发生了并发的话也不会有数据不一致的情况。</p>
+<p>接下来我们先来分析比较容易理解的”写写并发”的情况。</p>
+<h4 id="写写并发"><a href="#写写并发" class="headerlink" title="写写并发"></a><strong>写写并发</strong></h4><p>因为在数据库和缓存的操作过程中，可能存在”先写数据库，后删缓存”、”先写数据库，后更新缓存”、”先删缓存库，后写数据库”以及”先更新缓存库，后写数据库”这四种。</p>
+<p>其中”删缓存”的这两种是把缓存清空，所以”写写并发”不会存在缓存和数据库不一致的情况。我们就看”更新缓存”的这两种：</p>
+<p>先写数据库，后更新缓存：</p>
+<table>
+<thead>
+<tr>
+<th align="center">W</th>
+<th align="center">W</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">写数据库，更新成20</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">写数据库，更新成10</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">写缓存，更新成10</td>
+</tr>
+<tr>
+<td align="center">写缓存，更新成20（数据不一致）</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<p>先更新缓存，后写数据库：</p>
+<table>
+<thead>
+<tr>
+<th align="center">W</th>
+<th align="center">W</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">写缓存，更新成20</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">写缓存，更新成10</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">写数据库，更新成10</td>
+</tr>
+<tr>
+<td align="center">写数据库，更新成20（数据不一致）</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<p>以上两种情况，都是两个写线程并发之后，因为乱序的问题，导致最终缓存中的值是20，而数据库中的值是10，最终导致缓存和数据库中的值不一致的情况。</p>
+<p>除了写写并发之外，还有一种比较容易被忽视的情况，那就是读写之间的并发也会导致数据库和缓存的不一致。</p>
+<h4 id="读写并发"><a href="#读写并发" class="headerlink" title="读写并发"></a><strong>读写并发</strong></h4><p>在使用缓存之后，一个读线程在查询数据时要经过如下过程：</p>
+<p>1、查询缓存，如果缓存中有值，则直接返回 2、查询数据库 3、把数据库的查询结果更新到缓存中</p>
+<p>所以，<strong>对于一个读线程来说，虽然不会写数据库，但是是会更新缓存的</strong>，所以，在一些特殊的并发场景中，就会导致数据不一致的情况。</p>
+<p>读写并发的时序如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">W</th>
+<th align="center">R</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"></td>
+<td align="center">读缓存，缓存没有值</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">读数据库，数据库中得到结果为10</td>
+</tr>
+<tr>
+<td align="center">写数据库和缓存，更新成20</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">写缓存，更新成10（数据不一致）</td>
+</tr>
+</tbody></table>
+<p>这也就导致了缓存和数据库不一致的现象</p>
+<p>但是这种现象其实发生的<strong>概率比较低</strong>，因为一般一个读操作是很快的，数据库+缓存的读操作基本在十几毫秒左右就可以完成了。</p>
+<p>我们提到过，在数据库和缓存的操作过程中，可能存在”先写数据库，后删缓存”、”先写数据库，后更新缓存”、”先删缓存库，后写数据库”以及”先更新缓存库，后写数据库”这四种。</p>
+<p>那么，<strong>到底是应该删除缓存好呢，还是更新缓存好呢？到底应该先操作数据库呢还是先操作缓存呢？哪种方案更好呢？又该如何选择呢？</strong></p>
+</div><div class="story post-story"><h2 id="删除和更新"><a href="#删除和更新" class="headerlink" title="删除和更新"></a><strong>删除和更新</strong></h2><p>为了保证数据库和缓存里面的数据是一致的，很多人会很多人在做数据更新的时候，会同时更新缓存里面的内容。<strong>但是我其实告诉大家，应该优先选择删除缓存而不是更新缓存。</strong></p>
+<p>首先，我们暂时抛开数据一致性的问题，单独来看看更新缓存和删除缓存的复杂的的问题。</p>
+<p>我们放到缓存中的数据，很多时候可能不只是简单的一个字符串类型的值，他还可能是一个大的JSON串，一个map类型等等。</p>
+<p>举个栗子，我们需要通过缓存进行扣减库存的时候，你可能需要从缓存中查出整个订单模型数据，把他进行反序列化之后，再解析出其中的库存字段，把他修改掉，然后再序列化，最后再更新到缓存中。</p>
+<p>可以看到，<strong>更新缓存的动作，相比于直接删除缓存，操作过程比较的复杂，而且也容易出错。</strong></p>
+<p>还有就是，在数据库和缓存的一致性保证方面，删除缓存相比更新缓存要更简单一点。</p>
+<p>但是，<strong>如果是做缓存的删除的话，在写写并发的情况下，缓存中的数据都是要被清除的，所以就不会出现数据不一致的问题。</strong></p>
+<p>但是，更新缓存相比删除缓存还是有一个小的缺点，那就是带来的一次额外的cache miss，也就是说在删除缓存后的下一次查询会无法命中缓存，要查询一下数据库。</p>
+<p><strong>这种cache miss在某种程度上可能会导致缓存击穿</strong>，也就是刚好缓存被删除之后，同一个Key有大量的请求过来，导致缓存被击穿，大量请求访问到数据库。</p>
+<p>但是，通过加锁的方式是可以比较方便的解决缓存击穿的问题的。</p>
+<p>总之，删除缓存相比较更新缓存，方案更加简单，而且带来的一致性问题也更少。所以，在删除和更新缓存之间，我还是偏向于建议大家优先选择删除缓存。</p>
+</div><div class="story post-story"><h2 id="先写数据库还是先删缓存"><a href="#先写数据库还是先删缓存" class="headerlink" title="先写数据库还是先删缓存"></a>先写数据库还是先删缓存</h2><h4 id="先写数据库"><a href="#先写数据库" class="headerlink" title="先写数据库"></a>先写数据库</h4><p>因为数据库和缓存的操作是两步的，没办法做到保证原子性，所以就有可能第一步成功而第二步失败。</p>
+<p>而一般情况下，如果把缓存的删除动作放到第二步，有一个好处，那就是<strong>缓存删除失败的概率还是比较低的</strong>，除非是网络问题或者缓存服务器宕机的问题，否则大部分情况都是可以成功的。</p>
+<p>还有就是，先写数据库后删除缓存虽然不存在”写写并发”导致的数据一致性问题，但是会存在”读写并发”情况下的数据一致性问题。</p>
+<h4 id="先删缓存"><a href="#先删缓存" class="headerlink" title="先删缓存"></a>先删缓存</h4><p>那么，如果是先删除缓存后操作数据库的话，会不会方案更完美一点呢？</p>
+<p>首先，如果是选择先删除缓存后写数据库的这种方案，那么第二步的失败是可以接受的，因为这样不会有脏数据，也没什么影响，只需要重试就好了。</p>
+<p>但是，先删除缓存后写数据库的这种方式，会无形中放大前面我们提到的”读写并发”导致的数据不一致的问题。</p>
+<p>因为这种”读写并发”问题发生的前提是读线程读缓存没读到值，而先删缓存的动作一旦发生，刚好可以让读线程就从缓存中读不到值。</p>
+<p>所以，本来一个小概率会发生的”读写并发”问题，在先删缓存的过程中，问题发生的概率会被放大。</p>
+<p>而且这种问题的后果也比较严重，那就是缓存中的值一直是错的，就会导致后续的所以命中缓存的查询结果都是错的！</p>
+<h4 id="延迟双删"><a href="#延迟双删" class="headerlink" title="延迟双删"></a>延迟双删</h4><p>那么，虽然先写数据后删除缓存的这种情况，可以大大的降低并发问题的概率，但是，根据墨菲定律，只要有可能发生的坏事，那就基本上会发生。越是庞大的系统发生的概率越高。</p>
+<p>那么，有没有什么办法可以来解决一下这种情况带来的不一致的问题呢？</p>
+<p>其实是有一个比较常见的方案的，在很多公司内用的也比较多，那就是<strong>延迟双删</strong>。</p>
+<p>因为”读写并发”的问题会导致并发发生后，缓存中的数被读线程写进去脏数据，那么就只需要在写线程在写数据库、删缓存之后，延迟一段时间，在执行一把删除动作就行了。</p>
+<p>这样就能保证缓存中的脏数据被清理掉，避免后续的读操作都读到脏数据。当然，这个延迟的时长也很久讲究，到底多久来删除呢？一般建议设置1-2s就可以了。</p>
+<p>当然，这种方案也是有一个弊端的，那就是可能会导致缓存中准确的数据被删除掉。当然这也问题不大，就像我们前面说过的，只是增加一次cache miss罢了。</p>
+</div><div class="story post-story"><h2 id="缓存更新设计模式"><a href="#缓存更新设计模式" class="headerlink" title="缓存更新设计模式"></a>缓存更新设计模式</h2><p><strong>Cache Aside Pattern</strong>。</p>
+<p>这种模式的主要方案就是先写数据库，后删缓存，而且缓存的删除是可以在旁路异步执行的。</p>
+<p>这种模式的优点就是我们说的，他可以解决”写写并发”导致的数据不一致问题，并且可以大大降低”读写并发”的问题，所以这也是Facebook比较推崇的一种模式。</p>
+<p><strong>Read/Write Through Pattern</strong></p>
+<p>在这两种模式中，应用程序将缓存作为主要的数据源，不需要感知数据库，更新数据库和从数据库的读取的任务都交给缓存来代理。</p>
+<p><strong>Read Through模式下</strong>，是由缓存配置一个读模块，它知道如何将数据库中的数据写入缓存。在数据被请求的时候，如果未命中，则将数据从数据库载入缓存。</p>
+<p><strong>Write Through模式下</strong>，缓存配置一个写模块，它知道如何将数据写入数据库。当应用要写入数据时，缓存会先存储数据，并调用写模块将数据写入数据库。</p>
+<p>也就是说，这两种模式下，不需要应用自己去操作数据库，缓存自己就把活干完了。</p>
+<p><strong>Write Behind Caching Pattern</strong></p>
+<p>这种模式就是在更新数据的时候，只更新缓存，而不更新数据库，然后再异步的定时把缓存中的数据持久化到数据库中。</p>
+<p>这种模式的优缺点比较明显，那就是读写速度都很快，但是会造成一定的数据丢失。</p>
+<p>这种比较适合用在比如统计文章的访问量、点赞等场景中，允许数据少量丢失，但是速度要快。</p>
+
+</div>
+  </div>
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/2021/07/25/Mybatis-Plus%E5%9B%9E%E9%A1%BE/' itemprop="url">
-            阅读全文
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=http://levialias.top/2022/11/08/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E7%BC%93%E5%AD%98%E4%B8%8D%E4%B8%80%E8%87%B4%E9%97%AE%E9%A2%98/>http://levialias.top/2022/11/08/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E7%BC%93%E5%AD%98%E4%B8%8D%E4%B8%80%E8%87%B4%E9%97%AE%E9%A2%98/</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-11-08T23:43:03+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2022年11月8日</p>
+  </a>
 </div>
 
-          </div>
         
       
-    
-  </section>
+        
+          
   
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/java/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>java</p></a></div>
+  <span hidden itemprop="keywords">java</span>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://levialias.top/2022/11/08/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E7%BC%93%E5%AD%98%E4%B8%8D%E4%B8%80%E8%87%B4%E9%97%AE%E9%A2%98/&title=关于数据库和缓存不一致问题 - Alias的博客&summary="
+          
+          >
+          
+            <img src="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qq.png" class="lazyload" data-srcset="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qq.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://levialias.top/2022/11/08/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E7%BC%93%E5%AD%98%E4%B8%8D%E4%B8%80%E8%87%B4%E9%97%AE%E9%A2%98/&title=关于数据库和缓存不一致问题 - Alias的博客&summary="
+          
+          >
+          
+            <img src="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qzone.png" class="lazyload" data-srcset="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qzone.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://levialias.top/2022/11/08/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E7%BC%93%E5%AD%98%E4%B8%8D%E4%B8%80%E8%87%B4%E9%97%AE%E9%A2%98/&title=关于数据库和缓存不一致问题 - Alias的博客&summary="
+          
+          >
+          
+            <img src="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/weibo.png" class="lazyload" data-srcset="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/weibo.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+    <!-- Custom Files bottomMeta begin -->
+    
+    <!-- Custom Files bottomMeta end -->
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/2022/11/06/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84%E9%9B%86%E5%90%88%EF%BC%88%E4%B8%80%EF%BC%89/'>
+          <p class='title'>关于Java中的集合（一）<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>关于Java中的集合（一）Collection和Collections区别Collection 是一个集合接口。 它提供了对集合对象进行基本操作的通用接口方法。Collection接口在Java...</p>
+        </a>
+      
+    </div>
+  
+  <!-- Custom Files postEnd begin-->
+  
+  <!-- Custom Files postEnd end-->
+</article>
+
+
+  
+
+  
+  <article class="post white-box shadow floatable blur" id="comments">
+    <span hidden>
+      <meta itemprop="discussionUrl" content="/2022/11/08/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E7%BC%93%E5%AD%98%E4%B8%8D%E4%B8%80%E8%87%B4%E9%97%AE%E9%A2%98/index.html#comments">
+    </span>
+    <p ct><i class='fa-solid fa-comments'></i> 评论</p>
+    
+    
+    <div id="layoutHelper-comments"></div>
+
+  </article>
   
 
 
-    
-  
+
+
+
 </div>
 <aside id='l_side' itemscope itemtype="http://schema.org/WPSideBar">
   
@@ -2606,221 +2875,34 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
 
-<section class="widget blogger shadow floatable blur desktop mobile pjax">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/Logo-NavBar@3x.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">Alias的博客</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fa-solid fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:me@xxx.com"
-              class="social fa-solid fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/volantis-x/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/"
-              class="social fa-solid fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
 
-  
-    
-    
-  
-
-  <section class="widget category shadow floatable blur desktop pjax">
+  <section class="widget toc-wrapper shadow floatable blur desktop mobile pjax" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fa-solid fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/java/" href="/categories/java/"
-            active-action="action-categoriesjava"
-            ><div class='name'>java</div><div class='badge'>(33)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/consul/" href="/categories/java/consul/"
-            active-action="action-categoriesjavaconsul"
-            ><div class='name'>consul</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/consul/springcloud/" href="/categories/java/consul/springcloud/"
-            active-action="action-categoriesjavaconsulspringcloud"
-            ><div class='name'>springcloud</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/eureka/" href="/categories/java/eureka/"
-            active-action="action-categoriesjavaeureka"
-            ><div class='name'>eureka</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/eureka/springcloud/" href="/categories/java/eureka/springcloud/"
-            active-action="action-categoriesjavaeurekaspringcloud"
-            ><div class='name'>springcloud</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/io/" href="/categories/java/io/"
-            active-action="action-categoriesjavaio"
-            ><div class='name'>io</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/mongodb/" href="/categories/java/mongodb/"
-            active-action="action-categoriesjavamongodb"
-            ><div class='name'>mongodb</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/mybatis-plus/" href="/categories/java/mybatis-plus/"
-            active-action="action-categoriesjavamybatis-plus"
-            ><div class='name'>mybatis-plus</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/mybatis/" href="/categories/java/mybatis/"
-            active-action="action-categoriesjavamybatis"
-            ><div class='name'>mybatis</div><div class='badge'>(4)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/netty/" href="/categories/java/netty/"
-            active-action="action-categoriesjavanetty"
-            ><div class='name'>netty</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/spring/" href="/categories/java/spring/"
-            active-action="action-categoriesjavaspring"
-            ><div class='name'>spring</div><div class='badge'>(6)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/springboot/" href="/categories/java/springboot/"
-            active-action="action-categoriesjavaspringboot"
-            ><div class='name'>springboot</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/springcloud/" href="/categories/java/springcloud/"
-            active-action="action-categoriesjavaspringcloud"
-            ><div class='name'>springcloud</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/springcloud/ribbon/" href="/categories/java/springcloud/ribbon/"
-            active-action="action-categoriesjavaspringcloudribbon"
-            ><div class='name'>ribbon</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/%E4%BB%A3%E7%90%86/" href="/categories/java/%E4%BB%A3%E7%90%86/"
-            active-action="action-categoriesjavaE4BBA3E79086"
-            ><div class='name'>代理</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/%E5%8F%8D%E5%B0%84/" href="/categories/java/%E5%8F%8D%E5%B0%84/"
-            active-action="action-categoriesjavaE58F8DE5B084"
-            ><div class='name'>反射</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/%E5%BA%8F%E5%88%97%E5%8C%96/" href="/categories/java/%E5%BA%8F%E5%88%97%E5%8C%96/"
-            active-action="action-categoriesjavaE5BA8FE58897E58C96"
-            ><div class='name'>序列化</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/%E9%9B%86%E5%90%88/" href="/categories/java/%E9%9B%86%E5%90%88/"
-            active-action="action-categoriesjavaE99B86E59088"
-            ><div class='name'>集合</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E8%AE%A1%E7%BD%91/" href="/categories/%E8%AE%A1%E7%BD%91/"
-            active-action="action-categoriesE8AEA1E7BD91"
-            ><div class='name'>计网</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E8%AE%A1%E7%BD%91/HTTP/" href="/categories/%E8%AE%A1%E7%BD%91/HTTP/"
-            active-action="action-categoriesE8AEA1E7BD91HTTP"
-            ><div class='name'>HTTP</div><div class='badge'>(3)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E5%87%BA%E7%8E%B0%E7%BC%93%E5%AD%98%E4%B8%80%E8%87%B4%E6%80%A7%E9%97%AE%E9%A2%98"><span class="toc-text">为什么会出现缓存一致性问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8%E9%9D%9E%E5%B9%B6%E5%8F%91%E7%9A%84%E6%83%85%E5%86%B5"><span class="toc-text">在非并发的情况</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E6%83%85%E5%86%B5"><span class="toc-text">并发情况</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%99%E5%86%99%E5%B9%B6%E5%8F%91"><span class="toc-text">写写并发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%BB%E5%86%99%E5%B9%B6%E5%8F%91"><span class="toc-text">读写并发</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E5%92%8C%E6%9B%B4%E6%96%B0"><span class="toc-text">删除和更新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%88%E5%86%99%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%98%E6%98%AF%E5%85%88%E5%88%A0%E7%BC%93%E5%AD%98"><span class="toc-text">先写数据库还是先删缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%88%E5%86%99%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">先写数据库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%88%E5%88%A0%E7%BC%93%E5%AD%98"><span class="toc-text">先删缓存</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BB%B6%E8%BF%9F%E5%8F%8C%E5%88%A0"><span class="toc-text">延迟双删</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%93%E5%AD%98%E6%9B%B4%E6%96%B0%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-text">缓存更新设计模式</span></a></li></ol>
     </div>
   </section>
-
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow floatable blur desktop mobile pjax">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fa-solid fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/HTTP/" style="font-size: 16.5px; color: #888">HTTP</a> <a href="/tags/consul/" style="font-size: 14px; color: #999">consul</a> <a href="/tags/eureka/" style="font-size: 14px; color: #999">eureka</a> <a href="/tags/io/" style="font-size: 14px; color: #999">io</a> <a href="/tags/java/" style="font-size: 24px; color: #555">java</a> <a href="/tags/mongodb/" style="font-size: 14px; color: #999">mongodb</a> <a href="/tags/mybatis/" style="font-size: 19px; color: #777">mybatis</a> <a href="/tags/mybatis-plus/" style="font-size: 14px; color: #999">mybatis-plus</a> <a href="/tags/netty/" style="font-size: 14px; color: #999">netty</a> <a href="/tags/ribbon/" style="font-size: 14px; color: #999">ribbon</a> <a href="/tags/spring/" style="font-size: 21.5px; color: #666">spring</a> <a href="/tags/springboot/" style="font-size: 16.5px; color: #888">springboot</a> <a href="/tags/springcloud/" style="font-size: 19px; color: #777">springcloud</a> <a href="/tags/%E4%BB%A3%E7%90%86/" style="font-size: 14px; color: #999">代理</a> <a href="/tags/%E5%8F%8D%E5%B0%84/" style="font-size: 14px; color: #999">反射</a> <a href="/tags/%E5%BA%8F%E5%88%97%E5%8C%96/" style="font-size: 14px; color: #999">序列化</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 16.5px; color: #888">计网</a> <a href="/tags/%E9%9B%86%E5%90%88/" style="font-size: 14px; color: #999">集合</a>
-    </div>
-  </section>
-
-
-  
 
   
 
 
 <!-- 没有 pjax 占位会报错 万恶的 pjax -->
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
 
   <div class="pjax">
     <!-- pjax占位 -->
@@ -2849,13 +2931,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </aside>
 
 
+
           <!--此文件用来存放一些不方便取值的变量-->
 <!--思路大概是将值藏到重加载的区域内-->
 
 <pjax>
 <script>
   window.pdata={}
-  pdata.ispage=false;
+  pdata.ispage=true;
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   pdata.commentConfig={};
@@ -3820,7 +3903,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Alias的博客","url":"http://levialias.top/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Alias","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://levialias.top/","sameAs":["https://github.com/volantis-x"],"description":"Alias的博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://levialias.top/","name":"Alias的博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://levialias.top/tags/mybatis-plus/","name":"mybatis-plus"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Alias的博客","url":"http://levialias.top/","keywords":null,"description":"Alias的博客","author":{"@type":"Person","name":"Alias","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://levialias.top/","description":"Alias的博客"},"publisher":{"@type":"Organization","name":"Alias的博客","url":"http://levialias.top/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://levialias.top?s={search_term_string}"},"query-input":"required name=search_term_string"}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Alias的博客","url":"http://levialias.top/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Alias","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://levialias.top/","sameAs":["https://github.com/volantis-x"],"description":"Alias的博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://levialias.top/","name":"Alias的博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://levialias.top/categories/java/","name":"java"}},{"@type":"ListItem","position":3,"item":{"@id":"http://levialias.top/2022/11/08/关于数据库和缓存不一致问题/","name":"关于数据库和缓存不一致问题"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"关于数据库和缓存不一致问题","description":"","datePublished":"2022-11-08T15:43:03.092Z","dateModified":"2022-11-08T15:43:03.270Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://levialias.top/2022/11/08/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E7%BC%93%E5%AD%98%E4%B8%8D%E4%B8%80%E8%87%B4%E9%97%AE%E9%A2%98/"},"author":{"@type":"Person","name":"Alias","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://levialias.top/"},"publisher":{"@type":"Organization","name":"Alias的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://levialias.top/2022/11/08/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E7%BC%93%E5%AD%98%E4%B8%8D%E4%B8%80%E8%87%B4%E9%97%AE%E9%A2%98/","wordCount":0,"articleSection":"java","keywords":"java","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

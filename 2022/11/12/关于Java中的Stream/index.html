@@ -4,8 +4,8 @@
   <meta name="generator" content="Hexo 5.4.0">
   <meta charset="utf-8">
   <!-- SEO相关 -->
-  <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="http://levialias.top/categories/java/netty/"/>
+  
+  <link rel="canonical" href="http://levialias.top/2022/11/12/关于java中的stream/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://npm.elemecdn.com'>
@@ -31,18 +31,22 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <pjax>
-  <title>分类：netty - Alias的博客</title>
-  <meta name="keywords" content="null">
+  <title>Alias的博客</title>
+  <meta name="keywords" content="java,集合,null">
   <meta desc name="description" content="Alias的博客 - Alias - Alias的博客">
   
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Alias的博客">
-<meta property="og:url" content="http://levialias.top/categories/java/netty/index.html">
+<meta property="og:url" content="http://levialias.top/2022/11/12/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84Stream/index.html">
 <meta property="og:site_name" content="Alias的博客">
-<meta property="og:description" content="Alias的博客">
+<meta property="og:description" content="关于Java中的StreamStream 使用一种类似用 SQL 语句从数据库查询数据的直观方式来提供一种对 Java 集合运算和表达的高阶抽象。 Stream API可以极大提高Java程序员的生产力，让程序员写出高效率、干净、简洁的代码。 这种风格将要处理的元素集合看作一种流，流在管道中传输，并且可以在管道的节点上进行处理，比如筛选，排序，聚合等。 Stream有以下特性及优点：  无存储。S">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+<meta property="article:published_time" content="2022-11-12T07:37:14.452Z">
+<meta property="article:modified_time" content="2022-11-12T07:37:14.622Z">
 <meta property="article:author" content="Alias">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="集合">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   </pjax>
@@ -2431,7 +2435,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
       <!-- see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs -->
-      <div id="none" class='cover-wrapper  dock' style="display: none;">
+      <div id="none" class='cover-wrapper post dock' style="display: none;">
         
   <div class='cover-bg lazyload placeholder' data-bg="https://bing.ioliu.cn/v1/rand?w=1920&h=1200"></div>
 
@@ -2505,25 +2509,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="safearea">
         <div class="body-wrapper">
           
-
 <div id="l_main" class=''>
-  
-    
-      
-  <section class="post-list">
-    
-      
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://levialias.top/2022/05/02/%E5%90%84%E7%A7%8D%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D/">
+  <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
+  <link itemprop="mainEntityOfPage" href="http://levialias.top/2022/11/12/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84Stream/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="Alias的博客">
   </span>
@@ -2532,75 +2520,232 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <meta itemprop="description" content="Alias的博客">
   </span>
   
-  
+
+
   
     <span hidden>
       <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
     </span>
   
-  
+  <div class="article-meta" id="top">
     
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/05/02/%E5%90%84%E7%A7%8D%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D/"  itemprop="url">
-        各种线程模型介绍
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
     
-      
-        各种线程模型介绍传统阻塞 I/O 服务模型模型特点1、采用阻塞IO模式获取输入的数据
-2、每个连接都需要独立的线程完成数据输入
-存在的问题1、并发数很大的时候会创建大量的线程，占用很大的系统资源
-2、创建连接后，如果当前线程暂时没有数据可读，该线程会阻塞在Handler对象中的read操作，导致上面的处理线程资源浪费
-
-Reactor模式针对传统阻塞 I/O 服务模型的 2 个缺点，解决方案...
-      
+    
+      <span hidden itemprop="name headline">
+        
+      </span>
     
   </div>
+
+
+  <div id="layoutHelper-page-plugins"></div>
+  <div id="post-body" itemprop="articleBody">
+    <h1 id="关于Java中的Stream"><a href="#关于Java中的Stream" class="headerlink" title="关于Java中的Stream"></a>关于Java中的Stream</h1><p>Stream 使用一种类似用 SQL 语句从数据库查询数据的直观方式来提供一种对 Java 集合运算和表达的高阶抽象。</p>
+<p>Stream API可以极大提高Java程序员的生产力，让程序员写出高效率、干净、简洁的代码。</p>
+<p>这种风格将要处理的元素集合看作一种流，流在管道中传输，并且可以在管道的节点上进行处理，比如筛选，排序，聚合等。</p>
+<p>Stream有以下特性及优点：</p>
+<ul>
+<li>无存储。Stream不是一种数据结构，它只是某种数据源的一个视图，数据源可以是一个数组，Java容器或I/O channel等。</li>
+<li>为函数式编程而生。对Stream的任何修改都不会修改背后的数据源，比如对Stream执行过滤操作并不会删除被过滤的元素，而是会产生一个不包含被过滤元素的新Stream。</li>
+<li>惰式执行。Stream上的操作并不会立即执行，只有等到用户真正需要结果的时候才会执行。</li>
+<li>可消费性。Stream只能被“消费”一次，一旦遍历过就会失效，就像容器的迭代器那样，想要再次遍历必须重新生成。</li>
+</ul>
+<p><img src="/images/java33.png" class="lazyload" data-srcset="/images/java33.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>上面的例子中，获取一些带颜色塑料球作为数据源，首先过滤掉红色的、把它们融化成随机的三角形。再过滤器并删除小的三角形。最后计算出剩余图形的周长。</p>
+<p>如上图，对于流的处理，主要有三种关键性操作：分别是流的创建、中间操作（intermediate operation）以及最终操作(terminal operation)。</p>
+<div class="story post-story"><h2 id="Java中Stream的创建"><a href="#Java中Stream的创建" class="headerlink" title="Java中Stream的创建"></a>Java中Stream的创建</h2><h4 id="通过已有集合创建流"><a href="#通过已有集合创建流" class="headerlink" title="通过已有集合创建流"></a>通过已有集合创建流</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; strings = Arrays.asList(<span class="string">&quot;Alias&quot;</span>, <span class="string">&quot;lsh&quot;</span>, <span class="string">&quot;alias&quot;</span>, <span class="string">&quot;Hello&quot;</span>, <span class="string">&quot;HelloWorld&quot;</span>, <span class="string">&quot;Alias&quot;</span>);</span><br><span class="line">Stream&lt;String&gt; stream = strings.stream();</span><br></pre></td></tr></table></figure>
+
+<h4 id="通过Stream创建流"><a href="#通过Stream创建流" class="headerlink" title="通过Stream创建流"></a>通过Stream创建流</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Stream&lt;String&gt; stream = Stream.of(<span class="string">&quot;Alias&quot;</span>, <span class="string">&quot;lsh&quot;</span>, <span class="string">&quot;alias&quot;</span>, <span class="string">&quot;Hello&quot;</span>, <span class="string">&quot;HelloWorld&quot;</span>, <span class="string">&quot;Alias&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="Stream中间操作"><a href="#Stream中间操作" class="headerlink" title="Stream中间操作"></a>Stream中间操作</h4><p><img src="/images/java34.png" class="lazyload" data-srcset="/images/java34.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="/images/java36.png" class="lazyload" data-srcset="/images/java36.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><strong>filter</strong></p>
+<p>filter 方法用于通过设置的条件过滤出元素。以下代码片段使用 filter 方法过滤掉空字符串：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; strings = Arrays.asList(<span class="string">&quot;Alias&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="string">&quot;lsh&quot;</span>, <span class="string">&quot;A&quot;</span>, <span class="string">&quot;alias&quot;</span>);</span><br><span class="line">strings.stream().filter(string -&gt; !string.isEmpty()).forEach(System.out::println);</span><br></pre></td></tr></table></figure>
+
+<p><strong>map</strong></p>
+<p>map 方法用于映射每个元素到对应的结果，以下代码片段使用 map 输出了元素对应的平方数：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Integer&gt; numbers = Arrays.asList(<span class="number">3</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">7</span>, <span class="number">3</span>, <span class="number">5</span>);</span><br><span class="line">numbers.stream().map(i -&gt; i*i).forEach(System.out::println);</span><br><span class="line"><span class="comment">//9,4,4,9,49,9,25</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>limit/skip</strong></p>
+<p>limit 返回 Stream 的前面 n 个元素；skip 则是扔掉前 n 个元素。以下代码片段使用 limit 方法保留4个元素：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Integer&gt; numbers = Arrays.asList(<span class="number">3</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">7</span>, <span class="number">3</span>, <span class="number">5</span>);</span><br><span class="line">numbers.stream().limit(<span class="number">4</span>).forEach(System.out::println);</span><br><span class="line"><span class="comment">//3,2,2,3</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>sorted</strong></p>
+<p>sorted 方法用于对流进行排序。以下代码片段使用 sorted 方法进行排序：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Integer&gt; numbers = Arrays.asList(<span class="number">3</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">7</span>, <span class="number">3</span>, <span class="number">5</span>);</span><br><span class="line">numbers.stream().sorted().forEach(System.out::println);</span><br><span class="line"><span class="comment">//2,2,3,3,3,5,7</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>distinct</strong></p>
+<p>distinct主要用来去重，以下代码片段使用 distinct 对元素进行去重：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Integer&gt; numbers = Arrays.asList(<span class="number">3</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">7</span>, <span class="number">3</span>, <span class="number">5</span>);</span><br><span class="line">numbers.stream().distinct().forEach(System.out::println);</span><br><span class="line"><span class="comment">//3,2,7,5</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Stream最终操作"><a href="#Stream最终操作" class="headerlink" title="Stream最终操作"></a>Stream最终操作</h4><p>Stream的中间操作得到的结果还是一个Stream，那么如何把一个Stream转换成我们需要的类型呢？比如计算出流中元素的个数、将流转换成集合等。这就需要最终操作（terminal operation）</p>
+<p>最终操作会消耗流，产生一个最终结果。也就是说，在最终操作之后，不能再次使用流，也不能再使用任何中间操作，否则将抛出异常</p>
+<p><img src="/images/java35.png" class="lazyload" data-srcset="/images/java35.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><strong>forEach</strong></p>
+<p>Stream 提供了方法 ‘forEach’ 来迭代流中的每个数据。以下代码片段使用 forEach 输出了10个随机数：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Random random = <span class="keyword">new</span> Random();</span><br><span class="line">random.ints().limit(<span class="number">10</span>).forEach(System.out::println);</span><br></pre></td></tr></table></figure>
+
+<p><strong>count</strong></p>
+<p>count用来统计流中的元素个数。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; strings = Arrays.asList(<span class="string">&quot;Alias&quot;</span>, <span class="string">&quot;lsh&quot;</span>, <span class="string">&quot;alias&quot;</span>, <span class="string">&quot;Alias666&quot;</span>, <span class="string">&quot;Hello&quot;</span>, <span class="string">&quot;HelloWorld&quot;</span>, <span class="string">&quot;Alias&quot;</span>);</span><br><span class="line">System.out.println(strings.stream().count());</span><br></pre></td></tr></table></figure>
+
+<p><strong>collect</strong></p>
+<p>collect就是一个归约操作，可以接受各种做法作为参数，将流中的元素累积成一个汇总结果：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; strings = Arrays.asList(<span class="string">&quot;Alias&quot;</span>, <span class="string">&quot;lsh&quot;</span>, <span class="string">&quot;alias&quot;</span>,<span class="string">&quot;Alias666&quot;</span>, <span class="string">&quot;Hello&quot;</span>, <span class="string">&quot;HelloWorld&quot;</span>, <span class="string">&quot;Alias&quot;</span>);</span><br><span class="line">strings  = strings.stream().filter(string -&gt; string.startsWith(<span class="string">&quot;Alias&quot;</span>)).collect(Collectors.toList());</span><br><span class="line">System.out.println(strings);</span><br><span class="line"><span class="comment">//Alias,Alias666, Alias</span></span><br></pre></td></tr></table></figure>
+
+
+</div>
+  </div>
   
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-05-02T00:17:45+08:00">2022-05-02</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/java/">java</a><span class="sep"></span><a class="category-link" href="/categories/java/netty/">netty</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/" itemprop="url"><span itemprop="name">java</span></a>
-            </span>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/netty/" itemprop="url"><span itemprop="name">netty</span></a>
-            </span>
-          
-        
-      </div>
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/2022/05/02/%E5%90%84%E7%A7%8D%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D/' itemprop="url">
-            阅读全文
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=http://levialias.top/2022/11/12/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84Stream/>http://levialias.top/2022/11/12/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84Stream/</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-11-12T15:37:14+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2022年11月12日</p>
+  </a>
 </div>
 
-          </div>
         
       
-    
-  </section>
+        
+          
   
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/java/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>java</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%9B%86%E5%90%88/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>集合</p></a></div>
+  <span hidden itemprop="keywords">java 集合</span>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://levialias.top/2022/11/12/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84Stream/&title= - Alias的博客&summary="
+          
+          >
+          
+            <img src="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qq.png" class="lazyload" data-srcset="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qq.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://levialias.top/2022/11/12/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84Stream/&title= - Alias的博客&summary="
+          
+          >
+          
+            <img src="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qzone.png" class="lazyload" data-srcset="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qzone.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://levialias.top/2022/11/12/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84Stream/&title= - Alias的博客&summary="
+          
+          >
+          
+            <img src="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/weibo.png" class="lazyload" data-srcset="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/weibo.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+    <!-- Custom Files bottomMeta begin -->
+    
+    <!-- Custom Files bottomMeta end -->
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/2022/11/11/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84%E9%9B%86%E5%90%88%EF%BC%88%E4%BA%8C%EF%BC%89/'>
+          <p class='title'>关于Java中的集合（二）<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>关于Java中的集合（二）为什么HashMap默认容量设置成16什么是容量在Java中，保存数据有两种比较简单的数据结构：数组和链表。数组的特点是：寻址容易，插入和删除困难；而链表的特点是：寻址...</p>
+        </a>
+      
+    </div>
+  
+  <!-- Custom Files postEnd begin-->
+  
+  <!-- Custom Files postEnd end-->
+</article>
+
+
+  
+
+  
+  <article class="post white-box shadow floatable blur" id="comments">
+    <span hidden>
+      <meta itemprop="discussionUrl" content="/2022/11/12/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84Stream/index.html#comments">
+    </span>
+    <p ct><i class='fa-solid fa-comments'></i> 评论</p>
+    
+    
+    <div id="layoutHelper-comments"></div>
+
+  </article>
   
 
 
-    
-  
+
+
+
 </div>
 <aside id='l_side' itemscope itemtype="http://schema.org/WPSideBar">
   
@@ -2608,216 +2753,21 @@ Reactor模式针对传统阻塞 I/O 服务模型的 2 个缺点，解决方案..
     
     
 
-<section class="widget blogger shadow floatable blur desktop mobile pjax">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/Logo-NavBar@3x.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">Alias的博客</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fa-solid fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:me@xxx.com"
-              class="social fa-solid fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/volantis-x/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/"
-              class="social fa-solid fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
 
-  
-    
-    
-  
-
-  <section class="widget category shadow floatable blur desktop pjax">
+  <section class="widget toc-wrapper shadow floatable blur desktop mobile pjax" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fa-solid fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/java/" href="/categories/java/"
-            active-action="action-categoriesjava"
-            ><div class='name'>java</div><div class='badge'>(35)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/consul/" href="/categories/java/consul/"
-            active-action="action-categoriesjavaconsul"
-            ><div class='name'>consul</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/consul/springcloud/" href="/categories/java/consul/springcloud/"
-            active-action="action-categoriesjavaconsulspringcloud"
-            ><div class='name'>springcloud</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/eureka/" href="/categories/java/eureka/"
-            active-action="action-categoriesjavaeureka"
-            ><div class='name'>eureka</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/eureka/springcloud/" href="/categories/java/eureka/springcloud/"
-            active-action="action-categoriesjavaeurekaspringcloud"
-            ><div class='name'>springcloud</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/io/" href="/categories/java/io/"
-            active-action="action-categoriesjavaio"
-            ><div class='name'>io</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/mongodb/" href="/categories/java/mongodb/"
-            active-action="action-categoriesjavamongodb"
-            ><div class='name'>mongodb</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/mybatis-plus/" href="/categories/java/mybatis-plus/"
-            active-action="action-categoriesjavamybatis-plus"
-            ><div class='name'>mybatis-plus</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/mybatis/" href="/categories/java/mybatis/"
-            active-action="action-categoriesjavamybatis"
-            ><div class='name'>mybatis</div><div class='badge'>(4)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/netty/" href="/categories/java/netty/"
-            active-action="action-categoriesjavanetty"
-            ><div class='name'>netty</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/spring/" href="/categories/java/spring/"
-            active-action="action-categoriesjavaspring"
-            ><div class='name'>spring</div><div class='badge'>(6)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/springboot/" href="/categories/java/springboot/"
-            active-action="action-categoriesjavaspringboot"
-            ><div class='name'>springboot</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/springcloud/" href="/categories/java/springcloud/"
-            active-action="action-categoriesjavaspringcloud"
-            ><div class='name'>springcloud</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/springcloud/ribbon/" href="/categories/java/springcloud/ribbon/"
-            active-action="action-categoriesjavaspringcloudribbon"
-            ><div class='name'>ribbon</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/%E4%BB%A3%E7%90%86/" href="/categories/java/%E4%BB%A3%E7%90%86/"
-            active-action="action-categoriesjavaE4BBA3E79086"
-            ><div class='name'>代理</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/%E5%8F%8D%E5%B0%84/" href="/categories/java/%E5%8F%8D%E5%B0%84/"
-            active-action="action-categoriesjavaE58F8DE5B084"
-            ><div class='name'>反射</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/%E5%BA%8F%E5%88%97%E5%8C%96/" href="/categories/java/%E5%BA%8F%E5%88%97%E5%8C%96/"
-            active-action="action-categoriesjavaE5BA8FE58897E58C96"
-            ><div class='name'>序列化</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/%E9%9B%86%E5%90%88/" href="/categories/java/%E9%9B%86%E5%90%88/"
-            active-action="action-categoriesjavaE99B86E59088"
-            ><div class='name'>集合</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E8%AE%A1%E7%BD%91/" href="/categories/%E8%AE%A1%E7%BD%91/"
-            active-action="action-categoriesE8AEA1E7BD91"
-            ><div class='name'>计网</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E8%AE%A1%E7%BD%91/HTTP/" href="/categories/%E8%AE%A1%E7%BD%91/HTTP/"
-            active-action="action-categoriesE8AEA1E7BD91HTTP"
-            ><div class='name'>HTTP</div><div class='badge'>(3)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Java%E4%B8%ADStream%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="toc-text">Java中Stream的创建</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E5%B7%B2%E6%9C%89%E9%9B%86%E5%90%88%E5%88%9B%E5%BB%BA%E6%B5%81"><span class="toc-text">通过已有集合创建流</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9A%E8%BF%87Stream%E5%88%9B%E5%BB%BA%E6%B5%81"><span class="toc-text">通过Stream创建流</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Stream%E4%B8%AD%E9%97%B4%E6%93%8D%E4%BD%9C"><span class="toc-text">Stream中间操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Stream%E6%9C%80%E7%BB%88%E6%93%8D%E4%BD%9C"><span class="toc-text">Stream最终操作</span></a></li></ol></li></ol></li></ol>
     </div>
   </section>
-
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow floatable blur desktop mobile pjax">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fa-solid fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/HTTP/" style="font-size: 16.5px; color: #888">HTTP</a> <a href="/tags/consul/" style="font-size: 14px; color: #999">consul</a> <a href="/tags/eureka/" style="font-size: 14px; color: #999">eureka</a> <a href="/tags/io/" style="font-size: 14px; color: #999">io</a> <a href="/tags/java/" style="font-size: 24px; color: #555">java</a> <a href="/tags/mongodb/" style="font-size: 14px; color: #999">mongodb</a> <a href="/tags/mybatis/" style="font-size: 19px; color: #777">mybatis</a> <a href="/tags/mybatis-plus/" style="font-size: 14px; color: #999">mybatis-plus</a> <a href="/tags/netty/" style="font-size: 14px; color: #999">netty</a> <a href="/tags/ribbon/" style="font-size: 14px; color: #999">ribbon</a> <a href="/tags/spring/" style="font-size: 21.5px; color: #666">spring</a> <a href="/tags/springboot/" style="font-size: 16.5px; color: #888">springboot</a> <a href="/tags/springcloud/" style="font-size: 19px; color: #777">springcloud</a> <a href="/tags/%E4%BB%A3%E7%90%86/" style="font-size: 14px; color: #999">代理</a> <a href="/tags/%E5%8F%8D%E5%B0%84/" style="font-size: 14px; color: #999">反射</a> <a href="/tags/%E5%BA%8F%E5%88%97%E5%8C%96/" style="font-size: 14px; color: #999">序列化</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 16.5px; color: #888">计网</a> <a href="/tags/%E9%9B%86%E5%90%88/" style="font-size: 16.5px; color: #888">集合</a>
-    </div>
-  </section>
-
-
-  
 
   
 
@@ -2844,11 +2794,20 @@ Reactor模式针对传统阻塞 I/O 服务模型的 2 个缺点，解决方案..
     <!-- pjax占位 -->
   </div>
 
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
 
   <!-- Custom Files side begin -->
   
   <!-- Custom Files side end -->
 </aside>
+
 
 
           <!--此文件用来存放一些不方便取值的变量-->
@@ -3822,7 +3781,7 @@ Reactor模式针对传统阻塞 I/O 服务模型的 2 个缺点，解决方案..
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Alias的博客","url":"http://levialias.top/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Alias","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://levialias.top/","sameAs":["https://github.com/volantis-x"],"description":"Alias的博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://levialias.top/","name":"Alias的博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://levialias.top/categories/netty/","name":"netty"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Alias的博客","url":"http://levialias.top/","keywords":null,"description":"Alias的博客","author":{"@type":"Person","name":"Alias","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://levialias.top/","description":"Alias的博客"},"publisher":{"@type":"Organization","name":"Alias的博客","url":"http://levialias.top/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://levialias.top?s={search_term_string}"},"query-input":"required name=search_term_string"}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Alias的博客","url":"http://levialias.top/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Alias","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://levialias.top/","sameAs":["https://github.com/volantis-x"],"description":"Alias的博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://levialias.top/","name":"Alias的博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://levialias.top/categories/java/","name":"java"}},{"@type":"ListItem","position":2,"item":{"@id":"http://levialias.top/categories/java/集合/","name":"集合"}},{"@type":"ListItem","position":3,"item":{"@id":"http://levialias.top/2022/11/12/关于Java中的Stream/","name":""}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"","description":"","datePublished":"2022-11-12T07:37:14.452Z","dateModified":"2022-11-12T07:37:14.622Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://levialias.top/2022/11/12/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84Stream/"},"author":{"@type":"Person","name":"Alias","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://levialias.top/"},"publisher":{"@type":"Organization","name":"Alias的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://levialias.top/2022/11/12/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84Stream/","wordCount":0,"articleSection":"java","keywords":"java,集合","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

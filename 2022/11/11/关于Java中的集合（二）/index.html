@@ -4,8 +4,8 @@
   <meta name="generator" content="Hexo 5.4.0">
   <meta charset="utf-8">
   <!-- SEO相关 -->
-  <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="http://levialias.top/archives/"/>
+  
+  <link rel="canonical" href="http://levialias.top/2022/11/11/关于java中的集合（二）/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://npm.elemecdn.com'>
@@ -31,18 +31,22 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <pjax>
-  <title>归档 - Alias的博客</title>
-  <meta name="keywords" content="null">
+  <title>关于Java中的集合（二） - Alias的博客</title>
+  <meta name="keywords" content="java,集合,null">
   <meta desc name="description" content="Alias的博客 - Alias - Alias的博客">
   
-<meta property="og:type" content="website">
-<meta property="og:title" content="Alias的博客">
-<meta property="og:url" content="http://levialias.top/archives/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于Java中的集合（二）">
+<meta property="og:url" content="http://levialias.top/2022/11/11/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84%E9%9B%86%E5%90%88%EF%BC%88%E4%BA%8C%EF%BC%89/index.html">
 <meta property="og:site_name" content="Alias的博客">
-<meta property="og:description" content="Alias的博客">
+<meta property="og:description" content="关于Java中的集合（二）为什么HashMap默认容量设置成16什么是容量在Java中，保存数据有两种比较简单的数据结构：数组和链表。数组的特点是：寻址容易，插入和删除困难；而链表的特点是：寻址困难，插入和删除容易。HashMap就是将数组和链表组合在一起，发挥了两者的优势，我们可以将其理解为链表的数组。 在HashMap中，有两个比较容易混淆的关键字段：size和capacity ，这其中cap">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+<meta property="article:published_time" content="2022-11-11T15:43:45.599Z">
+<meta property="article:modified_time" content="2022-11-11T15:43:45.807Z">
 <meta property="article:author" content="Alias">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="集合">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   </pjax>
@@ -2162,7 +2166,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <!-- Custom Files bodyBegin begin-->
     
     <!-- Custom Files bodyBegin end-->
-    <header itemscope itemtype="http://schema.org/WPHeader" id="l_header" class="l_header auto shadow floatable blur " style='opacity: 0' >
+    <header itemscope itemtype="http://schema.org/WPHeader" id="l_header" class="l_header auto shadow floatable blur show" style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -2431,7 +2435,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
       <!-- see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs -->
-      <div id="half" class='cover-wrapper  dock' style="display: ;">
+      <div id="none" class='cover-wrapper post dock' style="display: none;">
         
   <div class='cover-bg lazyload placeholder' data-bg="https://bing.ioliu.cn/v1/rand?w=1920&h=1200"></div>
 
@@ -2506,626 +2510,298 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper">
           
 <div id="l_main" class=''>
-	
-	  <article id="arc" class="post article white-box reveal shadow floatable blur">
-			
-			
-				
-				
-					
-						
-						<h2>2022</h2>
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/11/11/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84%E9%9B%86%E5%90%88%EF%BC%88%E4%BA%8C%EF%BC%89/">
-									<time>11-11</time>
-									
-										关于Java中的集合（二）
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/11/08/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E7%BC%93%E5%AD%98%E4%B8%8D%E4%B8%80%E8%87%B4%E9%97%AE%E9%A2%98/">
-									<time>11-08</time>
-									
-										关于数据库和缓存不一致问题
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/11/06/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84%E9%9B%86%E5%90%88%EF%BC%88%E4%B8%80%EF%BC%89/">
-									<time>11-06</time>
-									
-										关于Java中的集合（一）
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/11/03/Springboot%E6%95%B4%E5%90%88MongoDB/">
-									<time>11-03</time>
-									
-										Springboot整合MongoDB
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/11/01/%E5%85%B3%E4%BA%8EJava%E7%9A%84%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">
-									<time>11-01</time>
-									
-										关于Java的类加载机制
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/10/31/%E5%85%B3%E4%BA%8E%E5%BA%8F%E5%88%97%E5%8C%96/">
-									<time>10-31</time>
-									
-										关于序列化
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/10/30/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84%E4%BB%A3%E7%90%86/">
-									<time>10-30</time>
-									
-										关于Java中的代理
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/10/30/Java%E4%B8%AD%E7%9A%84%E5%8F%8D%E5%B0%84/">
-									<time>10-30</time>
-									
-										Java中的反射
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/10/30/Java%E4%B8%AD%E7%9A%84IO/">
-									<time>10-30</time>
-									
-										Java中的IO
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/10/29/%E7%9B%98%E7%82%B9Java%E4%B8%AD%E7%9A%84%E5%90%84%E7%A7%8D%E5%85%B3%E9%94%AE%E5%AD%97/">
-									<time>10-29</time>
-									
-										盘点Java中的各种关键字
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/10/27/Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">
-									<time>10-27</time>
-									
-										Java内存模型
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/10/26/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F/">
-									<time>10-26</time>
-									
-										关于Java中字符串的存储方式
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/10/26/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84String(%E4%BA%8C)/">
-									<time>10-26</time>
-									
-										关于Java中的String(二)
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/10/25/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84String/">
-									<time>10-25</time>
-									
-										关于Java中的String
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/10/25/%E4%B8%80%E4%BA%9Bjava%E5%9F%BA%E7%A1%80/">
-									<time>10-25</time>
-									
-										一些java基础
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/05/02/%E5%90%84%E7%A7%8D%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D/">
-									<time>05-02</time>
-									
-										各种线程模型介绍
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/01/22/HTTP%E5%AD%A6%E4%B9%A0%E4%B8%89/">
-									<time>01-22</time>
-									
-										HTTP学习三
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/01/21/HTTP%E5%AD%A6%E4%B9%A0%E4%BA%8C/">
-									<time>01-21</time>
-									
-										HTTP学习二
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2022/01/19/HTTP%E5%AD%A6%E4%B9%A0%E4%B8%80/">
-									<time>01-19</time>
-									
-										HTTP学习一
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						
-						<h2>2021</h2>
-					
-						<div class='timenode'>
-								<a class="meta" href="/2021/10/27/Ribbon%E5%9B%9E%E9%A1%BE/">
-									<time>10-27</time>
-									
-										Ribbon回顾
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2021/10/26/%E6%B5%85%E8%A6%81%E8%AF%B4%E8%AF%B4CAP/">
-									<time>10-26</time>
-									
-										浅要说说CAP
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2021/10/26/Consul%E5%9B%9E%E9%A1%BE/">
-									<time>10-26</time>
-									
-										Consul回顾
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2021/10/26/Eureka%E5%9B%9E%E9%A1%BE/">
-									<time>10-26</time>
-									
-										Eureka回顾
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2021/10/23/%E6%B5%8B%E8%AF%95%E7%94%A8/">
-									<time>10-23</time>
-									
-										测试用
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2021/07/25/Spirng%E5%AD%A6%E4%B9%A0%E5%9B%9B/">
-									<time>07-25</time>
-									
-										Spirng学习四
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2021/07/25/Spirng%E5%AD%A6%E4%B9%A0%E5%85%AD/">
-									<time>07-25</time>
-									
-										Spirng学习六
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2021/07/25/Spirng%E5%AD%A6%E4%B9%A0%E4%BA%94/">
-									<time>07-25</time>
-									
-										Spirng学习五
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2021/07/25/Spirng%E5%AD%A6%E4%B9%A0%E4%BA%8C/">
-									<time>07-25</time>
-									
-										Spirng学习二
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2021/07/25/Spirng%E5%AD%A6%E4%B9%A0%E4%B8%89/">
-									<time>07-25</time>
-									
-										Spirng学习三
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2021/07/25/Spirng%E5%AD%A6%E4%B9%A0%E4%B8%80/">
-									<time>07-25</time>
-									
-										Spirng学习一
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2021/07/25/SpirngBoot%E5%9B%9E%E9%A1%BE%E4%BA%8C%EF%BC%9Ayml%E9%85%8D%E7%BD%AE/">
-									<time>07-25</time>
-									
-										SpirngBoot回顾二：yml配置
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2021/07/25/SpirngBoot%E5%9B%9E%E9%A1%BE%E4%B8%89%EF%BC%9A%E6%95%B4%E5%90%88Mybatis/">
-									<time>07-25</time>
-									
-										SpirngBoot回顾三：整合Mybatis
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2021/07/25/SpirngBoot%E5%9B%9E%E9%A1%BE%E4%B8%80/">
-									<time>07-25</time>
-									
-										SpirngBoot回顾一
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2021/07/25/Mybatis%E5%AD%A6%E4%B9%A0%E5%9B%9B/">
-									<time>07-25</time>
-									
-										Mybatis学习四
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2021/07/25/Mybatis%E5%AD%A6%E4%B9%A0%E4%BA%8C/">
-									<time>07-25</time>
-									
-										Mybatis学习二
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2021/07/25/Mybatis%E5%AD%A6%E4%B9%A0%E4%B8%89/">
-									<time>07-25</time>
-									
-										Mybatis学习三
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2021/07/25/Mybatis%E5%AD%A6%E4%B9%A0%E4%B8%80/">
-									<time>07-25</time>
-									
-										Mybatis学习一
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2021/07/25/Mybatis-Plus%E5%9B%9E%E9%A1%BE/">
-									<time>07-25</time>
-									
-										Mybatis-Plus回顾
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-	  </article>
-	
+  <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
+  <link itemprop="mainEntityOfPage" href="http://levialias.top/2022/11/11/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84%E9%9B%86%E5%90%88%EF%BC%88%E4%BA%8C%EF%BC%89/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Alias的博客">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="Alias的博客">
+    <meta itemprop="description" content="Alias的博客">
+  </span>
+  
+
+
+  
+    <span hidden>
+      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title" itemprop="name headline">
+        关于Java中的集合（二）
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author' itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <a itemprop="url" class='author' href="/" rel="nofollow">
+    <img itemprop="image" src="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/apple-touch-icon.png" class="lazyload" data-srcset="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/apple-touch-icon.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+    <p itemprop="name">请设置文章作者</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
+    <a class="category-link" href="/categories/java/">java</a><span class="sep"></span><a class="category-link" href="/categories/java/%E9%9B%86%E5%90%88/">集合</a>
+    
+      <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+        <a href="/categories/java/" itemprop="url"><span itemprop="name">java</span></a>
+      </span>
+    
+      <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+        <a href="/categories/java/%E9%9B%86%E5%90%88/" itemprop="url"><span itemprop="name">集合</span></a>
+      </span>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-11-11T23:43:45+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2022年11月11日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+        <!-- Custom Files topMeta begin-->
+        
+        <!-- Custom Files topMeta end-->
+      </div>
+    
+  </div>
+
+
+  <div id="layoutHelper-page-plugins"></div>
+  <div id="post-body" itemprop="articleBody">
+    <h1 id="关于Java中的集合（二）"><a href="#关于Java中的集合（二）" class="headerlink" title="关于Java中的集合（二）"></a>关于Java中的集合（二）</h1><div class="story post-story"><h2 id="为什么HashMap默认容量设置成16"><a href="#为什么HashMap默认容量设置成16" class="headerlink" title="为什么HashMap默认容量设置成16"></a>为什么HashMap默认容量设置成16</h2><h4 id="什么是容量"><a href="#什么是容量" class="headerlink" title="什么是容量"></a>什么是容量</h4><p>在Java中，保存数据有两种比较简单的数据结构：数组和链表。数组的特点是：寻址容易，插入和删除困难；而链表的特点是：寻址困难，插入和删除容易。HashMap就是将数组和链表组合在一起，发挥了两者的优势，我们可以将其理解为链表的数组。</p>
+<p>在HashMap中，有两个比较容易混淆的关键字段：size和capacity ，这其中capacity就是Map的容量，而size我们称之为Map中的元素个数。</p>
+<h4 id="容量与哈希"><a href="#容量与哈希" class="headerlink" title="容量与哈希"></a>容量与哈希</h4><p>我们知道，容量就是一个HashMap中”桶”的个数，那么，当我们想要往一个HashMap中put一个元素的时候，需要通过一定的算法计算出应该把他放到哪个桶中，这个过程就叫做哈希（hash），对应的就是HashMap中的hash方法。</p>
+<p>我们知道，hash方法的功能是根据Key来定位这个K-V在链表数组中的位置的。也就是hash方法的输入应该是个Object类型的Key，输出应该是个int类型的数组下标。如果让你设计这个方法，你会怎么做？</p>
+<p>其实简单，我们只要调用Object对象的hashCode()方法，该方法会返回一个整数，然后用这个数对HashMap的容量进行取模就行了。</p>
+<p>如果真的是这么简单的话，那HashMap的容量设置就会简单很多了，但是考虑到效率等问题，HashMap的hash方法实现还是有一定的复杂的。</p>
+<h4 id="hash实现"><a href="#hash实现" class="headerlink" title="hash实现"></a>hash实现</h4><p>具体实现上，由两个方法int hash(Object k)和int indexFor(int h, int length)来实现。</p>
+<blockquote>
+<p>hash ：该方法主要是将Object转换成一个整型。</p>
+<p>indexFor ：该方法主要是将hash生成的整型转换成链表数组中的下标。</p>
+</blockquote>
+<p>为了聚焦本文的重点，我们只来看一下indexFor方法。我们先来看下Java 7（Java8中虽然没有这样一个单独的方法，但是查询下标的算法也是和Java 7一样的）中该实现细节：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">indexFor</span><span class="params">(<span class="keyword">int</span> h, <span class="keyword">int</span> length)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> h &amp; (length-<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>indexFor方法其实主要是将hashcode换成链表数组中的下标。其中的两个参数h表示元素的hashcode值，length表示HashMap的容量。那么return h &amp; (length-1) 是什么意思呢？</p>
+<p>其实，他就是取模。Java之所有使用位运算(&amp;)来代替取模运算(%)，最主要的考虑就是效率。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">6 % 8 &#x3D; 6 ，6 &amp; 7 &#x3D; 6</span><br><span class="line"></span><br><span class="line">10 % 8 &#x3D; 2 ，10 &amp; 7 &#x3D; 2</span><br></pre></td></tr></table></figure>
+
+<p>所以，return h &amp; (length-1);只要保证length的长度是2^n 的话，就可以实现取模运算了。</p>
+<p>所以，<strong>因为位运算直接对内存数据进行操作，不需要转成十进制，所以位运算要比取模运算的效率更高，所以HashMap在计算元素要存放在数组中的index的时候，使用位运算代替了取模运算。之所以可以做等价代替，前提是要求HashMap的容量一定要是2^n</strong> 。</p>
+<p>那么，既然是2^n ，为啥一定要是16呢？为什么不能是4、8或者32呢？</p>
+<p>关于这个默认容量的选择，JDK并没有给出官方解释.</p>
+<p>根据推断，这应该就是个经验值（Experience Value），既然一定要设置一个默认的2^n 作为初始值，那么就需要在效率和内存使用上做一个权衡。这个值既不能太小，也不能太大。</p>
+<p>太小了就有可能频繁发生扩容，影响效率。太大了又浪费空间，不划算。</p>
+<p>所以，16就作为一个经验值被采用了。</p>
+<h4 id="指定容量初始化"><a href="#指定容量初始化" class="headerlink" title="指定容量初始化"></a>指定容量初始化</h4><p>当我们通过HashMap(int initialCapacity)设置初始容量的时候，HashMap并不一定会直接采用我们传入的数值，而是经过计算，得到一个新值，目的是提高hash的效率。(1-&gt;1、3-&gt;4、7-&gt;8、9-&gt;16)</p>
+<p>看一下JDK是如何找到比传入的指定值大的第一个2的幂的：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n = cap - <span class="number">1</span>;</span><br><span class="line">n |= n &gt;&gt;&gt; <span class="number">1</span>;</span><br><span class="line">n |= n &gt;&gt;&gt; <span class="number">2</span>;</span><br><span class="line">n |= n &gt;&gt;&gt; <span class="number">4</span>;</span><br><span class="line">n |= n &gt;&gt;&gt; <span class="number">8</span>;</span><br><span class="line">n |= n &gt;&gt;&gt; <span class="number">16</span>;</span><br><span class="line"><span class="keyword">return</span> (n &lt; <span class="number">0</span>) ? <span class="number">1</span> : (n &gt;= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<p>总之，HashMap根据用户传入的初始化容量，利用无符号右移和按位或运算等方式计算出第一个大于该数的2的幂。</p>
+<h4 id="扩容"><a href="#扩容" class="headerlink" title="扩容"></a>扩容</h4><p>除了初始化的时候会指定HashMap的容量，在进行扩容的时候，其容量也可能会改变。</p>
+<p>HashMap有扩容机制，就是当达到扩容条件时会进行扩容。HashMap的扩容条件就是当HashMap中的元素个数（size）超过临界值（threshold）时就会自动扩容。</p>
+<p>在HashMap中，threshold = loadFactor * capacity。</p>
+<p>loadFactor是装载因子，表示HashMap满的程度，默认值为0.75f，设置成0.75有一个好处，那就是0.75正好是3/4，而capacity又是2的幂。所以，两个数的乘积都是整数。</p>
+<p>对于一个默认的HashMap来说，默认情况下，当其size大于12(16*0.75)时就会触发扩容。</p>
+<p>我们可以看HashMap中扩容方式中的一段</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> ((newCap = oldCap &lt;&lt; <span class="number">1</span>) &lt; MAXIMUM_CAPACITY &amp;&amp;</span><br><span class="line">                 oldCap &gt;= DEFAULT_INITIAL_CAPACITY)</span><br><span class="line">    newThr = oldThr &lt;&lt; <span class="number">1</span>; <span class="comment">// double threshold</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>从上面代码可以看出，扩容后的table大小变为原来的两倍，这一步执行之后，就会进行扩容后table的调整，这部分非本文重点，省略。</p>
+<p>可见，当HashMap中的元素个数（size）超过临界值（threshold）时就会自动扩容，扩容成原容量的2倍，即从16扩容到32、64、128 …</p>
+<p>所以，通过保证初始化容量均为2的幂，并且扩容时也是扩容到之前容量的2倍，所以，保证了HashMap的容量永远都是2的幂。</p>
+</div><div class="story post-story"><h2 id="为什么要建议设置HashMap初始容量"><a href="#为什么要建议设置HashMap初始容量" class="headerlink" title="为什么要建议设置HashMap初始容量"></a>为什么要建议设置HashMap初始容量</h2><p>我们上面提到了hashmap的扩容机制，如果我们没有设置初始容量大小，随着元素的不断增加，HashMap会发生多次扩容，而HashMap中的扩容机制决定了每次扩容都需要重建hash表，是非常影响性能的。</p>
+<p>所以，首先可以明确的是，我们建议开发者在创建HashMap的时候指定初始化容量。并且《阿里巴巴开发手册》中也是这么建议的</p>
+<h4 id="HashMap初始化容量设置多少合适"><a href="#HashMap初始化容量设置多少合适" class="headerlink" title="HashMap初始化容量设置多少合适"></a>HashMap初始化容量设置多少合适</h4><p>有些人会自然想到，我准备塞多少个元素我就设置成多少呗。比如我准备塞7个元素，那就new HashMap(7)。</p>
+<p>但是，这么做不仅不对，而且以上方式创建出来的Map的容量也不是7。</p>
+<p>因为，当我们使用HashMap(int initialCapacity)来初始化容量的时候，HashMap并不会使用我们传进来的initialCapacity直接作为初始容量。</p>
+<p>JDK会默认帮我们计算一个相对合理的值当做初始容量。所谓合理值，其实是找到第一个比用户传入的值大的2的幂。</p>
+<p>也就是说，当我们new HashMap(7)创建HashMap的时候，JDK会通过计算，帮我们创建一个容量为8的Map；当我们new HashMap(9)创建HashMap的时候，JDK会通过计算，帮我们创建一个容量为16的Map。</p>
+<p>但是，这个值看似合理，实际上并不尽然。因为HashMap在根据用户传入的capacity计算得到的默认容量，并没有考虑到loadFactor这个因素，只是简单机械的计算出第一个大约这个数字的2的幂。</p>
+<p>也就是说，如果我们设置的默认值是7，经过JDK处理之后，HashMap的容量会被设置成8，但是，这个HashMap在元素个数达到 8*0.75 = 6的时候就会进行一次扩容，这明显是我们不希望见到的。</p>
+<p>那么，到底设置成什么值比较合理呢？</p>
+<p>这里我们可以参考JDK8中putAll方法中的实现的，这个实现在guava（21.0版本）也被采用。</p>
+<p>这个值的计算方法就是：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> (<span class="keyword">int</span>) ((<span class="keyword">float</span>) expectedSize / <span class="number">0.75F</span> + <span class="number">1.0F</span>);</span><br></pre></td></tr></table></figure>
+
+<p>比如我们计划向HashMap中放入7个元素的时候，我们通过expectedSize / 0.75F + 1.0F计算，7/0.75 + 1 = 10 ,10经过JDK处理之后，会被设置成16，这就大大的减少了扩容的几率。</p>
+<p>但是，以上的操作是一种用内存换性能的做法，真正使用的时候，要考虑到内存的影响。但是，大多数情况下，我们还是认为内存是一种比较富裕的资源。</p>
+<p>但是话又说回来了，有些时候，我们到底要不要设置HashMap的初识值，这个值又设置成多少，真的有那么大影响吗？其实也不见得！</p>
+
+</div>
+  </div>
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=http://levialias.top/2022/11/11/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84%E9%9B%86%E5%90%88%EF%BC%88%E4%BA%8C%EF%BC%89/>http://levialias.top/2022/11/11/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84%E9%9B%86%E5%90%88%EF%BC%88%E4%BA%8C%EF%BC%89/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-11-11T23:43:45+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2022年11月11日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/java/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>java</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%9B%86%E5%90%88/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>集合</p></a></div>
+  <span hidden itemprop="keywords">java 集合</span>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://levialias.top/2022/11/11/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84%E9%9B%86%E5%90%88%EF%BC%88%E4%BA%8C%EF%BC%89/&title=关于Java中的集合（二） - Alias的博客&summary="
+          
+          >
+          
+            <img src="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qq.png" class="lazyload" data-srcset="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qq.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://levialias.top/2022/11/11/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84%E9%9B%86%E5%90%88%EF%BC%88%E4%BA%8C%EF%BC%89/&title=关于Java中的集合（二） - Alias的博客&summary="
+          
+          >
+          
+            <img src="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qzone.png" class="lazyload" data-srcset="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qzone.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://levialias.top/2022/11/11/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84%E9%9B%86%E5%90%88%EF%BC%88%E4%BA%8C%EF%BC%89/&title=关于Java中的集合（二） - Alias的博客&summary="
+          
+          >
+          
+            <img src="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/weibo.png" class="lazyload" data-srcset="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/weibo.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+    <!-- Custom Files bottomMeta begin -->
+    
+    <!-- Custom Files bottomMeta end -->
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/2022/11/08/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E7%BC%93%E5%AD%98%E4%B8%8D%E4%B8%80%E8%87%B4%E9%97%AE%E9%A2%98/'>
+          <p class='title'>关于数据库和缓存不一致问题<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>关于数据库和缓存不一致问题为什么会出现缓存一致性问题在非并发的情况首先，我们在非并发的场景中，出现不一致的问题大家都能比较容易的理解，因为缓存的操作和数据库的操作是存在一定的时间差的。
+而且这两...</p>
+        </a>
+      
+    </div>
+  
+  <!-- Custom Files postEnd begin-->
+  
+  <!-- Custom Files postEnd end-->
+</article>
+
+
+  
+
+  
+  <article class="post white-box shadow floatable blur" id="comments">
+    <span hidden>
+      <meta itemprop="discussionUrl" content="/2022/11/11/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84%E9%9B%86%E5%90%88%EF%BC%88%E4%BA%8C%EF%BC%89/index.html#comments">
+    </span>
+    <p ct><i class='fa-solid fa-comments'></i> 评论</p>
+    
+    
+    <div id="layoutHelper-comments"></div>
+
+  </article>
+  
+
+
+
+
+
 </div>
 <aside id='l_side' itemscope itemtype="http://schema.org/WPSideBar">
   
@@ -3133,221 +2809,34 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
 
-<section class="widget blogger shadow floatable blur desktop mobile pjax">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/Logo-NavBar@3x.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">Alias的博客</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fa-solid fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:me@xxx.com"
-              class="social fa-solid fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/volantis-x/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/"
-              class="social fa-solid fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
 
-  
-    
-    
-  
-
-  <section class="widget category shadow floatable blur desktop pjax">
+  <section class="widget toc-wrapper shadow floatable blur desktop mobile pjax" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fa-solid fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/java/" href="/categories/java/"
-            active-action="action-categoriesjava"
-            ><div class='name'>java</div><div class='badge'>(34)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/consul/" href="/categories/java/consul/"
-            active-action="action-categoriesjavaconsul"
-            ><div class='name'>consul</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/consul/springcloud/" href="/categories/java/consul/springcloud/"
-            active-action="action-categoriesjavaconsulspringcloud"
-            ><div class='name'>springcloud</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/eureka/" href="/categories/java/eureka/"
-            active-action="action-categoriesjavaeureka"
-            ><div class='name'>eureka</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/eureka/springcloud/" href="/categories/java/eureka/springcloud/"
-            active-action="action-categoriesjavaeurekaspringcloud"
-            ><div class='name'>springcloud</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/io/" href="/categories/java/io/"
-            active-action="action-categoriesjavaio"
-            ><div class='name'>io</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/mongodb/" href="/categories/java/mongodb/"
-            active-action="action-categoriesjavamongodb"
-            ><div class='name'>mongodb</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/mybatis-plus/" href="/categories/java/mybatis-plus/"
-            active-action="action-categoriesjavamybatis-plus"
-            ><div class='name'>mybatis-plus</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/mybatis/" href="/categories/java/mybatis/"
-            active-action="action-categoriesjavamybatis"
-            ><div class='name'>mybatis</div><div class='badge'>(4)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/netty/" href="/categories/java/netty/"
-            active-action="action-categoriesjavanetty"
-            ><div class='name'>netty</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/spring/" href="/categories/java/spring/"
-            active-action="action-categoriesjavaspring"
-            ><div class='name'>spring</div><div class='badge'>(6)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/springboot/" href="/categories/java/springboot/"
-            active-action="action-categoriesjavaspringboot"
-            ><div class='name'>springboot</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/springcloud/" href="/categories/java/springcloud/"
-            active-action="action-categoriesjavaspringcloud"
-            ><div class='name'>springcloud</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/springcloud/ribbon/" href="/categories/java/springcloud/ribbon/"
-            active-action="action-categoriesjavaspringcloudribbon"
-            ><div class='name'>ribbon</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/%E4%BB%A3%E7%90%86/" href="/categories/java/%E4%BB%A3%E7%90%86/"
-            active-action="action-categoriesjavaE4BBA3E79086"
-            ><div class='name'>代理</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/%E5%8F%8D%E5%B0%84/" href="/categories/java/%E5%8F%8D%E5%B0%84/"
-            active-action="action-categoriesjavaE58F8DE5B084"
-            ><div class='name'>反射</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/%E5%BA%8F%E5%88%97%E5%8C%96/" href="/categories/java/%E5%BA%8F%E5%88%97%E5%8C%96/"
-            active-action="action-categoriesjavaE5BA8FE58897E58C96"
-            ><div class='name'>序列化</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/%E9%9B%86%E5%90%88/" href="/categories/java/%E9%9B%86%E5%90%88/"
-            active-action="action-categoriesjavaE99B86E59088"
-            ><div class='name'>集合</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E8%AE%A1%E7%BD%91/" href="/categories/%E8%AE%A1%E7%BD%91/"
-            active-action="action-categoriesE8AEA1E7BD91"
-            ><div class='name'>计网</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E8%AE%A1%E7%BD%91/HTTP/" href="/categories/%E8%AE%A1%E7%BD%91/HTTP/"
-            active-action="action-categoriesE8AEA1E7BD91HTTP"
-            ><div class='name'>HTTP</div><div class='badge'>(3)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88HashMap%E9%BB%98%E8%AE%A4%E5%AE%B9%E9%87%8F%E8%AE%BE%E7%BD%AE%E6%88%9016"><span class="toc-text">为什么HashMap默认容量设置成16</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%AE%B9%E9%87%8F"><span class="toc-text">什么是容量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%B9%E9%87%8F%E4%B8%8E%E5%93%88%E5%B8%8C"><span class="toc-text">容量与哈希</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hash%E5%AE%9E%E7%8E%B0"><span class="toc-text">hash实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%87%E5%AE%9A%E5%AE%B9%E9%87%8F%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">指定容量初始化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%A9%E5%AE%B9"><span class="toc-text">扩容</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%BB%BA%E8%AE%AE%E8%AE%BE%E7%BD%AEHashMap%E5%88%9D%E5%A7%8B%E5%AE%B9%E9%87%8F"><span class="toc-text">为什么要建议设置HashMap初始容量</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#HashMap%E5%88%9D%E5%A7%8B%E5%8C%96%E5%AE%B9%E9%87%8F%E8%AE%BE%E7%BD%AE%E5%A4%9A%E5%B0%91%E5%90%88%E9%80%82"><span class="toc-text">HashMap初始化容量设置多少合适</span></a></li></ol></li></ol></li></ol>
     </div>
   </section>
-
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow floatable blur desktop mobile pjax">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fa-solid fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/HTTP/" style="font-size: 18px; color: #7e7e7e">HTTP</a> <a href="/tags/consul/" style="font-size: 14px; color: #999">consul</a> <a href="/tags/eureka/" style="font-size: 14px; color: #999">eureka</a> <a href="/tags/io/" style="font-size: 14px; color: #999">io</a> <a href="/tags/java/" style="font-size: 24px; color: #555">java</a> <a href="/tags/mongodb/" style="font-size: 14px; color: #999">mongodb</a> <a href="/tags/mybatis/" style="font-size: 20px; color: #707070">mybatis</a> <a href="/tags/mybatis-plus/" style="font-size: 14px; color: #999">mybatis-plus</a> <a href="/tags/netty/" style="font-size: 14px; color: #999">netty</a> <a href="/tags/ribbon/" style="font-size: 14px; color: #999">ribbon</a> <a href="/tags/spring/" style="font-size: 22px; color: #636363">spring</a> <a href="/tags/springboot/" style="font-size: 18px; color: #7e7e7e">springboot</a> <a href="/tags/springcloud/" style="font-size: 20px; color: #707070">springcloud</a> <a href="/tags/%E4%BB%A3%E7%90%86/" style="font-size: 14px; color: #999">代理</a> <a href="/tags/%E5%8F%8D%E5%B0%84/" style="font-size: 14px; color: #999">反射</a> <a href="/tags/%E5%BA%8F%E5%88%97%E5%8C%96/" style="font-size: 14px; color: #999">序列化</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 18px; color: #7e7e7e">计网</a> <a href="/tags/%E9%9B%86%E5%90%88/" style="font-size: 16px; color: #8b8b8b">集合</a>
-    </div>
-  </section>
-
-
-  
 
   
 
 
 <!-- 没有 pjax 占位会报错 万恶的 pjax -->
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
 
   <div class="pjax">
     <!-- pjax占位 -->
@@ -3376,13 +2865,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </aside>
 
 
+
           <!--此文件用来存放一些不方便取值的变量-->
 <!--思路大概是将值藏到重加载的区域内-->
 
 <pjax>
 <script>
   window.pdata={}
-  pdata.ispage=false;
+  pdata.ispage=true;
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   pdata.commentConfig={};
@@ -3391,14 +2881,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     // header
     var l_header=document.getElementById("l_header");
     
-    l_header.classList.remove("show");
+    l_header.classList.add("show");
     
     
       // cover
       var cover_wrapper=document.querySelector('#l_cover .cover-wrapper');
       var scroll_down=document.getElementById('scroll-down');
-      cover_wrapper.id="half";
-      cover_wrapper.style.display="";
+      cover_wrapper.id="none";
+      cover_wrapper.style.display="none";
       scroll_down.style.display="none";
     
   
@@ -4347,7 +3837,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Alias的博客","url":"http://levialias.top/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Alias","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://levialias.top/","sameAs":["https://github.com/volantis-x"],"description":"Alias的博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://levialias.top/","name":"Alias的博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://levialias.top/archives/","name":"Archive"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Alias的博客","url":"http://levialias.top/","keywords":null,"description":"Alias的博客","author":{"@type":"Person","name":"Alias","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://levialias.top/","description":"Alias的博客"},"publisher":{"@type":"Organization","name":"Alias的博客","url":"http://levialias.top/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://levialias.top?s={search_term_string}"},"query-input":"required name=search_term_string"}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Alias的博客","url":"http://levialias.top/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Alias","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://levialias.top/","sameAs":["https://github.com/volantis-x"],"description":"Alias的博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://levialias.top/","name":"Alias的博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://levialias.top/categories/java/","name":"java"}},{"@type":"ListItem","position":2,"item":{"@id":"http://levialias.top/categories/java/集合/","name":"集合"}},{"@type":"ListItem","position":3,"item":{"@id":"http://levialias.top/2022/11/11/关于Java中的集合（二）/","name":"关于Java中的集合（二）"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"关于Java中的集合（二）","description":"","datePublished":"2022-11-11T15:43:45.599Z","dateModified":"2022-11-11T15:43:45.807Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://levialias.top/2022/11/11/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84%E9%9B%86%E5%90%88%EF%BC%88%E4%BA%8C%EF%BC%89/"},"author":{"@type":"Person","name":"Alias","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://levialias.top/"},"publisher":{"@type":"Organization","name":"Alias的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://levialias.top/2022/11/11/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84%E9%9B%86%E5%90%88%EF%BC%88%E4%BA%8C%EF%BC%89/","wordCount":0,"articleSection":"java","keywords":"java,集合","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

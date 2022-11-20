@@ -1749,7 +1749,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.3690b000.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.1d2dd3e0.js","rightMenus":"/js/plugins/rightMenus.48fa1716.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.06d40311.js"},"css":{"style":"/css/style.a257987b.css"}},
     default: {"avatar":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1668530478077),
+    lastupdate: new Date(1668944414526),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2606,9 +2606,149 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
         
+          
+        
+          
+        
       
     
     
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="http://levialias.top/2022/11/20/%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F%E3%80%81%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9%E5%92%8C%E7%BC%93%E5%AD%98%E5%87%BB%E7%A9%BF/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Alias的博客">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="Alias的博客">
+    <meta itemprop="description" content="Alias的博客">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/2022/11/20/%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F%E3%80%81%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9%E5%92%8C%E7%BC%93%E5%AD%98%E5%87%BB%E7%A9%BF/"  itemprop="url">
+        缓存穿透、缓存雪崩和缓存击穿
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      
+        缓存穿透、缓存雪崩和缓存击穿简述缓存穿透缓存穿透是指客户端请求的数据在缓存中和数据库中都不存在，这样缓存永远都不会生效，这些请求都会打到数据库。若不断发起这样的请求，就会带给数据库巨大的压力
+常见的解决方案：
+1、缓存空对象：在第一次请求缓存未命中，进而请求数据库也没查到数据时，我们可以在redis中缓存一个空对象，这样后续重复的请求就不会达到数据库。
+优点：实现简单，维护方便
+缺点：额外的...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2022-11-20T15:30:25+08:00">2022-11-20</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/java/">java</a><span class="sep"></span><a class="category-link" href="/categories/java/%E7%BC%93%E5%AD%98/">缓存</a>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/java/" itemprop="url"><span itemprop="name">java</span></a>
+            </span>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/java/%E7%BC%93%E5%AD%98/" itemprop="url"><span itemprop="name">缓存</span></a>
+            </span>
+          
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2022/11/20/%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F%E3%80%81%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9%E5%92%8C%E7%BC%93%E5%AD%98%E5%87%BB%E7%A9%BF/' itemprop="url">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="http://levialias.top/2022/11/17/%E5%85%B3%E4%BA%8Emysql%E7%B4%A2%E5%BC%95/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Alias的博客">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="Alias的博客">
+    <meta itemprop="description" content="Alias的博客">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/2022/11/17/%E5%85%B3%E4%BA%8Emysql%E7%B4%A2%E5%BC%95/"  itemprop="url">
+        关于mysql索引
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      
+        关于mysql索引什么是索引索引的定义就是帮助存储引擎快速获取数据的一种数据结构，形象的说就是索引是数据的目录。
+所谓的存储引擎，说白了就是如何存储数据、如何为存储的数据建立索引和如何更新、查询数据等技术的实现方法。MySQL 存储引擎有 MyISAM 、InnoDB、Memory，其中 InnoDB 是在 MySQL 5.5 之后成为默认的存储引擎。
+下面是 MySQL 的结构图，索引和数...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2022-11-17T23:42:10+08:00">2022-11-17</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/mysql/">mysql</a>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/mysql/" itemprop="url"><span itemprop="name">mysql</span></a>
+            </span>
+          
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2022/11/17/%E5%85%B3%E4%BA%8Emysql%E7%B4%A2%E5%BC%95/' itemprop="url">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
       
         
           <div class='post-wrapper'>
@@ -3148,144 +3288,6 @@ Collections 是一个包装类。 它包含有各种有关集合操作的静态�
           </div>
         
       
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://levialias.top/2022/10/31/%E5%85%B3%E4%BA%8E%E5%BA%8F%E5%88%97%E5%8C%96/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Alias的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="Alias的博客">
-    <meta itemprop="description" content="Alias的博客">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/10/31/%E5%85%B3%E4%BA%8E%E5%BA%8F%E5%88%97%E5%8C%96/"  itemprop="url">
-        关于序列化
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      
-        关于序列化什么是序列化和反序列化序列化是将对象转换为可传输格式的过程，是一种数据持久化的手段。一般广泛用于网络传输、RMI、RPC等场景中。
-反序列化是序列化的逆操作。
-序列化是将对象的状态信息转换为可存储或传输的形式的过程。一般是以字节码或XML格式传输。而字节码或XML编码格式可以还原为完全相等的对象。这个相反的过程称为反序列化。
-Java实现对象序列化和反序列化在Java中，我们可以通...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-10-31T21:43:08+08:00">2022-10-31</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/java/">java</a><span class="sep"></span><a class="category-link" href="/categories/java/%E5%BA%8F%E5%88%97%E5%8C%96/">序列化</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/" itemprop="url"><span itemprop="name">java</span></a>
-            </span>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/%E5%BA%8F%E5%88%97%E5%8C%96/" itemprop="url"><span itemprop="name">序列化</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/10/31/%E5%85%B3%E4%BA%8E%E5%BA%8F%E5%88%97%E5%8C%96/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://levialias.top/2022/10/30/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84%E4%BB%A3%E7%90%86/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Alias的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="Alias的博客">
-    <meta itemprop="description" content="Alias的博客">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/10/30/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84%E4%BB%A3%E7%90%86/"  itemprop="url">
-        关于Java中的代理
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      
-        关于Java中的代理静态代理所谓静态代理，就是代理类是由程序员自己编写的，在编译期就确定好了的。
-1234567891011public interface HelloSerivice &#123;    public void say();&#125;public class HelloSeriviceImpl implements HelloSerivice&#123;    @Over...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-10-30T15:03:04+08:00">2022-10-30</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/java/">java</a><span class="sep"></span><a class="category-link" href="/categories/java/%E4%BB%A3%E7%90%86/">代理</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/" itemprop="url"><span itemprop="name">java</span></a>
-            </span>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/%E4%BB%A3%E7%90%86/" itemprop="url"><span itemprop="name">代理</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/10/30/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84%E4%BB%A3%E7%90%86/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
     
   </section>
   
@@ -3400,7 +3402,7 @@ Java实现对象序列化和反序列化在Java中，我们可以通...
           <li><a class="flat-box"
             title="/categories/java/" href="/categories/java/"
             active-action="action-categoriesjava"
-            ><div class='name'>java</div><div class='badge'>(36)</div></a></li>
+            ><div class='name'>java</div><div class='badge'>(37)</div></a></li>
         
           <li><a class="flat-box child"
             title="/categories/java/consul/" href="/categories/java/consul/"
@@ -3483,6 +3485,11 @@ Java实现对象序列化和反序列化在Java中，我们可以通...
             ><div class='name'>序列化</div><div class='badge'>(1)</div></a></li>
         
           <li><a class="flat-box child"
+            title="/categories/java/%E7%BC%93%E5%AD%98/" href="/categories/java/%E7%BC%93%E5%AD%98/"
+            active-action="action-categoriesjavaE7BC93E5AD98"
+            ><div class='name'>缓存</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box child"
             title="/categories/java/%E9%9B%86%E5%90%88/" href="/categories/java/%E9%9B%86%E5%90%88/"
             active-action="action-categoriesjavaE99B86E59088"
             ><div class='name'>集合</div><div class='badge'>(3)</div></a></li>
@@ -3490,7 +3497,7 @@ Java实现对象序列化和反序列化在Java中，我们可以通...
           <li><a class="flat-box"
             title="/categories/mysql/" href="/categories/mysql/"
             active-action="action-categoriesmysql"
-            ><div class='name'>mysql</div><div class='badge'>(1)</div></a></li>
+            ><div class='name'>mysql</div><div class='badge'>(2)</div></a></li>
         
           <li><a class="flat-box"
             title="/categories/%E8%AE%A1%E7%BD%91/" href="/categories/%E8%AE%A1%E7%BD%91/"
@@ -3524,7 +3531,7 @@ Java实现对象序列化和反序列化在Java中，我们可以通...
 
 
     <div class='content'>
-      <a href="/tags/HTTP/" style="font-size: 16.5px; color: #888">HTTP</a> <a href="/tags/consul/" style="font-size: 14px; color: #999">consul</a> <a href="/tags/eureka/" style="font-size: 14px; color: #999">eureka</a> <a href="/tags/io/" style="font-size: 14px; color: #999">io</a> <a href="/tags/java/" style="font-size: 24px; color: #555">java</a> <a href="/tags/mongodb/" style="font-size: 14px; color: #999">mongodb</a> <a href="/tags/mybatis/" style="font-size: 19px; color: #777">mybatis</a> <a href="/tags/mybatis-plus/" style="font-size: 14px; color: #999">mybatis-plus</a> <a href="/tags/mysql/" style="font-size: 14px; color: #999">mysql</a> <a href="/tags/netty/" style="font-size: 14px; color: #999">netty</a> <a href="/tags/ribbon/" style="font-size: 14px; color: #999">ribbon</a> <a href="/tags/spring/" style="font-size: 21.5px; color: #666">spring</a> <a href="/tags/springboot/" style="font-size: 16.5px; color: #888">springboot</a> <a href="/tags/springcloud/" style="font-size: 19px; color: #777">springcloud</a> <a href="/tags/%E4%BB%A3%E7%90%86/" style="font-size: 14px; color: #999">代理</a> <a href="/tags/%E5%8F%8D%E5%B0%84/" style="font-size: 14px; color: #999">反射</a> <a href="/tags/%E5%BA%8F%E5%88%97%E5%8C%96/" style="font-size: 14px; color: #999">序列化</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 16.5px; color: #888">计网</a> <a href="/tags/%E9%9B%86%E5%90%88/" style="font-size: 16.5px; color: #888">集合</a>
+      <a href="/tags/HTTP/" style="font-size: 18px; color: #7e7e7e">HTTP</a> <a href="/tags/consul/" style="font-size: 14px; color: #999">consul</a> <a href="/tags/eureka/" style="font-size: 14px; color: #999">eureka</a> <a href="/tags/io/" style="font-size: 14px; color: #999">io</a> <a href="/tags/java/" style="font-size: 24px; color: #555">java</a> <a href="/tags/mongodb/" style="font-size: 14px; color: #999">mongodb</a> <a href="/tags/mybatis/" style="font-size: 20px; color: #707070">mybatis</a> <a href="/tags/mybatis-plus/" style="font-size: 14px; color: #999">mybatis-plus</a> <a href="/tags/mysql/" style="font-size: 16px; color: #8b8b8b">mysql</a> <a href="/tags/netty/" style="font-size: 14px; color: #999">netty</a> <a href="/tags/ribbon/" style="font-size: 14px; color: #999">ribbon</a> <a href="/tags/spring/" style="font-size: 22px; color: #636363">spring</a> <a href="/tags/springboot/" style="font-size: 18px; color: #7e7e7e">springboot</a> <a href="/tags/springcloud/" style="font-size: 20px; color: #707070">springcloud</a> <a href="/tags/%E4%BB%A3%E7%90%86/" style="font-size: 14px; color: #999">代理</a> <a href="/tags/%E5%8F%8D%E5%B0%84/" style="font-size: 14px; color: #999">反射</a> <a href="/tags/%E5%BA%8F%E5%88%97%E5%8C%96/" style="font-size: 14px; color: #999">序列化</a> <a href="/tags/%E7%BC%93%E5%AD%98/" style="font-size: 14px; color: #999">缓存</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 18px; color: #7e7e7e">计网</a> <a href="/tags/%E9%9B%86%E5%90%88/" style="font-size: 18px; color: #7e7e7e">集合</a>
     </div>
   </section>
 

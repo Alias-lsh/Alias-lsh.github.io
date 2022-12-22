@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="http://levialias.top/2022/11/17/关于mysql索引/"/>
+  <link rel="canonical" href="http://levialias.top/2022/12/22/详谈索引失效的几种情况/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://npm.elemecdn.com'>
@@ -31,19 +31,19 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <pjax>
-  <title>关于mysql索引 - Alias的博客</title>
+  <title>详谈索引失效的几种情况 - Alias的博客</title>
   <meta name="keywords" content="mysql,null">
   <meta desc name="description" content="Alias的博客 - Alias - Alias的博客">
   
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于mysql索引">
-<meta property="og:url" content="http://levialias.top/2022/11/17/%E5%85%B3%E4%BA%8Emysql%E7%B4%A2%E5%BC%95/index.html">
+<meta property="og:title" content="详谈索引失效的几种情况">
+<meta property="og:url" content="http://levialias.top/2022/12/22/%E8%AF%A6%E8%B0%88%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88%E7%9A%84%E5%87%A0%E7%A7%8D%E6%83%85%E5%86%B5/index.html">
 <meta property="og:site_name" content="Alias的博客">
-<meta property="og:description" content="关于mysql索引什么是索引索引的定义就是帮助存储引擎快速获取数据的一种数据结构，形象的说就是索引是数据的目录。 所谓的存储引擎，说白了就是如何存储数据、如何为存储的数据建立索引和如何更新、查询数据等技术的实现方法。MySQL 存储引擎有 MyISAM 、InnoDB、Memory，其中 InnoDB 是在 MySQL 5.5 之后成为默认的存储引擎。 下面是 MySQL 的结构图，索引和数据就是">
+<meta property="og:description" content="详谈索引失效的几种情况对索引使用左或者左右模糊匹配当我们使用左或者左右模糊匹配的时候，也就是 like %xx 或者 like %xx% 这两种方式都会造成索引失效。 比如下面的 like 语句，查询 name 后缀为「林」的用户，执行计划中的 type&#x3D;ALL 就代表了全表扫描，而没有走索引。 12&#x2F;&#x2F; name 字段为二级索引select * from t_user whe">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2022-11-17T15:42:10.938Z">
-<meta property="article:modified_time" content="2022-11-20T06:37:01.977Z">
+<meta property="article:published_time" content="2022-12-22T04:03:33.807Z">
+<meta property="article:modified_time" content="2022-12-22T04:03:33.981Z">
 <meta property="article:author" content="Alias">
 <meta property="article:tag" content="mysql">
 <meta name="twitter:card" content="summary">
@@ -1752,7 +1752,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.3690b000.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.1d2dd3e0.js","rightMenus":"/js/plugins/rightMenus.48fa1716.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.06d40311.js"},"css":{"style":"/css/style.a257987b.css"}},
     default: {"avatar":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1671608212373),
+    lastupdate: new Date(1671681834285),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2510,7 +2510,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 <div id="l_main" class=''>
   <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
-  <link itemprop="mainEntityOfPage" href="http://levialias.top/2022/11/17/%E5%85%B3%E4%BA%8Emysql%E7%B4%A2%E5%BC%95/">
+  <link itemprop="mainEntityOfPage" href="http://levialias.top/2022/12/22/%E8%AF%A6%E8%B0%88%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88%E7%9A%84%E5%87%A0%E7%A7%8D%E6%83%85%E5%86%B5/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="Alias的博客">
   </span>
@@ -2531,7 +2531,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        关于mysql索引
+        详谈索引失效的几种情况
       </h1>
       <div class='new-meta-box'>
         
@@ -2562,10 +2562,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         
           
-            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-11-17T23:42:10+08:00">
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-12-22T12:03:33+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2022年11月17日</p>
+    <p>发布于：2022年12月22日</p>
   </a>
 </div>
 
@@ -2586,62 +2586,84 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <h1 id="关于mysql索引"><a href="#关于mysql索引" class="headerlink" title="关于mysql索引"></a>关于mysql索引</h1><div class="story post-story"><h2 id="什么是索引"><a href="#什么是索引" class="headerlink" title="什么是索引"></a>什么是索引</h2><p>索引的定义就是帮助存储引擎快速获取数据的一种数据结构，形象的说就是<strong>索引是数据的目录</strong>。</p>
-<p>所谓的存储引擎，说白了就是如何存储数据、如何为存储的数据建立索引和如何更新、查询数据等技术的实现方法。MySQL 存储引擎有 MyISAM 、InnoDB、Memory，其中 InnoDB 是在 MySQL 5.5 之后成为默认的存储引擎。</p>
-<p>下面是 MySQL 的结构图，索引和数据就是位于存储引擎中：</p>
-<p><img src="C:/Users/lisihan/Desktop/Typora/image-20221117184959144.png" class="lazyload" data-srcset="C:/Users/lisihan/Desktop/Typora/image-20221117184959144.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221117184959144"></p>
-</div><div class="story post-story"><h2 id="索引的分类"><a href="#索引的分类" class="headerlink" title="索引的分类"></a>索引的分类</h2><p>你知道索引有哪些吗？大家肯定都能霹雳啪啦地说出聚簇索引、主键索引、二级索引、普通索引、唯一索引、hash索引、B+树索引等等。</p>
-<p>然后再问你，你能将这些索引分一下类吗？可能大家就有点模糊了。其实，要对这些索引进行分类，要清楚这些索引的使用和实现方式，然后再针对有相同特点的索引归为一类。</p>
-<p>我们可以从以下四个角度来分类索引：</p>
-<ul>
-<li>按「数据结构」分类：<strong>B+tree索引、Hash索引、Full-text索引</strong>。</li>
-<li>按「物理存储」分类：<strong>聚簇索引（主键索引）、二级索引（辅助索引）</strong>。</li>
-<li>按「字段特性」分类：<strong>主键索引、唯一索引、普通索引、前缀索引</strong>。</li>
-<li>按「字段个数」分类：<strong>单列索引、联合索引</strong>。</li>
-</ul>
-<h4 id="按照数据结构分类"><a href="#按照数据结构分类" class="headerlink" title="按照数据结构分类"></a>按照数据结构分类</h4><p>从数据结构的角度来看，MySQL 常见索引有 B+Tree 索引、HASH 索引、Full-Text 索引，每一种存储引擎支持的索引类型不一定相同。</p>
-<p><img src="C:/Users/lisihan/Desktop/Typora/image-20221117185407239.png" class="lazyload" data-srcset="C:/Users/lisihan/Desktop/Typora/image-20221117185407239.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221117185407239"></p>
-<p>InnoDB 是在 MySQL 5.5 之后成为默认的 MySQL 存储引擎，B+Tree 索引类型也是 MySQL 存储引擎采用最多的索引类型。</p>
-<p>在创建表时，InnoDB 存储引擎会根据不同的场景选择不同的列作为索引：</p>
-<ul>
-<li>如果有主键，默认会使用主键作为聚簇索引的索引键（key）；</li>
-<li>如果没有主键，就选择第一个不包含 NULL 值的唯一列作为聚簇索引的索引键（key）；</li>
-<li>在上面两个都没有的情况下，InnoDB 将自动生成一个隐式自增 id 列作为聚簇索引的索引键（key）；</li>
-</ul>
-<p>其它索引都属于辅助索引（Secondary Index），也被称为二级索引或非聚簇索引。<strong>创建的主键索引和二级索引默认使用的是 B+Tree 索引</strong>。</p>
-<p>B+Tree 是一种多叉树，叶子节点才存放数据，非叶子节点只存放索引，而且每个节点里的数据是<strong>按主键顺序存放</strong>的。每一层父节点的索引值都会出现在下层子节点的索引值中，因此在叶子节点中，包括了所有的索引值信息，并且每一个叶子节点都指向下一个叶子节点，形成一个链表。</p>
-<p>假设我们有一个商品表，表结构如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE &#96;product&#96;  (</span><br><span class="line">  &#96;id&#96; int(11) NOT NULL,</span><br><span class="line">  &#96;product_no&#96; varchar(20)  DEFAULT NULL,</span><br><span class="line">  &#96;name&#96; varchar(255) DEFAULT NULL,</span><br><span class="line">  &#96;price&#96; decimal(10, 2) DEFAULT NULL,</span><br><span class="line">  PRIMARY KEY (&#96;id&#96;) USING BTREE</span><br><span class="line">) CHARACTER SET &#x3D; utf8 COLLATE &#x3D; utf8_general_ci ROW_FORMAT &#x3D; Dynamic;</span><br></pre></td></tr></table></figure>
+    <h1 id="详谈索引失效的几种情况"><a href="#详谈索引失效的几种情况" class="headerlink" title="详谈索引失效的几种情况"></a>详谈索引失效的几种情况</h1><div class="story post-story"><h2 id="对索引使用左或者左右模糊匹配"><a href="#对索引使用左或者左右模糊匹配" class="headerlink" title="对索引使用左或者左右模糊匹配"></a>对索引使用左或者左右模糊匹配</h2><p>当我们使用左或者左右模糊匹配的时候，也就是 <code>like %xx</code> 或者 <code>like %xx%</code> 这两种方式都会造成索引失效。</p>
+<p>比如下面的 like 语句，查询 name 后缀为「林」的用户，执行计划中的 type=ALL 就代表了全表扫描，而没有走索引。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; name 字段为二级索引</span><br><span class="line">select * from t_user where name like &#39;%林&#39;;</span><br></pre></td></tr></table></figure>
 
-<p>表内数据如下：</p>
-<p><img src="C:/Users/lisihan/Desktop/Typora/image-20221117190412356.png" class="lazyload" data-srcset="C:/Users/lisihan/Desktop/Typora/image-20221117190412356.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221117190412356"></p>
-<p>主键索引主键索引的 B+Tree 如图所示：</p>
-<p><img src="C:/Users/lisihan/Desktop/Typora/image-20221117190827104.png" class="lazyload" data-srcset="C:/Users/lisihan/Desktop/Typora/image-20221117190827104.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221117190827104"></p>
-<p><strong>如果我们通过主键查询：</strong></p>
-<p>比如，我们执行了下面这条查询语句，这条语句使用了主键索引查询 id 号为 5 的商品。查询过程是这样的，B+Tree 会自顶向下逐层进行查找：</p>
-<ul>
-<li>将 5 与根节点的索引数据 (1，10，20) 比较，5 在 1 和 10 之间，所以根据 B+Tree的搜索逻辑，找到第二层的索引数据 (1，4，7)；</li>
-<li>在第二层的索引数据 (1，4，7)中进行查找，因为 5 在 4 和 7 之间，所以找到第三层的索引数据（4，5，6）；</li>
-<li>在叶子节点的索引数据（4，5，6）中进行查找，然后我们找到了索引值为 5 的行数据。</li>
-</ul>
-<p>数据库的索引和数据都是存储在硬盘的，我们可以把读取一个节点当作一次磁盘 I/O 操作。那么上面的整个查询过程一共经历了 3 个节点，也就是进行了 3 次 I/O 操作。</p>
-<p>B+Tree 存储千万级的数据只需要 3-4 层高度就可以满足，这意味着从千万级的表查询目标数据最多需要 3-4 次磁盘 I/O，所以<strong>B+Tree 相比于 B 树和二叉树来说，最大的优势在于查询效率很高，因为即使在数据量很大的情况，查询一个数据的磁盘 I/O 依然维持在 3-4次。</strong></p>
-<p><strong>如果我们通过二级索引查询：</strong></p>
-<p>主键索引的 B+Tree 和二级索引的 B+Tree 区别如下：</p>
-<ul>
-<li>主键索引的 B+Tree 的叶子节点存放的是实际数据，所有完整的用户记录都存放在主键索引的 B+Tree 的叶子节点里；</li>
-<li>二级索引的 B+Tree 的叶子节点存放的是主键值，而不是实际数据。</li>
-</ul>
-<p>现在我们将前面的商品表中的 product_no （商品编码）字段设置为二级索引，那么二级索引的 B+Tree 如下图，其中非叶子的 key 值是 product_no（图中橙色部分），叶子节点存储的数据是主键值（图中绿色部分）。</p>
-<p><img src="C:/Users/lisihan/Desktop/Typora/image-20221117191341900.png" class="lazyload" data-srcset="C:/Users/lisihan/Desktop/Typora/image-20221117191341900.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20221117191341900"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from product where product_no &#x3D; &#39;0002&#39;;</span><br></pre></td></tr></table></figure>
+<p><img src="/source/images/mysql35.png" class="lazyload" data-srcset="/source/images/mysql35.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>如果是查询 name 前缀为林的用户，那么就会走索引扫描，执行计划中的 type=range 表示走索引扫描，key=index_name 看到实际走了 index_name 索引：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; name 字段为二级索引</span><br><span class="line">select * from t_user where name like &#39;林%&#39;;</span><br></pre></td></tr></table></figure>
 
-<p>如果我们使用以上语句查询，会先检二级索引中的 B+Tree 的索引值（商品编码，product_no），找到对应的叶子节点，然后获取主键值，然后再通过主键索引中的 B+Tree 树查询到对应的叶子节点，然后获取整行数据。<strong>这个过程叫「回表」，也就是说要查两个 B+Tree 才能查到数据</strong>。</p>
-<p>不过，当查询的数据是能在二级索引的 B+Tree 的叶子节点里查询到，这时就不用再查主键索引查，比如下面这条查询语句：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select id from product where product_no &#x3D; &#39;0002&#39;;</span><br></pre></td></tr></table></figure>
+<p><img src="/images/mysql36.png" class="lazyload" data-srcset="/images/mysql36.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<blockquote>
+<p>为什么 like 关键字左或者左右模糊匹配无法走索引呢？</p>
+</blockquote>
+<p><strong>因为索引 B+ 树是按照「索引值」有序排列存储的，只能根据前缀进行比较。</strong></p>
+<p><img src="/images/mysql37.png" class="lazyload" data-srcset="/images/mysql37.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>假设我们要查询 name 字段前缀为「林」的数据，也就是 <code>name like &#39;林%&#39;</code>，扫描索引的过程：</p>
+<ul>
+<li>首节点查询比较：林这个字的拼音大小比首节点的第一个索引值中的陈字大，但是比首节点的第二个索引值中的周字小，所以选择去节点2继续查询；</li>
+<li>节点 2 查询比较：节点2的第一个索引值中的陈字的拼音大小比林字小，所以继续看下一个索引值，发现节点2有与林字前缀匹配的索引值，于是就往叶子节点查询，即叶子节点4；</li>
+<li>节点 4 查询比较：节点4的第一个索引值的前缀符合林字，于是就读取该行数据，接着继续往右匹配，直到匹配不到前缀为林的索引值。</li>
+</ul>
+<p>如果使用 <code>name like &#39;%林&#39;</code> 方式来查询，因为查询的结果可能是「陈林、张林、周林」等之类的，所以不知道从哪个索引值开始比较，于是就只能通过全表扫描的方式来查询。</p>
+</div><div class="story post-story"><h2 id="对索引使用函数"><a href="#对索引使用函数" class="headerlink" title="对索引使用函数"></a>对索引使用函数</h2><p>有时候我们会用一些 MySQL 自带的函数来得到我们想要的结果，这时候要注意了，如果查询条件中对索引字段使用函数，就会导致索引失效。</p>
+<p>比如下面这条语句查询条件中对 name 字段使用了 LENGTH 函数，执行计划中的 type=ALL，代表了全表扫描：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; name 为二级索引</span><br><span class="line">select * from t_user where length(name)&#x3D;6;</span><br></pre></td></tr></table></figure>
 
-<p><strong>这种在二级索引的 B+Tree 就能查询到结果的过程就叫作「覆盖索引」，也就是只需要查一个 B+Tree 就能找到数据</strong></p>
-<p><strong>未完待续………</strong></p>
+<p><img src="/images/mysql38.png" class="lazyload" data-srcset="/images/mysql38.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<blockquote>
+<p>为什么对索引使用函数，就无法走索引了呢？</p>
+</blockquote>
+<p>因为索引保存的是索引字段的原始值，而不是经过函数计算后的值，自然就没办法走索引了。</p>
+<p>不过，从 MySQL 8.0 开始，索引特性增加了函数索引，即可以针对函数计算后的值建立一个索引，也就是说该索引的值是函数计算后的值，所以就可以通过扫描索引来查询数据。</p>
+<p>举个例子，我通过下面这条语句，对 length(name) 的计算结果建立一个名为 idx_name_length 的索引。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table t_user add key idx_name_length ((length(name)));</span><br></pre></td></tr></table></figure>
+
+<p>然后我再用下面这条查询语句，这时候就会走索引了。</p>
+<p><img src="/images/mysql39.png" class="lazyload" data-srcset="/images/mysql39.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+</div><div class="story post-story"><h2 id="对索引进行表达式计算"><a href="#对索引进行表达式计算" class="headerlink" title="对索引进行表达式计算"></a>对索引进行表达式计算</h2><p>在查询条件中对索引进行表达式计算，也是无法走索引的。</p>
+<p>比如，下面这条查询语句，执行计划中 type = ALL，说明是通过全表扫描的方式查询数据的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">explain select * from t_user where id + 1 &#x3D; 10;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/mysql40.png" class="lazyload" data-srcset="/images/mysql40.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>但是，如果把查询语句的条件改成 where id = 10 - 1，这样就不是在索引字段进行表达式计算了，于是就可以走索引查询了。</p>
+<p><img src="/images/mysql41.png" class="lazyload" data-srcset="/images/mysql41.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<blockquote>
+<p>为什么对索引进行表达式计算，就无法走索引了呢？</p>
+</blockquote>
+<p>原因跟对索引使用函数差不多。</p>
+<p>因为索引保存的是索引字段的原始值，而不是 id + 1 表达式计算后的值，所以无法走索引，只能通过把索引字段的取值都取出来，然后依次进行表达式的计算来进行条件判断，因此采用的就是全表扫描的方式。</p>
+</div><div class="story post-story"><h2 id="对索引隐式类型转换"><a href="#对索引隐式类型转换" class="headerlink" title="对索引隐式类型转换"></a>对索引隐式类型转换</h2><p>如果索引字段是字符串类型，但是在条件查询中，输入的参数是整型的话，你会在执行计划的结果发现这条语句会走全表扫描。</p>
+<p>我在原本的 t_user 表增加了 phone 字段，是二级索引且类型是 varchar。</p>
+<p><img src="/images/mysql42.png" class="lazyload" data-srcset="/images/mysql42.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>然后我在条件查询中，用整型作为输入参数，此时执行计划中 type = ALL，所以是通过全表扫描来查询数据的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from t_user where phone &#x3D; 1300000001;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/mysql43.png" class="lazyload" data-srcset="/images/mysql43.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><strong>但是如果索引字段是整型类型，查询条件中的输入参数即使字符串，是不会导致索引失效，还是可以走索引扫描。</strong></p>
+<p>我们再看第二个例子，id 是整型，但是下面这条语句还是走了索引扫描的。</p>
+<p><img src="/images/mysql44.png" class="lazyload" data-srcset="/images/mysql44.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<blockquote>
+<p>为什么第一个例子会导致索引失效，而第二例子不会呢？</p>
+</blockquote>
+<p>要明白这个原因，首先我们要知道 MySQL 的数据类型转换规则是什么？就是看 MySQL 是会将字符串转成数字处理，还是将数字转换成字符串处理。</p>
+<p>有一个简单的测试方式，就是通过 select “10” &gt; 9 的结果来知道MySQL 的数据类型转换规则是什么：</p>
+<ul>
+<li>如果规则是 MySQL 会将自动「字符串」转换成「数字」，就相当于 select 10 &gt; 9，这个就是数字比较，所以结果应该是 1；</li>
+<li>如果规则是 MySQL 会将自动「数字」转换成「字符串」，就相当于 select “10” &gt; “9”，这个是字符串比较，字符串比较大小是逐位从高位到低位逐个比较（按ascii码） ，那么”10”字符串相当于 “1”和“0”字符的组合，所以先是拿 “1” 字符和 “9” 字符比较，因为 “1” 字符比 “9” 字符小，所以结果应该是 0。</li>
+</ul>
+<p>执行结果如图：</p>
+<p><img src="/images/mysql45.png" class="lazyload" data-srcset="/images/mysql45.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>上面的结果为 1，说明 <strong>MySQL 在遇到字符串和数字比较的时候，会自动把字符串转为数字，然后再进行比较</strong>。</p>
+</div><div class="story post-story"><h2 id="联合索引非最左匹配"><a href="#联合索引非最左匹配" class="headerlink" title="联合索引非最左匹配"></a>联合索引非最左匹配</h2><p>这个在之前的《mysql索引》一问中有提及，这里就不细说了</p>
+</div><div class="story post-story"><h2 id="WHERE子句中的OR"><a href="#WHERE子句中的OR" class="headerlink" title="WHERE子句中的OR"></a>WHERE子句中的OR</h2><p>在 WHERE 子句中，如果在 OR 前的条件列是索引列，而在 OR 后的条件列不是索引列，那么索引会失效。</p>
+<p>举个例子，比如下面的查询语句，id 是主键，age 是普通列，从执行计划的结果看，是走了全表扫描。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from t_user where id &#x3D; 1 or age &#x3D; 18;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/mysql46.png" class="lazyload" data-srcset="/images/mysql46.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>这是因为 OR 的含义就是两个只要满足一个即可，因此只有一个条件列是索引列是没有意义的，只要有条件列不是索引列，就会进行全表扫描。</p>
+<p>要解决办法很简单，将 age 字段设置为索引即可。</p>
 
 </div>
   </div>
@@ -2661,7 +2683,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               
-                <p>本文永久链接是：<a href=http://levialias.top/2022/11/17/%E5%85%B3%E4%BA%8Emysql%E7%B4%A2%E5%BC%95/>http://levialias.top/2022/11/17/%E5%85%B3%E4%BA%8Emysql%E7%B4%A2%E5%BC%95/</a></p>
+                <p>本文永久链接是：<a href=http://levialias.top/2022/12/22/%E8%AF%A6%E8%B0%88%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88%E7%9A%84%E5%87%A0%E7%A7%8D%E6%83%85%E5%86%B5/>http://levialias.top/2022/12/22/%E8%AF%A6%E8%B0%88%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88%E7%9A%84%E5%87%A0%E7%A7%8D%E6%83%85%E5%86%B5/</a></p>
               
             
           </blockquote>
@@ -2678,10 +2700,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-11-20T14:37:01+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-12-22T12:03:33+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年11月20日</p>
+    <p>更新于：2022年12月22日</p>
   </a>
 </div>
 
@@ -2704,7 +2726,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://levialias.top/2022/11/17/%E5%85%B3%E4%BA%8Emysql%E7%B4%A2%E5%BC%95/&title=关于mysql索引 - Alias的博客&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://levialias.top/2022/12/22/%E8%AF%A6%E8%B0%88%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88%E7%9A%84%E5%87%A0%E7%A7%8D%E6%83%85%E5%86%B5/&title=详谈索引失效的几种情况 - Alias的博客&summary="
           
           >
           
@@ -2716,7 +2738,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://levialias.top/2022/11/17/%E5%85%B3%E4%BA%8Emysql%E7%B4%A2%E5%BC%95/&title=关于mysql索引 - Alias的博客&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://levialias.top/2022/12/22/%E8%AF%A6%E8%B0%88%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88%E7%9A%84%E5%87%A0%E7%A7%8D%E6%83%85%E5%86%B5/&title=详谈索引失效的几种情况 - Alias的博客&summary="
           
           >
           
@@ -2728,7 +2750,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://levialias.top/2022/11/17/%E5%85%B3%E4%BA%8Emysql%E7%B4%A2%E5%BC%95/&title=关于mysql索引 - Alias的博客&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://levialias.top/2022/12/22/%E8%AF%A6%E8%B0%88%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88%E7%9A%84%E5%87%A0%E7%A7%8D%E6%83%85%E5%86%B5/&title=详谈索引失效的几种情况 - Alias的博客&summary="
           
           >
           
@@ -2761,20 +2783,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/2022/11/20/%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F%E3%80%81%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9%E5%92%8C%E7%BC%93%E5%AD%98%E5%87%BB%E7%A9%BF/'>
-          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>缓存穿透、缓存雪崩和缓存击穿</p>
-          <p class='content'>缓存穿透、缓存雪崩和缓存击穿简述缓存穿透缓存穿透是指客户端请求的数据在缓存中和数据库中都不存在，这样缓存永远都不会生效，这些请求都会打到数据库。若不断发起这样的请求，就会带给数据库巨大的压力
-常...</p>
-        </a>
       
-      
-        <a class='next' href='/2022/11/16/%E6%89%A7%E8%A1%8C%E4%B8%80%E6%9D%A1select%E8%AF%AD%E5%8F%A5%E6%9C%9F%E9%97%B4%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/'>
-          <p class='title'>执行一条select语句期间发生了什么<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>执行一条select语句期间发生了什么例:
-1select * from product where id &#x3D; 1;
-
-MySql的执行流程
-由此可见，mysql的架构分为两层：Ser...</p>
+        <a class='next' href='/2022/12/21/%E4%BB%8E%E6%95%B0%E6%8D%AE%E9%A1%B5%E7%9A%84%E8%A7%92%E5%BA%A6%E7%9C%8BB+%E6%A0%91/'>
+          <p class='title'>从数据页的角度看B+树<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>从数据页的角度看B+树InnoDB是如何存储数据的？在前面的博客中我们提到过InnoDB 的数据是按「数据页」为单位来读写的，也就是说，当需要读一条记录的时候，并不是将这个记录本身从磁盘读出来，...</p>
         </a>
       
     </div>
@@ -2790,7 +2802,7 @@ MySql的执行流程
   
   <article class="post white-box shadow floatable blur" id="comments">
     <span hidden>
-      <meta itemprop="discussionUrl" content="/2022/11/17/%E5%85%B3%E4%BA%8Emysql%E7%B4%A2%E5%BC%95/index.html#comments">
+      <meta itemprop="discussionUrl" content="/2022/12/22/%E8%AF%A6%E8%B0%88%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88%E7%9A%84%E5%87%A0%E7%A7%8D%E6%83%85%E5%86%B5/index.html#comments">
     </span>
     <p ct><i class='fa-solid fa-comments'></i> 评论</p>
     
@@ -2823,7 +2835,7 @@ MySql的执行流程
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%B4%A2%E5%BC%95"><span class="toc-text">什么是索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-text">索引的分类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%89%E7%85%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%88%86%E7%B1%BB"><span class="toc-text">按照数据结构分类</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E7%B4%A2%E5%BC%95%E4%BD%BF%E7%94%A8%E5%B7%A6%E6%88%96%E8%80%85%E5%B7%A6%E5%8F%B3%E6%A8%A1%E7%B3%8A%E5%8C%B9%E9%85%8D"><span class="toc-text">对索引使用左或者左右模糊匹配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E7%B4%A2%E5%BC%95%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0"><span class="toc-text">对索引使用函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E7%B4%A2%E5%BC%95%E8%BF%9B%E8%A1%8C%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AE%A1%E7%AE%97"><span class="toc-text">对索引进行表达式计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E7%B4%A2%E5%BC%95%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-text">对索引隐式类型转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%81%94%E5%90%88%E7%B4%A2%E5%BC%95%E9%9D%9E%E6%9C%80%E5%B7%A6%E5%8C%B9%E9%85%8D"><span class="toc-text">联合索引非最左匹配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WHERE%E5%AD%90%E5%8F%A5%E4%B8%AD%E7%9A%84OR"><span class="toc-text">WHERE子句中的OR</span></a></li></ol>
     </div>
   </section>
 
@@ -3839,7 +3851,7 @@ MySql的执行流程
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Alias的博客","url":"http://levialias.top/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Alias","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://levialias.top/","sameAs":["https://github.com/volantis-x"],"description":"Alias的博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://levialias.top/","name":"Alias的博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://levialias.top/categories/mysql/","name":"mysql"}},{"@type":"ListItem","position":3,"item":{"@id":"http://levialias.top/2022/11/17/关于mysql索引/","name":"关于mysql索引"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"关于mysql索引","description":"","datePublished":"2022-11-17T15:42:10.938Z","dateModified":"2022-11-20T06:37:01.977Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://levialias.top/2022/11/17/%E5%85%B3%E4%BA%8Emysql%E7%B4%A2%E5%BC%95/"},"author":{"@type":"Person","name":"Alias","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://levialias.top/"},"publisher":{"@type":"Organization","name":"Alias的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://levialias.top/2022/11/17/%E5%85%B3%E4%BA%8Emysql%E7%B4%A2%E5%BC%95/","wordCount":0,"articleSection":"mysql","keywords":"mysql","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Alias的博客","url":"http://levialias.top/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Alias","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://levialias.top/","sameAs":["https://github.com/volantis-x"],"description":"Alias的博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://levialias.top/","name":"Alias的博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://levialias.top/categories/mysql/","name":"mysql"}},{"@type":"ListItem","position":3,"item":{"@id":"http://levialias.top/2022/12/22/详谈索引失效的几种情况/","name":"详谈索引失效的几种情况"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"详谈索引失效的几种情况","description":"","datePublished":"2022-12-22T04:03:33.807Z","dateModified":"2022-12-22T04:03:33.981Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://levialias.top/2022/12/22/%E8%AF%A6%E8%B0%88%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88%E7%9A%84%E5%87%A0%E7%A7%8D%E6%83%85%E5%86%B5/"},"author":{"@type":"Person","name":"Alias","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://levialias.top/"},"publisher":{"@type":"Organization","name":"Alias的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://levialias.top/2022/12/22/%E8%AF%A6%E8%B0%88%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88%E7%9A%84%E5%87%A0%E7%A7%8D%E6%83%85%E5%86%B5/","wordCount":0,"articleSection":"mysql","keywords":"mysql","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

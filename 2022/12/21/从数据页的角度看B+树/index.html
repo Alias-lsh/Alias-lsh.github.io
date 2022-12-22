@@ -4,8 +4,8 @@
   <meta name="generator" content="Hexo 5.4.0">
   <meta charset="utf-8">
   <!-- SEO相关 -->
-  <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="http://levialias.top/archives/2022/11/page/2/"/>
+  
+  <link rel="canonical" href="http://levialias.top/2022/12/21/从数据页的角度看b+树/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://npm.elemecdn.com'>
@@ -31,18 +31,21 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <pjax>
-  <title>归档：2022/11 - Alias的博客</title>
-  <meta name="keywords" content="null">
+  <title>从数据页的角度看B+树 - Alias的博客</title>
+  <meta name="keywords" content="mysql,null">
   <meta desc name="description" content="Alias的博客 - Alias - Alias的博客">
   
-<meta property="og:type" content="website">
-<meta property="og:title" content="Alias的博客">
-<meta property="og:url" content="http://levialias.top/archives/2022/11/page/2/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从数据页的角度看B+树">
+<meta property="og:url" content="http://levialias.top/2022/12/21/%E4%BB%8E%E6%95%B0%E6%8D%AE%E9%A1%B5%E7%9A%84%E8%A7%92%E5%BA%A6%E7%9C%8BB+%E6%A0%91/index.html">
 <meta property="og:site_name" content="Alias的博客">
-<meta property="og:description" content="Alias的博客">
+<meta property="og:description" content="从数据页的角度看B+树InnoDB是如何存储数据的？在前面的博客中我们提到过InnoDB 的数据是按「数据页」为单位来读写的，也就是说，当需要读一条记录的时候，并不是将这个记录本身从磁盘读出来，而是以页为单位，将其整体读入内存。 数据库的 I&#x2F;O 操作的最小单位是页，InnoDB 数据页的默认大小是 16KB，意味着数据库每次读写都是以 16KB 为单位的，一次最少从磁盘中读取 16K 的内容到内">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+<meta property="article:published_time" content="2022-12-21T13:19:48.189Z">
+<meta property="article:modified_time" content="2022-12-22T03:37:17.537Z">
 <meta property="article:author" content="Alias">
+<meta property="article:tag" content="mysql">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   </pjax>
@@ -1749,7 +1752,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.3690b000.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.1d2dd3e0.js","rightMenus":"/js/plugins/rightMenus.48fa1716.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.06d40311.js"},"css":{"style":"/css/style.a257987b.css"}},
     default: {"avatar":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1671608212373),
+    lastupdate: new Date(1671681834285),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2162,7 +2165,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <!-- Custom Files bodyBegin begin-->
     
     <!-- Custom Files bodyBegin end-->
-    <header itemscope itemtype="http://schema.org/WPHeader" id="l_header" class="l_header auto shadow floatable blur " style='opacity: 0' >
+    <header itemscope itemtype="http://schema.org/WPHeader" id="l_header" class="l_header auto shadow floatable blur show" style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -2431,7 +2434,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
       <!-- see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs -->
-      <div id="half" class='cover-wrapper  dock' style="display: ;">
+      <div id="none" class='cover-wrapper post dock' style="display: none;">
         
   <div class='cover-bg lazyload placeholder' data-bg="https://bing.ioliu.cn/v1/rand?w=1920&h=1200"></div>
 
@@ -2506,16 +2509,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper">
           
 <div id="l_main" class=''>
-	
-		
-  <section class="post-list">
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://levialias.top/2022/11/01/%E5%85%B3%E4%BA%8EJava%E7%9A%84%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">
+  <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
+  <link itemprop="mainEntityOfPage" href="http://levialias.top/2022/12/21/%E4%BB%8E%E6%95%B0%E6%8D%AE%E9%A1%B5%E7%9A%84%E8%A7%92%E5%BA%A6%E7%9C%8BB+%E6%A0%91/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="Alias的博客">
   </span>
@@ -2524,81 +2519,282 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <meta itemprop="description" content="Alias的博客">
   </span>
   
-  
+
+
   
     <span hidden>
       <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
     </span>
   
-  
+  <div class="article-meta" id="top">
     
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/11/01/%E5%85%B3%E4%BA%8EJava%E7%9A%84%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/"  itemprop="url">
-        关于Java的类加载机制
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
     
-      
-        关于Java的类加载机制什么是类加载类加载分为三个步骤：加载、连接、初始化
-加载类加载指的是将class文件读入内存，并为之创建一个java.lang.Class对象，即程序中使用任何类时，系统都会为之建立一个java.lang.Class对象，系统中所有的类都是java.lang.Class的实例。类的加载由类加载器完成，JVM提供的类加载器叫做系统类加载器，此外还可以通过继承ClassL...
-      
+    
+      <h1 class="title" itemprop="name headline">
+        从数据页的角度看B+树
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author' itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <a itemprop="url" class='author' href="/" rel="nofollow">
+    <img itemprop="image" src="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/apple-touch-icon.png" class="lazyload" data-srcset="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/apple-touch-icon.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+    <p itemprop="name">请设置文章作者</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
+    <a class="category-link" href="/categories/mysql/">mysql</a>
+    
+      <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+        <a href="/categories/mysql/" itemprop="url"><span itemprop="name">mysql</span></a>
+      </span>
     
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-11-01T14:02:47+08:00">2022-11-01</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/java/">java</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/" itemprop="url"><span itemprop="name">java</span></a>
-            </span>
+
+
           
         
+          
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-12-21T21:19:48+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2022年12月21日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+        <!-- Custom Files topMeta begin-->
+        
+        <!-- Custom Files topMeta end-->
       </div>
+    
+  </div>
+
+
+  <div id="layoutHelper-page-plugins"></div>
+  <div id="post-body" itemprop="articleBody">
+    <h1 id="从数据页的角度看B-树"><a href="#从数据页的角度看B-树" class="headerlink" title="从数据页的角度看B+树"></a>从数据页的角度看B+树</h1><div class="story post-story"><h2 id="InnoDB是如何存储数据的？"><a href="#InnoDB是如何存储数据的？" class="headerlink" title="InnoDB是如何存储数据的？"></a>InnoDB是如何存储数据的？</h2><p>在前面的博客中我们提到过<strong>InnoDB 的数据是按「数据页」为单位来读写的</strong>，也就是说，当需要读一条记录的时候，并不是将这个记录本身从磁盘读出来，而是以页为单位，将其整体读入内存。</p>
+<p>数据库的 I/O 操作的最小单位是页，<strong>InnoDB 数据页的默认大小是 16KB</strong>，意味着数据库每次读写都是以 16KB 为单位的，一次最少从磁盘中读取 16K 的内容到内存中，一次最少把内存中的 16K 内容刷新到磁盘中。</p>
+<p>数据页包括七个部分，如下图：</p>
+<p><img src="/images/mysql30.png" class="lazyload" data-srcset="/images/mysql30.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>他们的作用如下：</p>
+<p><img src="/images/mysql31.png" class="lazyload" data-srcset="/images/mysql31.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>在 File Header 中有两个指针，分别指向上一个数据页和下一个数据页，连接起来的页相当于一个双向的链表，如下图所示：</p>
+<p><img src="/images/mysql32.png" class="lazyload" data-srcset="/images/mysql32.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>采用链表的结构是让数据页之间不需要是物理上的连续的，而是逻辑上的连续。</p>
+<p>数据页的主要作用是存储记录，也就是数据库的数据，所以重点说一下数据页中的 User Records 是怎么组织数据的。</p>
+<p><strong>数据页中的记录按照「主键」顺序组成单向链表</strong>，单向链表的特点就是插入、删除非常方便，但是检索效率不高，最差的情况下需要遍历链表上的所有节点才能完成检索。</p>
+<p>因此，数据页中有一个<strong>页目录</strong>，起到记录的索引作用，就像我们书那样，针对书中内容的每个章节设立了一个目录，想看某个章节的时候，可以查看目录，快速找到对应的章节的页数，而数据页中的页目录就是为了能快速找到记录。</p>
+<p>那 InnoDB 是如何给记录创建页目录的呢？页目录与记录的关系如下图：</p>
+<p><img src="/images/mysql33.png" class="lazyload" data-srcset="/images/mysql33.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>页目录创建的过程如下：</p>
+<ol>
+<li>将所有的记录划分成几个组，这些记录包括最小记录和最大记录，但不包括标记为“已删除”的记录；</li>
+<li>每个记录组的最后一条记录就是组内最大的那条记录，并且最后一条记录的头信息中会存储该组一共有多少条记录，作为 n_owned 字段（上图中粉红色字段）</li>
+<li>页目录用来存储每组最后一条记录的地址偏移量，这些地址偏移量会按照先后顺序存储起来，每组的地址偏移量也被称之为槽（slot），<strong>每个槽相当于指针指向了不同组的最后一个记录</strong>。</li>
+</ol>
+<p>从图可以看到，<strong>页目录就是由多个槽组成的，槽相当于分组记录的索引</strong>。然后，因为记录是按照「主键值」从小到大排序的，所以<strong>我们通过槽查找记录时，可以使用二分法快速定位要查询的记录在哪个槽（哪个记录分组），定位到槽后，再遍历槽内的所有记录，找到对应的记录</strong>，无需从最小记录开始遍历整个页中的记录链表。</p>
+<p>以上面那张图举个例子，5 个槽的编号分别为 0，1，2，3，4，我想查找主键为 11 的用户记录：</p>
+<ul>
+<li>先二分得出槽中间位是 (0+4)/2=2 ，2号槽里最大的记录为 8。因为 11 &gt; 8，所以需要从 2 号槽后继续搜索记录；</li>
+<li>再使用二分搜索出 2 号和 4 槽的中间位是 (2+4)/2= 3，3 号槽里最大的记录为 12。因为 11 &lt; 12，所以主键为 11 的记录在 3 号槽里；</li>
+<li>这里有个问题，<strong>「槽对应的值都是这个组的主键最大的记录，如何找到组里最小的记录」</strong>？比如槽 3 对应最大主键是 12 的记录，那如何找到最小记录 9。解决办法是：通过槽 3 找到 槽 2 对应的记录，也就是主键为 8 的记录。主键为 8 的记录的下一条记录就是槽 3 当中主键最小的 9 记录，然后开始向下搜索 2 次，定位到主键为 11 的记录，取出该条记录的信息即为我们想要查找的内容。</li>
+</ul>
+<p>看到第三步的时候，可能有的同学会疑问，如果某个槽内的记录很多，然后因为记录都是单向链表串起来的，那这样在槽内查找某个记录的时间复杂度不就是 O(n) 了吗？</p>
+<p>这点不用担心，InnoDB 对每个分组中的记录条数都是有规定的，槽内的记录就只有几条：</p>
+<ul>
+<li>第一个分组中的记录只能有 1 条记录；</li>
+<li>最后一个分组中的记录条数范围只能在 1-8 条之间；</li>
+<li>剩下的分组中记录条数范围只能在 4-8 条之间。</li>
+</ul>
+</div><div class="story post-story"><h2 id="B-树如何进行查询？"><a href="#B-树如何进行查询？" class="headerlink" title="B+树如何进行查询？"></a>B+树如何进行查询？</h2><p><strong>InnoDB 采用了 B+ 树作为索引</strong>。磁盘的 I/O 操作次数对索引的使用效率至关重要，因此在构造索引的时候，我们更倾向于采用“矮胖”的 B+ 树数据结构，这样所需要进行的磁盘 I/O 次数更少，而且 B+ 树 更适合进行关键字的范围查询。</p>
+<p>InnoDB 里的 B+ 树中的<strong>每个节点都是一个数据页</strong>，结构示意图如下：</p>
+<p><img src="/images/mysql34.png" class="lazyload" data-srcset="/images/mysql34.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>通过上图，我们看出 B+ 树的特点：</p>
+<ul>
+<li>只有叶子节点（最底层的节点）才存放了数据，非叶子节点（其他上层节）仅用来存放目录项作为索引。</li>
+<li>非叶子节点分为不同层次，通过分层来降低每一层的搜索量；</li>
+<li>所有节点按照索引键大小排序，构成一个双向链表，便于范围查询；</li>
+</ul>
+<p>我们再看看 B+ 树如何实现快速查找主键为 6 的记录，以上图为例子：</p>
+<ul>
+<li>从根节点开始，通过二分法快速定位到符合页内范围包含查询值的页，因为查询的主键值为 6，在[1, 7)范围之间，所以到页 30 中查找更详细的目录项；</li>
+<li>在非叶子节点（页30）中，继续通过二分法快速定位到符合页内范围包含查询值的页，主键值大于 5，所以就到叶子节点（页16）查找记录；</li>
+<li>接着，在叶子节点（页16）中，通过槽查找记录时，使用二分法快速定位要查询的记录在哪个槽（哪个记录分组），定位到槽后，再遍历槽内的所有记录，找到主键为 6 的记录。</li>
+</ul>
+<p>可以看到，在定位记录所在哪一个页时，也是通过二分法快速定位到包含该记录的页。定位到该页后，又会在该页内进行二分法快速定位记录所在的分组（槽号），最后在分组内进行遍历查找。</p>
+
+</div>
+  </div>
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/2022/11/01/%E5%85%B3%E4%BA%8EJava%E7%9A%84%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/' itemprop="url">
-            阅读全文
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=http://levialias.top/2022/12/21/%E4%BB%8E%E6%95%B0%E6%8D%AE%E9%A1%B5%E7%9A%84%E8%A7%92%E5%BA%A6%E7%9C%8BB+%E6%A0%91/>http://levialias.top/2022/12/21/%E4%BB%8E%E6%95%B0%E6%8D%AE%E9%A1%B5%E7%9A%84%E8%A7%92%E5%BA%A6%E7%9C%8BB+%E6%A0%91/</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-12-22T11:37:17+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2022年12月22日</p>
+  </a>
 </div>
 
-          </div>
         
       
-    
-  </section>
+        
+          
   
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/mysql/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>mysql</p></a></div>
+  <span hidden itemprop="keywords">mysql</span>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
-      <br>
-      <div class="prev-next">
-        
-          <a class="prev" rel="prev" href="/archives/2022/11/">
-            <section class="post prev white-box shadow floatable blur" >
-              <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页&nbsp;
-            </section>
-          </a>
-        
-        <p class="current">
-          2 / 2
-        </p>
-        
-      </div>
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://levialias.top/2022/12/21/%E4%BB%8E%E6%95%B0%E6%8D%AE%E9%A1%B5%E7%9A%84%E8%A7%92%E5%BA%A6%E7%9C%8BB+%E6%A0%91/&title=从数据页的角度看B+树 - Alias的博客&summary="
+          
+          >
+          
+            <img src="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qq.png" class="lazyload" data-srcset="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qq.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
     
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://levialias.top/2022/12/21/%E4%BB%8E%E6%95%B0%E6%8D%AE%E9%A1%B5%E7%9A%84%E8%A7%92%E5%BA%A6%E7%9C%8BB+%E6%A0%91/&title=从数据页的角度看B+树 - Alias的博客&summary="
+          
+          >
+          
+            <img src="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qzone.png" class="lazyload" data-srcset="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qzone.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://levialias.top/2022/12/21/%E4%BB%8E%E6%95%B0%E6%8D%AE%E9%A1%B5%E7%9A%84%E8%A7%92%E5%BA%A6%E7%9C%8BB+%E6%A0%91/&title=从数据页的角度看B+树 - Alias的博客&summary="
+          
+          >
+          
+            <img src="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/weibo.png" class="lazyload" data-srcset="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/weibo.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+    <!-- Custom Files bottomMeta begin -->
+    
+    <!-- Custom Files bottomMeta end -->
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/2022/12/22/%E8%AF%A6%E8%B0%88%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88%E7%9A%84%E5%87%A0%E7%A7%8D%E6%83%85%E5%86%B5/'>
+          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>详谈索引失效的几种情况</p>
+          <p class='content'>详谈索引失效的几种情况对索引使用左或者左右模糊匹配当我们使用左或者左右模糊匹配的时候，也就是 like %xx 或者 like %xx% 这两种方式都会造成索引失效。
+比如下面的 like 语句...</p>
+        </a>
+      
+      
+        <a class='next' href='/2022/12/21/mysql%E7%B4%A2%E5%BC%95/'>
+          <p class='title'>mysql索引<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>MySQL索引什么是索引在数据库中，索引的定义就是帮助存储引擎快速获取数据的一种数据结构，形象的说就是索引是数据的目录。
+MySQL 存储引擎有 MyISAM 、InnoDB、Memory，其中...</p>
+        </a>
+      
+    </div>
+  
+  <!-- Custom Files postEnd begin-->
+  
+  <!-- Custom Files postEnd end-->
+</article>
+
+
+  
+
+  
+  <article class="post white-box shadow floatable blur" id="comments">
+    <span hidden>
+      <meta itemprop="discussionUrl" content="/2022/12/21/%E4%BB%8E%E6%95%B0%E6%8D%AE%E9%A1%B5%E7%9A%84%E8%A7%92%E5%BA%A6%E7%9C%8BB+%E6%A0%91/index.html#comments">
+    </span>
+    <p ct><i class='fa-solid fa-comments'></i> 评论</p>
+    
+    
+    <div id="layoutHelper-comments"></div>
+
+  </article>
   
 
 
-	
+
+
+
 </div>
 <aside id='l_side' itemscope itemtype="http://schema.org/WPSideBar">
   
@@ -2606,241 +2802,34 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
 
-<section class="widget blogger shadow floatable blur desktop mobile pjax">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/Logo-NavBar@3x.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">Alias的博客</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fa-solid fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:me@xxx.com"
-              class="social fa-solid fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/volantis-x/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/"
-              class="social fa-solid fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
 
-  
-    
-    
-  
-
-  <section class="widget category shadow floatable blur desktop pjax">
+  <section class="widget toc-wrapper shadow floatable blur desktop mobile pjax" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fa-solid fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/java/" href="/categories/java/"
-            active-action="action-categoriesjava"
-            ><div class='name'>java</div><div class='badge'>(38)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/consul/" href="/categories/java/consul/"
-            active-action="action-categoriesjavaconsul"
-            ><div class='name'>consul</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/consul/springcloud/" href="/categories/java/consul/springcloud/"
-            active-action="action-categoriesjavaconsulspringcloud"
-            ><div class='name'>springcloud</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/eureka/" href="/categories/java/eureka/"
-            active-action="action-categoriesjavaeureka"
-            ><div class='name'>eureka</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/eureka/springcloud/" href="/categories/java/eureka/springcloud/"
-            active-action="action-categoriesjavaeurekaspringcloud"
-            ><div class='name'>springcloud</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/io/" href="/categories/java/io/"
-            active-action="action-categoriesjavaio"
-            ><div class='name'>io</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/mongodb/" href="/categories/java/mongodb/"
-            active-action="action-categoriesjavamongodb"
-            ><div class='name'>mongodb</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/mybatis-plus/" href="/categories/java/mybatis-plus/"
-            active-action="action-categoriesjavamybatis-plus"
-            ><div class='name'>mybatis-plus</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/mybatis/" href="/categories/java/mybatis/"
-            active-action="action-categoriesjavamybatis"
-            ><div class='name'>mybatis</div><div class='badge'>(4)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/netty/" href="/categories/java/netty/"
-            active-action="action-categoriesjavanetty"
-            ><div class='name'>netty</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/redis/" href="/categories/java/redis/"
-            active-action="action-categoriesjavaredis"
-            ><div class='name'>redis</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/spring/" href="/categories/java/spring/"
-            active-action="action-categoriesjavaspring"
-            ><div class='name'>spring</div><div class='badge'>(6)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/springboot/" href="/categories/java/springboot/"
-            active-action="action-categoriesjavaspringboot"
-            ><div class='name'>springboot</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/springcloud/" href="/categories/java/springcloud/"
-            active-action="action-categoriesjavaspringcloud"
-            ><div class='name'>springcloud</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/springcloud/ribbon/" href="/categories/java/springcloud/ribbon/"
-            active-action="action-categoriesjavaspringcloudribbon"
-            ><div class='name'>ribbon</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/%E4%BB%A3%E7%90%86/" href="/categories/java/%E4%BB%A3%E7%90%86/"
-            active-action="action-categoriesjavaE4BBA3E79086"
-            ><div class='name'>代理</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/%E5%8F%8D%E5%B0%84/" href="/categories/java/%E5%8F%8D%E5%B0%84/"
-            active-action="action-categoriesjavaE58F8DE5B084"
-            ><div class='name'>反射</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/%E5%BA%8F%E5%88%97%E5%8C%96/" href="/categories/java/%E5%BA%8F%E5%88%97%E5%8C%96/"
-            active-action="action-categoriesjavaE5BA8FE58897E58C96"
-            ><div class='name'>序列化</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/%E7%BC%93%E5%AD%98/" href="/categories/java/%E7%BC%93%E5%AD%98/"
-            active-action="action-categoriesjavaE7BC93E5AD98"
-            ><div class='name'>缓存</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/%E7%BC%93%E5%AD%98/redis/" href="/categories/java/%E7%BC%93%E5%AD%98/redis/"
-            active-action="action-categoriesjavaE7BC93E5AD98redis"
-            ><div class='name'>redis</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/java/%E9%9B%86%E5%90%88/" href="/categories/java/%E9%9B%86%E5%90%88/"
-            active-action="action-categoriesjavaE99B86E59088"
-            ><div class='name'>集合</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/mysql/" href="/categories/mysql/"
-            active-action="action-categoriesmysql"
-            ><div class='name'>mysql</div><div class='badge'>(4)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E8%AE%A1%E7%BD%91/" href="/categories/%E8%AE%A1%E7%BD%91/"
-            active-action="action-categoriesE8AEA1E7BD91"
-            ><div class='name'>计网</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E8%AE%A1%E7%BD%91/HTTP/" href="/categories/%E8%AE%A1%E7%BD%91/HTTP/"
-            active-action="action-categoriesE8AEA1E7BD91HTTP"
-            ><div class='name'>HTTP</div><div class='badge'>(3)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#InnoDB%E6%98%AF%E5%A6%82%E4%BD%95%E5%AD%98%E5%82%A8%E6%95%B0%E6%8D%AE%E7%9A%84%EF%BC%9F"><span class="toc-text">InnoDB是如何存储数据的？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B-%E6%A0%91%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%9F%A5%E8%AF%A2%EF%BC%9F"><span class="toc-text">B+树如何进行查询？</span></a></li></ol>
     </div>
   </section>
-
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow floatable blur desktop mobile pjax">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fa-solid fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/HTTP/" style="font-size: 18px; color: #7e7e7e">HTTP</a> <a href="/tags/consul/" style="font-size: 14px; color: #999">consul</a> <a href="/tags/eureka/" style="font-size: 14px; color: #999">eureka</a> <a href="/tags/io/" style="font-size: 14px; color: #999">io</a> <a href="/tags/java/" style="font-size: 24px; color: #555">java</a> <a href="/tags/mongodb/" style="font-size: 14px; color: #999">mongodb</a> <a href="/tags/mybatis/" style="font-size: 20px; color: #707070">mybatis</a> <a href="/tags/mybatis-plus/" style="font-size: 14px; color: #999">mybatis-plus</a> <a href="/tags/mysql/" style="font-size: 20px; color: #707070">mysql</a> <a href="/tags/netty/" style="font-size: 14px; color: #999">netty</a> <a href="/tags/redis/" style="font-size: 16px; color: #8b8b8b">redis</a> <a href="/tags/ribbon/" style="font-size: 14px; color: #999">ribbon</a> <a href="/tags/spring/" style="font-size: 22px; color: #636363">spring</a> <a href="/tags/springboot/" style="font-size: 18px; color: #7e7e7e">springboot</a> <a href="/tags/springcloud/" style="font-size: 20px; color: #707070">springcloud</a> <a href="/tags/%E4%BB%A3%E7%90%86/" style="font-size: 14px; color: #999">代理</a> <a href="/tags/%E5%8F%8D%E5%B0%84/" style="font-size: 14px; color: #999">反射</a> <a href="/tags/%E5%BA%8F%E5%88%97%E5%8C%96/" style="font-size: 14px; color: #999">序列化</a> <a href="/tags/%E7%BC%93%E5%AD%98/" style="font-size: 14px; color: #999">缓存</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 18px; color: #7e7e7e">计网</a> <a href="/tags/%E9%9B%86%E5%90%88/" style="font-size: 18px; color: #7e7e7e">集合</a>
-    </div>
-  </section>
-
-
-  
 
   
 
 
 <!-- 没有 pjax 占位会报错 万恶的 pjax -->
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
 
   <div class="pjax">
     <!-- pjax占位 -->
@@ -2869,13 +2858,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </aside>
 
 
+
           <!--此文件用来存放一些不方便取值的变量-->
 <!--思路大概是将值藏到重加载的区域内-->
 
 <pjax>
 <script>
   window.pdata={}
-  pdata.ispage=false;
+  pdata.ispage=true;
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   pdata.commentConfig={};
@@ -2884,14 +2874,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     // header
     var l_header=document.getElementById("l_header");
     
-    l_header.classList.remove("show");
+    l_header.classList.add("show");
     
     
       // cover
       var cover_wrapper=document.querySelector('#l_cover .cover-wrapper');
       var scroll_down=document.getElementById('scroll-down');
-      cover_wrapper.id="half";
-      cover_wrapper.style.display="";
+      cover_wrapper.id="none";
+      cover_wrapper.style.display="none";
       scroll_down.style.display="none";
     
   
@@ -3840,7 +3830,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Alias的博客","url":"http://levialias.top/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Alias","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://levialias.top/","sameAs":["https://github.com/volantis-x"],"description":"Alias的博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://levialias.top/","name":"Alias的博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://levialias.top/archives/","name":"Archive"}},{"@type":"ListItem","position":3,"item":{"@id":"http://levialias.top/archives/2022/","name":"2022年"}},{"@type":"ListItem","position":4,"item":{"@id":"http://levialias.top/archives/2022/11/","name":"11月"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Alias的博客","url":"http://levialias.top/","keywords":null,"description":"Alias的博客","author":{"@type":"Person","name":"Alias","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://levialias.top/","description":"Alias的博客"},"publisher":{"@type":"Organization","name":"Alias的博客","url":"http://levialias.top/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://levialias.top?s={search_term_string}"},"query-input":"required name=search_term_string"}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Alias的博客","url":"http://levialias.top/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Alias","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://levialias.top/","sameAs":["https://github.com/volantis-x"],"description":"Alias的博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://levialias.top/","name":"Alias的博客"}},{"@type":"ListItem","position":2,"item":{"@id":"http://levialias.top/categories/mysql/","name":"mysql"}},{"@type":"ListItem","position":3,"item":{"@id":"http://levialias.top/2022/12/21/从数据页的角度看B+树/","name":"从数据页的角度看B+树"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"从数据页的角度看B+树","description":"","datePublished":"2022-12-21T13:19:48.189Z","dateModified":"2022-12-22T03:37:17.537Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http://levialias.top/2022/12/21/%E4%BB%8E%E6%95%B0%E6%8D%AE%E9%A1%B5%E7%9A%84%E8%A7%92%E5%BA%A6%E7%9C%8BB+%E6%A0%91/"},"author":{"@type":"Person","name":"Alias","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://levialias.top/"},"publisher":{"@type":"Organization","name":"Alias的博客","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://levialias.top/2022/12/21/%E4%BB%8E%E6%95%B0%E6%8D%AE%E9%A1%B5%E7%9A%84%E8%A7%92%E5%BA%A6%E7%9C%8BB+%E6%A0%91/","wordCount":0,"articleSection":"mysql","keywords":"mysql","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

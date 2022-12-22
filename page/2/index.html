@@ -1749,7 +1749,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.3690b000.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.1d2dd3e0.js","rightMenus":"/js/plugins/rightMenus.48fa1716.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.06d40311.js"},"css":{"style":"/css/style.a257987b.css"}},
     default: {"avatar":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1671608212373),
+    lastupdate: new Date(1671681834285),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2514,6 +2514,72 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           <div class='post-wrapper'>
             <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="http://levialias.top/2022/11/08/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E7%BC%93%E5%AD%98%E4%B8%8D%E4%B8%80%E8%87%B4%E9%97%AE%E9%A2%98/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Alias的博客">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="Alias的博客">
+    <meta itemprop="description" content="Alias的博客">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/2022/11/08/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E7%BC%93%E5%AD%98%E4%B8%8D%E4%B8%80%E8%87%B4%E9%97%AE%E9%A2%98/"  itemprop="url">
+        关于数据库和缓存不一致问题
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      
+        关于数据库和缓存不一致问题为什么会出现缓存一致性问题在非并发的情况首先，我们在非并发的场景中，出现不一致的问题大家都能比较容易的理解，因为缓存的操作和数据库的操作是存在一定的时间差的。
+而且这两个操作是没办法保证原子性的，也就是说，是有可能一个操作成功，一个操作失败的。
+所以，这就必然会存在不一致的情况。
+但同时，因为我们的业务系统是开放给用户使用的，所以经常会出现各种各样的并发的场景，因为...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2022-11-08T23:43:03+08:00">2022-11-08</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/java/">java</a>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/java/" itemprop="url"><span itemprop="name">java</span></a>
+            </span>
+          
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2022/11/08/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E7%BC%93%E5%AD%98%E4%B8%8D%E4%B8%80%E8%87%B4%E9%97%AE%E9%A2%98/' itemprop="url">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
   <link itemprop="mainEntityOfPage" href="http://levialias.top/2022/11/06/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84%E9%9B%86%E5%90%88%EF%BC%88%E4%B8%80%EF%BC%89/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="Alias的博客">
@@ -3116,74 +3182,6 @@ Char（字符）是用户的可读写的最小单位，在Java里面由16位bit�
           </div>
         
       
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://levialias.top/2022/10/26/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Alias的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="Alias的博客">
-    <meta itemprop="description" content="Alias的博客">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/10/26/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F/"  itemprop="url">
-        关于Java中字符串的存储方式
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      
-        关于Java中字符串的存储方式创建方式1：
-1String s = &quot;123&quot;;
-
-首先在栈中创建字符串”123”，随后调用intern（），检查字符串常量池中是否存在对这个字符串的引用，如果有则返回对他的引用，没有的话则将这个字符串存入字符串常量池。如果改字符串已经存储在堆中，intern方法会直接将其引用到字符串常量池中
-s返回的是字符串常量池中”123”的引用
-创建...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-10-26T21:28:28+08:00">2022-10-26</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/java/">java</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/" itemprop="url"><span itemprop="name">java</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/10/26/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
     
   </section>
   
@@ -3409,7 +3407,7 @@ s返回的是字符串常量池中”123”的引用
           <li><a class="flat-box"
             title="/categories/mysql/" href="/categories/mysql/"
             active-action="action-categoriesmysql"
-            ><div class='name'>mysql</div><div class='badge'>(4)</div></a></li>
+            ><div class='name'>mysql</div><div class='badge'>(5)</div></a></li>
         
           <li><a class="flat-box"
             title="/categories/%E8%AE%A1%E7%BD%91/" href="/categories/%E8%AE%A1%E7%BD%91/"
@@ -3443,7 +3441,7 @@ s返回的是字符串常量池中”123”的引用
 
 
     <div class='content'>
-      <a href="/tags/HTTP/" style="font-size: 18px; color: #7e7e7e">HTTP</a> <a href="/tags/consul/" style="font-size: 14px; color: #999">consul</a> <a href="/tags/eureka/" style="font-size: 14px; color: #999">eureka</a> <a href="/tags/io/" style="font-size: 14px; color: #999">io</a> <a href="/tags/java/" style="font-size: 24px; color: #555">java</a> <a href="/tags/mongodb/" style="font-size: 14px; color: #999">mongodb</a> <a href="/tags/mybatis/" style="font-size: 20px; color: #707070">mybatis</a> <a href="/tags/mybatis-plus/" style="font-size: 14px; color: #999">mybatis-plus</a> <a href="/tags/mysql/" style="font-size: 20px; color: #707070">mysql</a> <a href="/tags/netty/" style="font-size: 14px; color: #999">netty</a> <a href="/tags/redis/" style="font-size: 16px; color: #8b8b8b">redis</a> <a href="/tags/ribbon/" style="font-size: 14px; color: #999">ribbon</a> <a href="/tags/spring/" style="font-size: 22px; color: #636363">spring</a> <a href="/tags/springboot/" style="font-size: 18px; color: #7e7e7e">springboot</a> <a href="/tags/springcloud/" style="font-size: 20px; color: #707070">springcloud</a> <a href="/tags/%E4%BB%A3%E7%90%86/" style="font-size: 14px; color: #999">代理</a> <a href="/tags/%E5%8F%8D%E5%B0%84/" style="font-size: 14px; color: #999">反射</a> <a href="/tags/%E5%BA%8F%E5%88%97%E5%8C%96/" style="font-size: 14px; color: #999">序列化</a> <a href="/tags/%E7%BC%93%E5%AD%98/" style="font-size: 14px; color: #999">缓存</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 18px; color: #7e7e7e">计网</a> <a href="/tags/%E9%9B%86%E5%90%88/" style="font-size: 18px; color: #7e7e7e">集合</a>
+      <a href="/tags/HTTP/" style="font-size: 17.33px; color: #828282">HTTP</a> <a href="/tags/consul/" style="font-size: 14px; color: #999">consul</a> <a href="/tags/eureka/" style="font-size: 14px; color: #999">eureka</a> <a href="/tags/io/" style="font-size: 14px; color: #999">io</a> <a href="/tags/java/" style="font-size: 24px; color: #555">java</a> <a href="/tags/mongodb/" style="font-size: 14px; color: #999">mongodb</a> <a href="/tags/mybatis/" style="font-size: 19px; color: #777">mybatis</a> <a href="/tags/mybatis-plus/" style="font-size: 14px; color: #999">mybatis-plus</a> <a href="/tags/mysql/" style="font-size: 20.67px; color: #6c6c6c">mysql</a> <a href="/tags/netty/" style="font-size: 14px; color: #999">netty</a> <a href="/tags/redis/" style="font-size: 15.67px; color: #8e8e8e">redis</a> <a href="/tags/ribbon/" style="font-size: 14px; color: #999">ribbon</a> <a href="/tags/spring/" style="font-size: 22.33px; color: #606060">spring</a> <a href="/tags/springboot/" style="font-size: 17.33px; color: #828282">springboot</a> <a href="/tags/springcloud/" style="font-size: 19px; color: #777">springcloud</a> <a href="/tags/%E4%BB%A3%E7%90%86/" style="font-size: 14px; color: #999">代理</a> <a href="/tags/%E5%8F%8D%E5%B0%84/" style="font-size: 14px; color: #999">反射</a> <a href="/tags/%E5%BA%8F%E5%88%97%E5%8C%96/" style="font-size: 14px; color: #999">序列化</a> <a href="/tags/%E7%BC%93%E5%AD%98/" style="font-size: 14px; color: #999">缓存</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 17.33px; color: #828282">计网</a> <a href="/tags/%E9%9B%86%E5%90%88/" style="font-size: 17.33px; color: #828282">集合</a>
     </div>
   </section>
 

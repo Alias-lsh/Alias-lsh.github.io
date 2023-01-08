@@ -1749,7 +1749,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.3690b000.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.1d2dd3e0.js","rightMenus":"/js/plugins/rightMenus.48fa1716.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.06d40311.js"},"css":{"style":"/css/style.a257987b.css"}},
     default: {"avatar":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1673081268617),
+    lastupdate: new Date(1673195385904),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2514,6 +2514,277 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           <div class='post-wrapper'>
             <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="http://levialias.top/2022/12/25/mysql%E6%98%AF%E5%A6%82%E4%BD%95%E5%8A%A0%E9%94%81%E7%9A%84/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Alias的博客">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="Alias的博客">
+    <meta itemprop="description" content="Alias的博客">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/2022/12/25/mysql%E6%98%AF%E5%A6%82%E4%BD%95%E5%8A%A0%E9%94%81%E7%9A%84/"  itemprop="url">
+        mysql是如何加锁的
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      
+        mysql是如何加锁的什么sql语句会加行级锁？InnoDB 引擎是支持行级锁的，而 MyISAM 引擎并不支持行级锁，所以后面的内容都是基于 InnoDB 引擎 的。
+所以，在说 MySQL 是怎么加行级锁的时候，其实是在说 InnoDB 引擎是怎么加行级锁的。
+普通的 select 语句是不会对记录加锁的，因为它属于快照读，是通过 MVCC（多版本并发控制）实现的。
+如果要在查询时对记录...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2022-12-25T15:13:03+08:00">2022-12-25</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/mysql/">mysql</a>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/mysql/" itemprop="url"><span itemprop="name">mysql</span></a>
+            </span>
+          
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2022/12/25/mysql%E6%98%AF%E5%A6%82%E4%BD%95%E5%8A%A0%E9%94%81%E7%9A%84/' itemprop="url">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="http://levialias.top/2022/12/24/mysql%E6%9C%89%E5%93%AA%E4%BA%9B%E9%94%81/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Alias的博客">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="Alias的博客">
+    <meta itemprop="description" content="Alias的博客">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/2022/12/24/mysql%E6%9C%89%E5%93%AA%E4%BA%9B%E9%94%81/"  itemprop="url">
+        mysql有哪些锁
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      
+        mysql有哪些锁这次我们主要来说说mysql的锁，主要是 Q&amp;A 的形式，看起来会比较轻松。
+全局锁
+全局锁是怎么用的？
+
+要使用全局锁，则要执行这条命令：
+1flush tables with read lock
+
+执行后，整个数据库就处于只读状态了，这时其他线程执行以下操作，都会被阻塞：
+
+对数据的增删改操作，比如 insert、delete、update等语句；
+对表结构的更...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2022-12-24T15:42:38+08:00">2022-12-24</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/mysql/">mysql</a>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/mysql/" itemprop="url"><span itemprop="name">mysql</span></a>
+            </span>
+          
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2022/12/24/mysql%E6%9C%89%E5%93%AA%E4%BA%9B%E9%94%81/' itemprop="url">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="http://levialias.top/2022/12/23/mysql%E4%B8%AD%E5%8F%AF%E9%87%8D%E5%A4%8D%E8%AF%BB%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E6%98%AF%E5%90%A6%E5%AE%8C%E5%85%A8%E8%A7%A3%E5%86%B3%E5%B9%BB%E8%AF%BB/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Alias的博客">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="Alias的博客">
+    <meta itemprop="description" content="Alias的博客">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/2022/12/23/mysql%E4%B8%AD%E5%8F%AF%E9%87%8D%E5%A4%8D%E8%AF%BB%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E6%98%AF%E5%90%A6%E5%AE%8C%E5%85%A8%E8%A7%A3%E5%86%B3%E5%B9%BB%E8%AF%BB/"  itemprop="url">
+        mysql中可重复读隔离级别是否完全解决幻读
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      
+        mysql中可重复读隔离级别是否完全解决幻读我们在上文提到过，MySQL InnoDB 引擎的默认隔离级别虽然是「可重复读」，但是它很大程度上避免幻读现象（并不是完全解决了），解决的方案有两种：
+
+针对快照读（普通 select 语句），是通过 MVCC 方式解决了幻读，因为可重复读隔离级别下，事务执行过程中看到的数据，一直跟这个事务启动时看到的数据是一致的，即使中途有其他事务插入了一条数据...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2022-12-23T15:29:07+08:00">2022-12-23</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/mysql/">mysql</a>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/mysql/" itemprop="url"><span itemprop="name">mysql</span></a>
+            </span>
+          
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2022/12/23/mysql%E4%B8%AD%E5%8F%AF%E9%87%8D%E5%A4%8D%E8%AF%BB%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E6%98%AF%E5%90%A6%E5%AE%8C%E5%85%A8%E8%A7%A3%E5%86%B3%E5%B9%BB%E8%AF%BB/' itemprop="url">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="http://levialias.top/2022/12/23/mysql%E4%B8%AD%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Alias的博客">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="Alias的博客">
+    <meta itemprop="description" content="Alias的博客">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/2022/12/23/mysql%E4%B8%AD%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0/"  itemprop="url">
+        mysql中事务隔离级别如何实现
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      
+        mysql中事务隔离级别如何实现事务的特性事务是由 MySQL 的引擎来实现的，我们常见的 InnoDB 引擎它是支持事务的。
+不过并不是所有的引擎都能支持事务，比如 MySQL 原生的 MyISAM 引擎就不支持事务，也正是这样，所以大多数 MySQL 的引擎都是用 InnoDB。
+事务看起来感觉简单，但是要实现事务必须要遵守 4 个特性，分别如下：
+
+原子性（Atomicity）：一个事...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2022-12-23T15:15:47+08:00">2022-12-23</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/mysql/">mysql</a>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/mysql/" itemprop="url"><span itemprop="name">mysql</span></a>
+            </span>
+          
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2022/12/23/mysql%E4%B8%AD%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0/' itemprop="url">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
   <link itemprop="mainEntityOfPage" href="http://levialias.top/2022/12/22/mysql%E4%B8%ADcount()%E5%92%8Ccount(1)%E7%9A%84%E5%8C%BA%E5%88%AB/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="Alias的博客">
@@ -2911,286 +3182,6 @@ MySQL存储的行为是由存储引擎实现的，而InnoDB是我们常用的存
           </div>
         
       
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://levialias.top/2022/11/20/%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F%E3%80%81%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9%E5%92%8C%E7%BC%93%E5%AD%98%E5%87%BB%E7%A9%BF/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Alias的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="Alias的博客">
-    <meta itemprop="description" content="Alias的博客">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/11/20/%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F%E3%80%81%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9%E5%92%8C%E7%BC%93%E5%AD%98%E5%87%BB%E7%A9%BF/"  itemprop="url">
-        缓存穿透、缓存雪崩和缓存击穿
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      
-        缓存穿透、缓存雪崩和缓存击穿简述缓存穿透缓存穿透是指客户端请求的数据在缓存中和数据库中都不存在，这样缓存永远都不会生效，这些请求都会打到数据库。若不断发起这样的请求，就会带给数据库巨大的压力
-常见的解决方案：
-1、缓存空对象：在第一次请求缓存未命中，进而请求数据库也没查到数据时，我们可以在redis中缓存一个空对象，这样后续重复的请求就不会达到数据库。
-优点：实现简单，维护方便
-缺点：额外的...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-11-20T15:30:25+08:00">2022-11-20</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/java/">java</a><span class="sep"></span><a class="category-link" href="/categories/java/%E7%BC%93%E5%AD%98/">缓存</a><span class="sep"></span><a class="category-link" href="/categories/java/%E7%BC%93%E5%AD%98/redis/">redis</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/" itemprop="url"><span itemprop="name">java</span></a>
-            </span>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/%E7%BC%93%E5%AD%98/" itemprop="url"><span itemprop="name">缓存</span></a>
-            </span>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/%E7%BC%93%E5%AD%98/redis/" itemprop="url"><span itemprop="name">redis</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/11/20/%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F%E3%80%81%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9%E5%92%8C%E7%BC%93%E5%AD%98%E5%87%BB%E7%A9%BF/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://levialias.top/2022/11/16/%E6%89%A7%E8%A1%8C%E4%B8%80%E6%9D%A1select%E8%AF%AD%E5%8F%A5%E6%9C%9F%E9%97%B4%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Alias的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="Alias的博客">
-    <meta itemprop="description" content="Alias的博客">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/11/16/%E6%89%A7%E8%A1%8C%E4%B8%80%E6%9D%A1select%E8%AF%AD%E5%8F%A5%E6%9C%9F%E9%97%B4%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/"  itemprop="url">
-        执行一条select语句期间发生了什么
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      
-        执行一条select语句期间发生了什么例:
-1select * from product where id &#x3D; 1;
-
-MySql的执行流程
-由此可见，mysql的架构分为两层：Server层和存储引擎层
-
-Server 层负责建立连接、分析和执行 SQL。MySQL 大多数的核心功能模块都在这实现，主要包括连接器，查询缓存、解析器、预处理器、优化器、执行器等。另外，所有的内置函数...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-11-16T00:41:00+08:00">2022-11-16</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/mysql/">mysql</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/mysql/" itemprop="url"><span itemprop="name">mysql</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/11/16/%E6%89%A7%E8%A1%8C%E4%B8%80%E6%9D%A1select%E8%AF%AD%E5%8F%A5%E6%9C%9F%E9%97%B4%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://levialias.top/2022/11/15/fail-fast%E5%92%8Cfail-safe/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Alias的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="Alias的博客">
-    <meta itemprop="description" content="Alias的博客">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/11/15/fail-fast%E5%92%8Cfail-safe/"  itemprop="url">
-        fail-fast和fail-safe
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      
-        fail-fast和fail-safe什么是fail-fast在维基百科中，关于fail-fast的解释翻译如下：
-在系统设计中，快速失效系统一种可以立即报告任何可能表明故障的情况的系统。快速失效系统通常设计用于停止正常操作，而不是试图继续可能存在缺陷的过程。这种设计通常会在操作中的多个点检查系统的状态，因此可以及早检测到任何故障。快速失败模块的职责是检测错误，然后让系统的下一个最高级别处理...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-11-15T15:01:31+08:00">2022-11-15</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/java/">java</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/" itemprop="url"><span itemprop="name">java</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/11/15/fail-fast%E5%92%8Cfail-safe/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://levialias.top/2022/11/12/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84Stream/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Alias的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="Alias的博客">
-    <meta itemprop="description" content="Alias的博客">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/11/12/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84Stream/"  itemprop="url">
-        关于Java中的Stream
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      
-        关于Java中的StreamStream 使用一种类似用 SQL 语句从数据库查询数据的直观方式来提供一种对 Java 集合运算和表达的高阶抽象。
-Stream API可以极大提高Java程序员的生产力，让程序员写出高效率、干净、简洁的代码。
-这种风格将要处理的元素集合看作一种流，流在管道中传输，并且可以在管道的节点上进行处理，比如筛选，排序，聚合等。
-Stream有以下特性及优点：
-
-无存...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-11-12T15:37:14+08:00">2022-11-12</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/java/">java</a><span class="sep"></span><a class="category-link" href="/categories/java/%E9%9B%86%E5%90%88/">集合</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/" itemprop="url"><span itemprop="name">java</span></a>
-            </span>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/%E9%9B%86%E5%90%88/" itemprop="url"><span itemprop="name">集合</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/11/12/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84Stream/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
     
   </section>
   
@@ -3205,7 +3196,7 @@ Stream有以下特性及优点：
           </a>
         
         <p class="current">
-          2 / 6
+          2 / 7
         </p>
         
           <a class="next" rel="next" href="/page/3/">
@@ -3421,12 +3412,12 @@ Stream有以下特性及优点：
           <li><a class="flat-box"
             title="/categories/%E8%AE%A1%E7%BD%91/" href="/categories/%E8%AE%A1%E7%BD%91/"
             active-action="action-categoriesE8AEA1E7BD91"
-            ><div class='name'>计网</div><div class='badge'>(6)</div></a></li>
+            ><div class='name'>计网</div><div class='badge'>(10)</div></a></li>
         
           <li><a class="flat-box child"
             title="/categories/%E8%AE%A1%E7%BD%91/HTTP/" href="/categories/%E8%AE%A1%E7%BD%91/HTTP/"
             active-action="action-categoriesE8AEA1E7BD91HTTP"
-            ><div class='name'>HTTP</div><div class='badge'>(4)</div></a></li>
+            ><div class='name'>HTTP</div><div class='badge'>(8)</div></a></li>
         
           <li><a class="flat-box child"
             title="/categories/%E8%AE%A1%E7%BD%91/TCP-IP/" href="/categories/%E8%AE%A1%E7%BD%91/TCP-IP/"
@@ -3455,7 +3446,7 @@ Stream有以下特性及优点：
 
 
     <div class='content'>
-      <a href="/tags/HTTP/" style="font-size: 19px; color: #777">HTTP</a> <a href="/tags/TCP-IP/" style="font-size: 15.67px; color: #8e8e8e">TCP/IP</a> <a href="/tags/consul/" style="font-size: 14px; color: #999">consul</a> <a href="/tags/eureka/" style="font-size: 14px; color: #999">eureka</a> <a href="/tags/io/" style="font-size: 14px; color: #999">io</a> <a href="/tags/java/" style="font-size: 24px; color: #555">java</a> <a href="/tags/mongodb/" style="font-size: 14px; color: #999">mongodb</a> <a href="/tags/mybatis/" style="font-size: 19px; color: #777">mybatis</a> <a href="/tags/mybatis-plus/" style="font-size: 14px; color: #999">mybatis-plus</a> <a href="/tags/mysql/" style="font-size: 22.33px; color: #606060">mysql</a> <a href="/tags/netty/" style="font-size: 14px; color: #999">netty</a> <a href="/tags/redis/" style="font-size: 15.67px; color: #8e8e8e">redis</a> <a href="/tags/ribbon/" style="font-size: 14px; color: #999">ribbon</a> <a href="/tags/spring/" style="font-size: 20.67px; color: #6c6c6c">spring</a> <a href="/tags/springboot/" style="font-size: 17.33px; color: #828282">springboot</a> <a href="/tags/springcloud/" style="font-size: 19px; color: #777">springcloud</a> <a href="/tags/%E4%BB%A3%E7%90%86/" style="font-size: 14px; color: #999">代理</a> <a href="/tags/%E5%8F%8D%E5%B0%84/" style="font-size: 14px; color: #999">反射</a> <a href="/tags/%E5%BA%8F%E5%88%97%E5%8C%96/" style="font-size: 14px; color: #999">序列化</a> <a href="/tags/%E7%BC%93%E5%AD%98/" style="font-size: 14px; color: #999">缓存</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 20.67px; color: #6c6c6c">计网</a> <a href="/tags/%E9%9B%86%E5%90%88/" style="font-size: 17.33px; color: #828282">集合</a>
+      <a href="/tags/HTTP/" style="font-size: 20.25px; color: #6f6f6f">HTTP</a> <a href="/tags/TCP-IP/" style="font-size: 15.25px; color: #919191">TCP/IP</a> <a href="/tags/consul/" style="font-size: 14px; color: #999">consul</a> <a href="/tags/eureka/" style="font-size: 14px; color: #999">eureka</a> <a href="/tags/io/" style="font-size: 14px; color: #999">io</a> <a href="/tags/java/" style="font-size: 24px; color: #555">java</a> <a href="/tags/mongodb/" style="font-size: 14px; color: #999">mongodb</a> <a href="/tags/mybatis/" style="font-size: 17.75px; color: #808080">mybatis</a> <a href="/tags/mybatis-plus/" style="font-size: 14px; color: #999">mybatis-plus</a> <a href="/tags/mysql/" style="font-size: 22.75px; color: #5e5e5e">mysql</a> <a href="/tags/netty/" style="font-size: 14px; color: #999">netty</a> <a href="/tags/redis/" style="font-size: 15.25px; color: #919191">redis</a> <a href="/tags/ribbon/" style="font-size: 14px; color: #999">ribbon</a> <a href="/tags/spring/" style="font-size: 19px; color: #777">spring</a> <a href="/tags/springboot/" style="font-size: 16.5px; color: #888">springboot</a> <a href="/tags/springcloud/" style="font-size: 17.75px; color: #808080">springcloud</a> <a href="/tags/%E4%BB%A3%E7%90%86/" style="font-size: 14px; color: #999">代理</a> <a href="/tags/%E5%8F%8D%E5%B0%84/" style="font-size: 14px; color: #999">反射</a> <a href="/tags/%E5%BA%8F%E5%88%97%E5%8C%96/" style="font-size: 14px; color: #999">序列化</a> <a href="/tags/%E7%BC%93%E5%AD%98/" style="font-size: 14px; color: #999">缓存</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 21.5px; color: #666">计网</a> <a href="/tags/%E9%9B%86%E5%90%88/" style="font-size: 16.5px; color: #888">集合</a>
     </div>
   </section>
 

@@ -1749,7 +1749,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.3690b000.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.1d2dd3e0.js","rightMenus":"/js/plugins/rightMenus.48fa1716.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.06d40311.js"},"css":{"style":"/css/style.a257987b.css"}},
     default: {"avatar":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1673081268617),
+    lastupdate: new Date(1673195385904),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2514,6 +2514,286 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           <div class='post-wrapper'>
             <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="http://levialias.top/2022/11/20/%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F%E3%80%81%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9%E5%92%8C%E7%BC%93%E5%AD%98%E5%87%BB%E7%A9%BF/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Alias的博客">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="Alias的博客">
+    <meta itemprop="description" content="Alias的博客">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/2022/11/20/%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F%E3%80%81%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9%E5%92%8C%E7%BC%93%E5%AD%98%E5%87%BB%E7%A9%BF/"  itemprop="url">
+        缓存穿透、缓存雪崩和缓存击穿
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      
+        缓存穿透、缓存雪崩和缓存击穿简述缓存穿透缓存穿透是指客户端请求的数据在缓存中和数据库中都不存在，这样缓存永远都不会生效，这些请求都会打到数据库。若不断发起这样的请求，就会带给数据库巨大的压力
+常见的解决方案：
+1、缓存空对象：在第一次请求缓存未命中，进而请求数据库也没查到数据时，我们可以在redis中缓存一个空对象，这样后续重复的请求就不会达到数据库。
+优点：实现简单，维护方便
+缺点：额外的...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2022-11-20T15:30:25+08:00">2022-11-20</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/java/">java</a><span class="sep"></span><a class="category-link" href="/categories/java/%E7%BC%93%E5%AD%98/">缓存</a><span class="sep"></span><a class="category-link" href="/categories/java/%E7%BC%93%E5%AD%98/redis/">redis</a>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/java/" itemprop="url"><span itemprop="name">java</span></a>
+            </span>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/java/%E7%BC%93%E5%AD%98/" itemprop="url"><span itemprop="name">缓存</span></a>
+            </span>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/java/%E7%BC%93%E5%AD%98/redis/" itemprop="url"><span itemprop="name">redis</span></a>
+            </span>
+          
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2022/11/20/%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F%E3%80%81%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9%E5%92%8C%E7%BC%93%E5%AD%98%E5%87%BB%E7%A9%BF/' itemprop="url">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="http://levialias.top/2022/11/16/%E6%89%A7%E8%A1%8C%E4%B8%80%E6%9D%A1select%E8%AF%AD%E5%8F%A5%E6%9C%9F%E9%97%B4%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Alias的博客">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="Alias的博客">
+    <meta itemprop="description" content="Alias的博客">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/2022/11/16/%E6%89%A7%E8%A1%8C%E4%B8%80%E6%9D%A1select%E8%AF%AD%E5%8F%A5%E6%9C%9F%E9%97%B4%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/"  itemprop="url">
+        执行一条select语句期间发生了什么
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      
+        执行一条select语句期间发生了什么例:
+1select * from product where id &#x3D; 1;
+
+MySql的执行流程
+由此可见，mysql的架构分为两层：Server层和存储引擎层
+
+Server 层负责建立连接、分析和执行 SQL。MySQL 大多数的核心功能模块都在这实现，主要包括连接器，查询缓存、解析器、预处理器、优化器、执行器等。另外，所有的内置函数...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2022-11-16T00:41:00+08:00">2022-11-16</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/mysql/">mysql</a>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/mysql/" itemprop="url"><span itemprop="name">mysql</span></a>
+            </span>
+          
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2022/11/16/%E6%89%A7%E8%A1%8C%E4%B8%80%E6%9D%A1select%E8%AF%AD%E5%8F%A5%E6%9C%9F%E9%97%B4%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/' itemprop="url">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="http://levialias.top/2022/11/15/fail-fast%E5%92%8Cfail-safe/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Alias的博客">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="Alias的博客">
+    <meta itemprop="description" content="Alias的博客">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/2022/11/15/fail-fast%E5%92%8Cfail-safe/"  itemprop="url">
+        fail-fast和fail-safe
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      
+        fail-fast和fail-safe什么是fail-fast在维基百科中，关于fail-fast的解释翻译如下：
+在系统设计中，快速失效系统一种可以立即报告任何可能表明故障的情况的系统。快速失效系统通常设计用于停止正常操作，而不是试图继续可能存在缺陷的过程。这种设计通常会在操作中的多个点检查系统的状态，因此可以及早检测到任何故障。快速失败模块的职责是检测错误，然后让系统的下一个最高级别处理...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2022-11-15T15:01:31+08:00">2022-11-15</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/java/">java</a>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/java/" itemprop="url"><span itemprop="name">java</span></a>
+            </span>
+          
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2022/11/15/fail-fast%E5%92%8Cfail-safe/' itemprop="url">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="http://levialias.top/2022/11/12/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84Stream/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Alias的博客">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="Alias的博客">
+    <meta itemprop="description" content="Alias的博客">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/2022/11/12/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84Stream/"  itemprop="url">
+        关于Java中的Stream
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      
+        关于Java中的StreamStream 使用一种类似用 SQL 语句从数据库查询数据的直观方式来提供一种对 Java 集合运算和表达的高阶抽象。
+Stream API可以极大提高Java程序员的生产力，让程序员写出高效率、干净、简洁的代码。
+这种风格将要处理的元素集合看作一种流，流在管道中传输，并且可以在管道的节点上进行处理，比如筛选，排序，聚合等。
+Stream有以下特性及优点：
+
+无存...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2022-11-12T15:37:14+08:00">2022-11-12</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/java/">java</a><span class="sep"></span><a class="category-link" href="/categories/java/%E9%9B%86%E5%90%88/">集合</a>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/java/" itemprop="url"><span itemprop="name">java</span></a>
+            </span>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/java/%E9%9B%86%E5%90%88/" itemprop="url"><span itemprop="name">集合</span></a>
+            </span>
+          
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2022/11/12/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84Stream/' itemprop="url">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
   <link itemprop="mainEntityOfPage" href="http://levialias.top/2022/11/11/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84%E9%9B%86%E5%90%88%EF%BC%88%E4%BA%8C%EF%BC%89/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="Alias的博客">
@@ -2914,278 +3194,6 @@ Java实现对象序列化和反序列化在Java中，我们可以通...
           </div>
         
       
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://levialias.top/2022/10/30/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84%E4%BB%A3%E7%90%86/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Alias的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="Alias的博客">
-    <meta itemprop="description" content="Alias的博客">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/10/30/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84%E4%BB%A3%E7%90%86/"  itemprop="url">
-        关于Java中的代理
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      
-        关于Java中的代理静态代理所谓静态代理，就是代理类是由程序员自己编写的，在编译期就确定好了的。
-1234567891011public interface HelloSerivice &#123;    public void say();&#125;public class HelloSeriviceImpl implements HelloSerivice&#123;    @Over...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-10-30T15:03:04+08:00">2022-10-30</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/java/">java</a><span class="sep"></span><a class="category-link" href="/categories/java/%E4%BB%A3%E7%90%86/">代理</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/" itemprop="url"><span itemprop="name">java</span></a>
-            </span>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/%E4%BB%A3%E7%90%86/" itemprop="url"><span itemprop="name">代理</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/10/30/%E5%85%B3%E4%BA%8EJava%E4%B8%AD%E7%9A%84%E4%BB%A3%E7%90%86/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://levialias.top/2022/10/30/Java%E4%B8%AD%E7%9A%84%E5%8F%8D%E5%B0%84/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Alias的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="Alias的博客">
-    <meta itemprop="description" content="Alias的博客">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/10/30/Java%E4%B8%AD%E7%9A%84%E5%8F%8D%E5%B0%84/"  itemprop="url">
-        Java中的反射
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      
-        Java中的反射概念：反射机制指的是程序在运行时能够获取自身的信息。在java中，只要给定类的名字，那么就可以通过反射机制来获得类的所有属性和方法。
-反射主要是指程序可以访问，检测和修改它本身状态或行为的一种能力，并能根据自身行为的状态和结果，调整或修改应用所描述行为的状态和相关的语义。
-反射的作用1、在运行时判断任意一个对象所属的类。
-2、在运行时判断任意一个类所具有的成员变量和方法。
-3...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-10-30T14:41:20+08:00">2022-10-30</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/java/">java</a><span class="sep"></span><a class="category-link" href="/categories/java/%E5%8F%8D%E5%B0%84/">反射</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/" itemprop="url"><span itemprop="name">java</span></a>
-            </span>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/%E5%8F%8D%E5%B0%84/" itemprop="url"><span itemprop="name">反射</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/10/30/Java%E4%B8%AD%E7%9A%84%E5%8F%8D%E5%B0%84/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://levialias.top/2022/10/30/Java%E4%B8%AD%E7%9A%84IO/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Alias的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="Alias的博客">
-    <meta itemprop="description" content="Alias的博客">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/10/30/Java%E4%B8%AD%E7%9A%84IO/"  itemprop="url">
-        Java中的IO
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      
-        Java中的IO字符流和字节流字节与字符Byte（字节）是计算机操作数据的最小单位由8位bit组成 取值（-128-127）
-Char（字符）是用户的可读写的最小单位，在Java里面由16位bit组成 取值（0-65535）
-字节流操作byte类型数据，主要操作类是OutputStream、InputStream的子类，不用缓冲区，直接对文件本身操作
-字符流操作字符类型数据，主要操作类是Re...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-10-30T14:12:19+08:00">2022-10-30</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/java/">java</a><span class="sep"></span><a class="category-link" href="/categories/java/io/">io</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/" itemprop="url"><span itemprop="name">java</span></a>
-            </span>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/io/" itemprop="url"><span itemprop="name">io</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/10/30/Java%E4%B8%AD%E7%9A%84IO/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://levialias.top/2022/10/29/%E7%9B%98%E7%82%B9Java%E4%B8%AD%E7%9A%84%E5%90%84%E7%A7%8D%E5%85%B3%E9%94%AE%E5%AD%97/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Alias的博客">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="Alias的博客">
-    <meta itemprop="description" content="Alias的博客">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/10/29/%E7%9B%98%E7%82%B9Java%E4%B8%AD%E7%9A%84%E5%90%84%E7%A7%8D%E5%85%B3%E9%94%AE%E5%AD%97/"  itemprop="url">
-        盘点Java中的各种关键字
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      
-        盘点Java中的各种关键字transient如果用transient声明一个实例变量，当对象存储时，它的值不需要维持。这里的对象存储是指，Java的serialization提供的一种持久化对象实例的机制。当一个对象被序列化的时候，transient型变量的值不包括在序列化的表示中，然而非transient型的变量是被包括进去的。使用情况是：当持久化对象时，可能有一个特殊的对象数据成员，我们...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-10-29T14:42:43+08:00">2022-10-29</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/java/">java</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/java/" itemprop="url"><span itemprop="name">java</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/10/29/%E7%9B%98%E7%82%B9Java%E4%B8%AD%E7%9A%84%E5%90%84%E7%A7%8D%E5%85%B3%E9%94%AE%E5%AD%97/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
     
   </section>
   
@@ -3200,7 +3208,7 @@ Char（字符）是用户的可读写的最小单位，在Java里面由16位bit�
           </a>
         
         <p class="current">
-          3 / 6
+          3 / 7
         </p>
         
           <a class="next" rel="next" href="/page/4/">
@@ -3416,12 +3424,12 @@ Char（字符）是用户的可读写的最小单位，在Java里面由16位bit�
           <li><a class="flat-box"
             title="/categories/%E8%AE%A1%E7%BD%91/" href="/categories/%E8%AE%A1%E7%BD%91/"
             active-action="action-categoriesE8AEA1E7BD91"
-            ><div class='name'>计网</div><div class='badge'>(6)</div></a></li>
+            ><div class='name'>计网</div><div class='badge'>(10)</div></a></li>
         
           <li><a class="flat-box child"
             title="/categories/%E8%AE%A1%E7%BD%91/HTTP/" href="/categories/%E8%AE%A1%E7%BD%91/HTTP/"
             active-action="action-categoriesE8AEA1E7BD91HTTP"
-            ><div class='name'>HTTP</div><div class='badge'>(4)</div></a></li>
+            ><div class='name'>HTTP</div><div class='badge'>(8)</div></a></li>
         
           <li><a class="flat-box child"
             title="/categories/%E8%AE%A1%E7%BD%91/TCP-IP/" href="/categories/%E8%AE%A1%E7%BD%91/TCP-IP/"
@@ -3450,7 +3458,7 @@ Char（字符）是用户的可读写的最小单位，在Java里面由16位bit�
 
 
     <div class='content'>
-      <a href="/tags/HTTP/" style="font-size: 19px; color: #777">HTTP</a> <a href="/tags/TCP-IP/" style="font-size: 15.67px; color: #8e8e8e">TCP/IP</a> <a href="/tags/consul/" style="font-size: 14px; color: #999">consul</a> <a href="/tags/eureka/" style="font-size: 14px; color: #999">eureka</a> <a href="/tags/io/" style="font-size: 14px; color: #999">io</a> <a href="/tags/java/" style="font-size: 24px; color: #555">java</a> <a href="/tags/mongodb/" style="font-size: 14px; color: #999">mongodb</a> <a href="/tags/mybatis/" style="font-size: 19px; color: #777">mybatis</a> <a href="/tags/mybatis-plus/" style="font-size: 14px; color: #999">mybatis-plus</a> <a href="/tags/mysql/" style="font-size: 22.33px; color: #606060">mysql</a> <a href="/tags/netty/" style="font-size: 14px; color: #999">netty</a> <a href="/tags/redis/" style="font-size: 15.67px; color: #8e8e8e">redis</a> <a href="/tags/ribbon/" style="font-size: 14px; color: #999">ribbon</a> <a href="/tags/spring/" style="font-size: 20.67px; color: #6c6c6c">spring</a> <a href="/tags/springboot/" style="font-size: 17.33px; color: #828282">springboot</a> <a href="/tags/springcloud/" style="font-size: 19px; color: #777">springcloud</a> <a href="/tags/%E4%BB%A3%E7%90%86/" style="font-size: 14px; color: #999">代理</a> <a href="/tags/%E5%8F%8D%E5%B0%84/" style="font-size: 14px; color: #999">反射</a> <a href="/tags/%E5%BA%8F%E5%88%97%E5%8C%96/" style="font-size: 14px; color: #999">序列化</a> <a href="/tags/%E7%BC%93%E5%AD%98/" style="font-size: 14px; color: #999">缓存</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 20.67px; color: #6c6c6c">计网</a> <a href="/tags/%E9%9B%86%E5%90%88/" style="font-size: 17.33px; color: #828282">集合</a>
+      <a href="/tags/HTTP/" style="font-size: 20.25px; color: #6f6f6f">HTTP</a> <a href="/tags/TCP-IP/" style="font-size: 15.25px; color: #919191">TCP/IP</a> <a href="/tags/consul/" style="font-size: 14px; color: #999">consul</a> <a href="/tags/eureka/" style="font-size: 14px; color: #999">eureka</a> <a href="/tags/io/" style="font-size: 14px; color: #999">io</a> <a href="/tags/java/" style="font-size: 24px; color: #555">java</a> <a href="/tags/mongodb/" style="font-size: 14px; color: #999">mongodb</a> <a href="/tags/mybatis/" style="font-size: 17.75px; color: #808080">mybatis</a> <a href="/tags/mybatis-plus/" style="font-size: 14px; color: #999">mybatis-plus</a> <a href="/tags/mysql/" style="font-size: 22.75px; color: #5e5e5e">mysql</a> <a href="/tags/netty/" style="font-size: 14px; color: #999">netty</a> <a href="/tags/redis/" style="font-size: 15.25px; color: #919191">redis</a> <a href="/tags/ribbon/" style="font-size: 14px; color: #999">ribbon</a> <a href="/tags/spring/" style="font-size: 19px; color: #777">spring</a> <a href="/tags/springboot/" style="font-size: 16.5px; color: #888">springboot</a> <a href="/tags/springcloud/" style="font-size: 17.75px; color: #808080">springcloud</a> <a href="/tags/%E4%BB%A3%E7%90%86/" style="font-size: 14px; color: #999">代理</a> <a href="/tags/%E5%8F%8D%E5%B0%84/" style="font-size: 14px; color: #999">反射</a> <a href="/tags/%E5%BA%8F%E5%88%97%E5%8C%96/" style="font-size: 14px; color: #999">序列化</a> <a href="/tags/%E7%BC%93%E5%AD%98/" style="font-size: 14px; color: #999">缓存</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 21.5px; color: #666">计网</a> <a href="/tags/%E9%9B%86%E5%90%88/" style="font-size: 16.5px; color: #888">集合</a>
     </div>
   </section>
 
